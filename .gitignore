@@ -1,0 +1,10 @@
+.modgit/
+app/code/local/
+app/code/community/
+app/etc/config.xml
+app/etc/local.xml
+app/.htaccess
+errors/
+media/
+var/
+code/core/Mage/Core/Model/Session/Abstract/Varien.php

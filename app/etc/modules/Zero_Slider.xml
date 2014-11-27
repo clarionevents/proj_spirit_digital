@@ -1,0 +1,9 @@
+<?xml version = "1.0"?>
+   <config>
+      <modules>
+        <Zero_Slider>
+            <active>true</active>
+            <codePool>local</codePool>
+         </Zero_Slider>
+       </modules>
+    </config>
