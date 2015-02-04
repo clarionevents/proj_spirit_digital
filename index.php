@@ -85,3 +85,5 @@ $mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : ''
 $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 'store';
 
 Mage::run($mageRunCode, $mageRunType);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
