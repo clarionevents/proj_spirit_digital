@@ -26,15 +26,36 @@
 /* @var $this Mage_Core_Block_Template */
 /* @var $catalogSearchHelper Mage_Catalogsearch_Helper_Data */
 $catalogSearchHelper = $this -> helper('catalogsearch');
+
+ $category = Mage::getModel('catalog/category');
+    if(is_object(Mage::registry('current_category'))){
+        $currentCategoryPath=Mage::registry('current_category')->getPathIds();
+    }else{
+        $currentCategoryPath = array();
+    }
+    $category->load(Mage::app()->getStore()->getRootCategoryId());
+    $childrenString = $category->getChildren();
+    $children = explode(',',$childrenString);
+    $categoryOptions='';
+    foreach($children as $c){
+        if($this->getRequest()->getParam('cat')==""){
+            $selected = (in_array($c, $currentCategoryPath))?'SELECTED':'';
+        }else{
+            $selected = ($this->getRequest()->getParam('cat')==$c)?'SELECTED':'';
+    }
+    $categoryOptions.= '<option value="' . $c . '" ' . $selected . '>' . $category->load($c)->getName() . '</option>' . "\n";
+    }
 ?>
-<img src="<?php echo $this->getSkinUrl('images/spirit-logo.png')?>" />
 <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
     <div class="input-box">
         <label for="search"><?php echo $this->__('Search:') ?></label>
         <input id="search" type="search" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="input-text required-entry" maxlength="<?php echo $catalogSearchHelper -> getMaxQueryLength(); ?>" placeholder="<?php echo $this->__('Search') ?>" />
         <button type="submit" title="<?php echo $this->__('Search') ?>" class="button search-button"><span><span><?php echo $this->__('Search') ?></span></span></button>
     </div>
-
+	<select name="cat" id="cat">
+    <option value="">All Categories</option>
+    	<?php echo $categoryOptions ?>
+	</select>
     <div id="search_autocomplete" class="search-autocomplete"></div>
     <script type="text/javascript">
     //<![CDATA[

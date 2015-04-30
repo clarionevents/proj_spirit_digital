@@ -1,0 +1,25 @@
+/**
+ *
+ * @category    design
+ * @package     spiritboutique
+ * @author      Giovanni Capuano <giovanni.capuano@clarionevents.com>
+ */
+/*! component/seller-add-product.css Clarion Events all rights reserved */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+
+body.customer-account  .wk_cat_container{
+    clear: both;
+}
+
+body.customer-account  #wk_category_label{
+    border-radius:0;
+    border:none;
+    width:auto;
+    text-align:center;
+    font-weight:bold;
+}

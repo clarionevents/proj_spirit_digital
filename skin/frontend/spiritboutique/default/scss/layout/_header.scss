@@ -32,11 +32,13 @@
     .page-header {
         max-width: $max-container-width;
         margin: 0 auto;
-        padding: 0 $trim;
+        // padding: 0 $trim;
+        padding: 0;
     }
 
     .page-header-container {
         position: relative;
+        // background: url(../images/top_bg.png) no-repeat 360px top;
     }
 
 }
@@ -121,8 +123,8 @@
     display: block;
     float: left;
     width: 65%;
-    min-width: 100px;
-    min-height: 44px;
+    min-width: 300px;
+    min-height: 90px;
     text-align: center;
     padding: $gap;
 
@@ -135,6 +137,8 @@
     }
     .large {
         display: none;
+        max-width: 295px;
+        max-height: 73px;
     }
 }
 
@@ -190,7 +194,7 @@
     float: left;
     width: 20%;
     height: 44px;
-    background: #FFFFFF;
+    // background: #FFFFFF;
     color: $c-text;
     line-height: 42px;
     text-align: center;
@@ -198,6 +202,7 @@
 
 a.skip-link {
     text-decoration: none;
+    float: left;
 }
 
 .skip-link:not(.skip-active):hover {

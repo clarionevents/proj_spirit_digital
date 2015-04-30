@@ -32,11 +32,17 @@ body {
     height: 100%;
 }
 
+div.page{
+  max-width: 960px;
+  margin: auto;
+}
+
 .wrapper {
     min-width: 320px;
     min-height: 100%;
     margin: 0 auto;
-    background: #FFFFFF;
+    background: #FAFAFA url(../images/wrapper_bg.png) repeat-y 50% top;
+    // background: #FFFFFF;
 }
 
 .wrapper:after {

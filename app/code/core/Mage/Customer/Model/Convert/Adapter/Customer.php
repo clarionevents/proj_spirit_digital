@@ -468,6 +468,7 @@ class Mage_Customer_Model_Convert_Adapter_Customer
 
             if (empty($importData['password_hash'])) {
                 $customer->setPasswordHash($customer->hashPassword($customer->generatePassword(8)));
+				// $customer->setPasswordHash($customer->hashPassword($importData['pass_new']));
             }
         }
         elseif (!empty($importData['group'])) {

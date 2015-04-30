@@ -43,7 +43,8 @@ class Mage_Archive_Abstract
      */
     protected function _writeFile($destination, $data)
     {
-        $destination = trim($destination);
+        // $destination = trim($destination);
+		$destination = preg_replace('/[^(\x20-\x7F)]*/','', $destination);
         if(false === file_put_contents($destination, $data)) {
             throw new Mage_Exception("Can't write to file: " . $destination);
         }

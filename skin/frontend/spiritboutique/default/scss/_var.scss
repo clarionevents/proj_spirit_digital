@@ -61,9 +61,10 @@ $bp-xlarge: 1199px;
 $gap: 10px;
 
 $trim: 30px;
+
 // This will get applied on viewports smaller than 480px
 $trim-small: 15px;
-
+$trim_tiny:10px;
 // Padding that will get applied to content areas
 $box-spacing-large: 20px;
 

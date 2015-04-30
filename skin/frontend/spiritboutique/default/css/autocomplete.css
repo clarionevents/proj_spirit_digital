@@ -1,0 +1,197 @@
+html* .search-sec .adv-form-search button, .search-sec .form-search button {
+  width: 32px;
+  margin: 0 0 0 1px;
+}
+
+#search-container {
+  left: 0;
+  position: absolute;
+  top: 32px;
+  z-index: 100;
+  left: -3px;
+  border-top: none;
+  border: 1px solid #ccc;
+  width: 404px;
+  background: #fff;
+  border-top: none;
+}
+
+#container {
+  position: relative;
+}
+
+#searchResult tr td.td-class {
+  background: #f1f2f2;
+  padding: 15px 10px;
+  color: #00663a;
+  font-family: 'Ubuntu', sans-serif;
+  border-bottom: 1px solid #fff;
+}
+
+#searchResult tr td.td-content-class {
+  color: #666666;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 15px 10px;
+  border-bottom: 1px solid #f4f4f4;
+  background: #fff;
+  border-right: 1px solid #F4F4F4;
+}
+
+#search-container #searchResult {
+  border-top: 2px solid #eadc07;
+  margin: 0 2px;
+}
+
+#searchr-result-containter {
+  position: absolute;
+  z-index: 999;
+  right: 33px !important;
+}
+
+/* Start: Added New CSS Code for List View */
+#search-result ul#search_hidden {
+  display: none;
+}
+
+#search-result ul {
+  background-color: #ffffff;
+  border: none;
+  margin: 15px 0px 15px;
+}
+
+#search-result ul.products-list {
+  background-color: #ffffff;
+  border: none;
+  margin: 5px 0px 5px;
+}
+
+#search-result ul.products-grid .img-box-area img {
+  margin: 0 auto;
+}
+
+#search-result ul.products-list > li {
+  cursor: pointer;
+  min-height: 80px;
+  color: #2F2F2F;
+  border-bottom: 1px solid #e1e1e1;
+  margin: 0 0 10px 0;
+  padding: 5px;
+}
+
+#search-result ul > li.notice-message {
+  min-height: 0px;
+  border-bottom: none;
+  text-align: center;
+  margin: 0px;
+}
+
+#search-result ul > li.autocomplete_hidden {
+  background-color: white;
+  border: medium none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.img-box-area {
+  float: left;
+}
+
+.auto-fright {
+  padding: 0 0 0 8px;
+}
+
+.auto-fright .price-box {
+  float: none !important;
+}
+
+/* End: Added New CSS Code for List View */
+/* Start: Added New CSS Code for Grid View  */
+#search-result ul.products-grid {
+  border-bottom: 1px solid #D9DDD3;
+  background-color: #ffffff;
+  margin: 0px;
+}
+
+#search-result ul.products-grid li {
+  cursor: pointer;
+  color: #2F2F2F;
+  padding: 5px 9px 9px 9px;
+  border-right: 1px solid #D9DDD3;
+  width: 50%;
+  margin: 0;
+}
+
+#search-result ul.products-grid li.last {
+  border: none;
+}
+
+#search-result ul.products-grid .img-box-area {
+  float: none;
+  text-align: center;
+}
+
+#search-result ul.products-grid .content-box-area {
+  text-align: center !important;
+  font-size: 12px !important;
+}
+
+#search-result ul.products-grid .content-box-area h3 {
+  text-align: center !important;
+  font-size: 12px !important;
+  padding-top: 10px;
+}
+
+.header .form-search-autocomplete {
+  padding: 1px 0 0 40px !important;
+  right: 5px !important;
+}
+
+/* End: Added New CSS Code for Grid View */
+/* magento version specific css */
+.form-search input#search {
+  background-position: right 34px center !important;
+  box-sizing: border-box;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+#searchr-result-containter {
+  left: 0 !important;
+  top: 39px !important;
+}
+
+#autocomplete-content {
+  background-color: #FFF;
+  border: solid 1px #cccccc;
+  padding: 2px;
+  margin: 0;
+  width: 360px;
+  position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  #searchr-result-containter {
+    left: 0 !important;
+    right: 0 !important;
+    top: 170px !important;
+  }
+
+  #autocomplete-content {
+    width: 100%;
+  }
+
+  .form-search input#search {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #autocomplete-content {
+    width: 289px;
+  }
+
+  .skip-content.skip-active {
+    background: none;
+  }
+}

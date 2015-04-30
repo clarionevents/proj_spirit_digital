@@ -23,6 +23,8 @@
 // @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 //
 
+
+
 /* ============================================ *
  * Nav - Skip Link
  * ============================================ */
@@ -47,6 +49,33 @@
     @extend .icon-sprite;
     background-position: 0+4px ($toolbar-icon-padding-offset/2);
 }
+
+#header-nav {
+    ol.nav-primary{
+      
+      padding-top:2px;
+      border-bottom: 1px solid #f9f9f9;
+      border-top: 1px solid #f9f9f9;
+      
+      li.first a {
+        visibility: hidden;
+        }
+   }
+       
+        
+}
+
+.header-minicart{
+  .button{
+    padding: 3px 5px;
+  }
+  
+  .basket-info{
+    float: left;
+    vertical-align: middle;
+    padding-top: 10px;
+  }
+} 
 
 // ---------------------------------------------
 
@@ -86,7 +115,6 @@
 
     #header-nav {
         display: block; /* Force visibility */
-        border-bottom: 1px solid $c-module-border-light;
     }
 
 }
@@ -98,7 +126,8 @@
 @include bp(min-width, $bp-medium + 1) {
     .nav-primary {
         display: block;
-        margin-top: 15px;
+        margin-top: 35px;
+        height: 35px;
     }
 
 }
@@ -126,12 +155,30 @@ $nav-primary-height: 30px;
     li.level1 a {
         border-bottom: 1px solid $c-module-border;
     }
+    
+    li.first a {
+      
+      &:after {
+          content: '';
+          display: inherit;
+          width: 32px;
+          height: 32px;
+          background: url(../images/spirit-sprite.png);
+          background-position: 0 0;
+          visibility: visible;
+          
+          &:hover{
+            background-position: 0 -32px;
+          }
+        }
+    }
 }
 
 // Show sub-menus when JS adds the appropriate classes
 .nav-primary .menu-active > ul.level0,
 .nav-primary li.level0 li.sub-menu-active > ul {
     display: block;
+    
 }
 
 .nav-primary li.level0 > a {
@@ -206,6 +253,7 @@ $nav-primary-height: 30px;
         li.level0,
         a.level0 {
             display: inline-block;
+            vertical-align: top;
         }
 
         li:last-child > a {

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+  <modules>
+    <Tb_Coolslider>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Tb_Coolslider>
+  </modules>
+</config>

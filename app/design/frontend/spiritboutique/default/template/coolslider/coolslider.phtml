@@ -1,0 +1,66 @@
+<?php
+/**
+ * Tb_Coolslider
+ * 
+ /****************************************************************************
+ *                      MAGENTO EDITION USAGE NOTICE                         *
+ ****************************************************************************/
+ /* This package designed for Magento Community edition. Author does not provide extension support in case of incorrect edition usage.
+ /****************************************************************************
+ * @category 	TB
+ * @package 	Tb_Coolslider
+ * @copyright 	Copyright (c) 2014
+ * @license 	http://opensource.org/licenses/OSL-3.0
+ */
+/**
+ * coolslider template file
+ */
+?>
+
+<?php
+    $settings = $this->getSettings();
+    $slideCollection = $this->getSlides();
+    $mediaUrl = Mage::getBaseUrl('media');
+    $count = 0;
+?>
+
+
+<?php if(count($slideCollection)){ ?>
+    <div class="slider-wrapper" style="<?php echo 'width:'.$settings['width'].';height:'. $settings['height'] ?>;">
+        <div id="cool_slider" class="nivoSlider" style="height: <?php echo $settings['height']?>">
+            <?php foreach($slideCollection as $_slide){ ?>
+                <a href="<?php echo $_slide->getUrl()?$_slide->getUrl():'#'; ?>">
+            <img src="<?php echo $mediaUrl.$_slide->getImage()?>" alt="<?php echo $_slide->getTitle()?>" title="#htmlcontent<?php echo $count;?>" />
+                    </a>
+            <?php $count++; } ?>
+        </div>
+        <?php $count = 0; // re-initialise $count ?>
+        <?php foreach($slideCollection as $_slide){ ?>
+        <div id="htmlcontent<?php echo $count;?>" class="nivo-html-caption">
+            <?php echo $_slide->getContents();?>
+        </div>
+            <?php $count++; } ?>
+    </div>
+
+    <?php } ?>
+
+<script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(document).ready(function() {
+        jQuery('#cool_slider').nivoSlider({
+            effect: '<?php echo $settings['effect'] ?>',
+            slices: <?php echo $settings['slices'] ?>,
+            boxCols: <?php echo $settings['boxCols'] ?>,
+            boxRows: <?php echo $settings['boxRows'] ?>,
+            animSpeed: <?php echo $settings['animSpeed'] ?>,
+            pauseTime: <?php echo $settings['pauseTime'] ?>,
+            manualAdvance: <?php echo $settings['manualAdvance'] ?>,
+            directionNav: <?php echo $settings['navigation'] ?>,
+            controlNav: <?php echo $settings['pagination'] ?>,
+            pauseOnHover: <?php echo $settings['pauseOnHover'] ?>
+            });
+        jQuery(".nivo-caption").css({
+            <?php echo $this->getContentPosition();?>
+        });
+    });
+</script>

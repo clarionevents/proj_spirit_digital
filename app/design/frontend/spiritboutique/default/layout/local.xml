@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+	<default>
+		<!-- HOMEPAGE REFERENCES -->
+			<!-- top left -->
+			<reference name="root">
+				<block type="core/text_list" name="top-left" as="top-left" translate="label">
+					<label>Top Left</label>
+				</block>
+			</reference>
+			<reference name="top-left">
+				<block type="core/template" name="top-left-block" template="homepage/top_left.phtml" />
+			</reference>
+			
+			<!-- top right -->
+			<reference name="root">
+				<block type="core/text_list" name="top-right" as="top-right" translate="label">
+					<label>Top Right</label>
+				</block>
+			</reference>
+			<reference name="top-right">
+				<block type="core/template" name="top-right-block" template="homepage/top_right.phtml" />
+			</reference>
+			
+			<!-- mid container -->
+			<reference name="root">
+				<block type="core/text_list" name="mid-container" as="mid-container" translate="label">
+					<label>Mid Contaiener</label>
+				</block>
+			</reference>
+			<reference name="mid-container">
+				<block type="core/template" name="mid-container-block" template="homepage/mid_container.phtml" />
+			</reference>
+			
+			<!-- bottom left -->
+			<reference name="root">
+				<block type="core/text_list" name="bottom-left" as="bottom-left" translate="label">
+					<label>Bottom Left</label>
+				</block>
+			</reference>
+			<reference name="bottom-left">
+				<block type="core/template" name="bottom-left-block" template="homepage/bottom_left.phtml" />
+			</reference>
+			
+			<!-- bottom right -->
+			<reference name="root">
+				<block type="core/text_list" name="bottom-right" as="bottom-right" translate="label">
+					<label>Bottom Right</label>
+				</block>
+			</reference>
+			<reference name="Bottom-right">
+				<block type="core/template" name="bottom-right-block" template="homepage/bottom_right.phtml" />
+			</reference>
+	</default>
+</layout>
