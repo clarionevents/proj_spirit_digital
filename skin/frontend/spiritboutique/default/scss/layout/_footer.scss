@@ -33,7 +33,7 @@
 
 .footer,
 .footer button {
-    font-family: $f-stack-special;
+    font-family: Arial;
 }
 
 .footer {
@@ -52,7 +52,7 @@
     }
 
     .block-title strong {
-        font-weight: normal;
+        font-size: 13px;
     }
 
     .block-title,
@@ -62,18 +62,17 @@
 
     .links {
         float: left;
-        width: 17%;
         padding: 0 $trim 0 0;
         margin-bottom: $trim;
 
         li {
             word-break: break-all;
             line-height: 1.4;
-            padding: 4px 0;
         }
 
         a {
-            color: $c-text;
+            text-transform:none;
+            color: $c-black;
             &:hover {
                 color: $c-action;
             }
@@ -82,20 +81,22 @@
 
     .block-subscribe {
         float: right;
-        width: 320px;
-        margin-bottom: $trim;
+        width: 285px;
+        margin: 30px 0;
     }
 
     .links,
     .block-subscribe {
-        text-transform: uppercase;
         font-size: $f-size-xs;
     }
 
     .form-subscribe-header {
         display: none;
     }
-
+    ul.social{
+        max-width: 200px;
+        float: left;
+    }
     /* -------------------------------------------- *
      * Social icons
      */
@@ -137,13 +138,12 @@
 
     .block-subscribe .input-box {
         float: left;
-        width: percentage(210px/320px);
+        // width: percentage(210px/320px);
         padding-top: 0;
     }
 
     .block-subscribe .input-text {
         width: 100%;
-        border-right: 0;
         @include border-radius(0);
     }
 
@@ -157,16 +157,31 @@
 
     .block-subscribe .actions {
         float: left;
-        width: percentage(110px/320px);
+        // width: percentage(110px/320px);
         margin: 0;
     }
 
     .block-subscribe .actions .button {
         height: 30px;
         line-height: 17px;
+        margin-left: -35px;
         float: left;
+        background:none;
+        span{
+          display:none;
+        }
+        
+        &:after{
+        content: "";
+        width: 11px;
+        height: 19px;
+        background: url(../images/icons/arrow.png);
+        margin-top: -3px;
+        display: inline-block;
+        }
     }
-
+    
+    
     .bugs,
     address {
         clear: both;

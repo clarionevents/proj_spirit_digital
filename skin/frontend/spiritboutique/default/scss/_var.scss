@@ -95,6 +95,11 @@ $c-red: #CF5050;
 $c-yellow: #FFDD15;
 $c-black: #000000;
 $c-gray: #333333;
+$c-header-grey:#d0d0d0;
+$c-header-border:#bbbaba;
+$c-font:#646464;
+$c-violet:#e44294;
+$c-light-grey:#f5f5f5;
 
 // =============================================
 // Base Colors
@@ -111,7 +116,7 @@ $c-text-primary: $c-blue;
 
 // Interaction
 
-$c-action: $c-blue;
+$c-action: $c-violet;
 $c-stimulus: darken($c-blue, 15%);
 $c-subtle: #A0A0A0;
 
@@ -131,6 +136,7 @@ $c-dark: #676157;
 // Global Elements
 
 $c-divider-border: #ECECEC;
+$c-block-divider: $c-light-grey;
 
 // =============================================
 // Element Colors
@@ -138,9 +144,9 @@ $c-divider-border: #ECECEC;
 
 // Buttons
 
-$c-button: $c-blue;
-$c-button-hover: darken($c-blue, 5%);
-$c-button-active: darken($c-blue, 10%);
+$c-button: $c-violet;
+$c-button-hover: darken($c-violet, 5%);
+$c-button-active: darken($c-violet, 10%);
 
 // Secondary Buttons
 
@@ -222,12 +228,14 @@ $c-email-highlighted-border: #FFF74C;
 $f-stack-sans: 'Helvetica Neue', Verdana, Arial, sans-serif;
 $f-stack-serif: Georgia, Times, 'Times New Roman', serif;
 $f-stack-special: 'Raleway', 'Helvetica Neue', Verdana, Arial, sans-serif;
+$f-headers:"Old Standard TT", serif;
 
 $f-stack-default: $f-stack-sans;
 
 // Font Sizes
 
 $f-size-xxl: 18px;
+$f-size-xls: 17px;
 $f-size-xl: 16px;
 $f-size-l: 15px;
 

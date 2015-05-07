@@ -1,0 +1,17 @@
+
+	<?php 
+	$_category = substr($data, strpos($this->getCategoryId(), "/") + 1);  
+	$_productCollection = $this->getLoadedProductCollection() ?>
+	<div class="block">
+		<div class="block-title">
+			<h2><?php echo $this->getTitle() ?></h2>
+		</div>
+		<div class="block-content">
+			<p><?php echo $this->__('Category ID: %s', $_category) ?></p>
+			<ul>
+				<?php foreach ($_productCollection as $_product): ?>
+					<li><?php echo $_product->getName() ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>

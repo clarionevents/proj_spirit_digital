@@ -54,7 +54,7 @@ select,
 table,
 textarea {
     font-family: $f-stack-sans;
-    color: $c-text;
+    color: $c-font;
     font-size: $f-size;
     line-height: $b-line-height;
 }
@@ -157,16 +157,20 @@ h6, .h6 { @include h6; }
     position: relative;
     padding: 10px 0 0;
     margin-bottom: 5px;
-    border-top: 1px solid $c-module-border;
+    // border-top: 1px solid $c-module-border;
 
     h2,
     h3,
     strong {
         @include h4;
-        color: $c-text-primary;
+        color: $c-font;
         margin-bottom: 0;
         text-transform: uppercase;
         font-weight: 600;
+        font-size:$f-size-xls;
+        color:$c-black;
+        font-family:$f-headers;
+        font-weight: normal;
     }
     small {
         font-size: 100%;
@@ -226,6 +230,20 @@ body:not(.customer-account) .block:first-child .block-title {
     }
 }
 
+
+/**
+ *   Search autocomplete styles
+ */
+
+#searchr-result-containter{
+    margin: 40px 0px 0px 114px;
+    
+    ul{
+      li:hover{
+        background:#d0d0d0;
+      }
+    }
+}
 @include bp(max-width, $bp-medium) {
 
     .sidebar {
@@ -347,8 +365,8 @@ body:not(.customer-account) .block:first-child .block-title {
     padding: 7px 15px;
     border: 0;
     color: #FFFFFF;
-    font-size: $f-size-s;
-    font-weight: normal;
+    font-size: $f-size-xs;
+    font-weight: bold;
     font-family: $f-stack-special;
     line-height: 19px;
     text-align: center;
@@ -734,6 +752,11 @@ a.button:hover {
     &:after {
         @include clearfix;
     }
+    
+    .footer{
+        border-top: 1px solid $c-block-divider;
+       padding-top: 30px;
+    }
 }
 
 @include bp(min-width, 480px) {
@@ -746,16 +769,28 @@ a.button:hover {
     .main-container{
       
       #top-container{
+          overflow: hidden;
+          padding-bottom: 20px;
+          border-bottom: 1px $c-block-divider solid;
           .left-column{
             float:left;
           }
           .right{
             float:right;
+            max-width: 475px;
+          }
+          
+          .right .widget:nth-child(odd){
+            margin-right:9px;
           }
       }
     }
 }
 
+.footer-before-container{
+    margin-bottom: 20px;
+    overflow: hidden;
+}
 .footer-container {
     padding-top: 0px;
 }
@@ -1198,7 +1233,7 @@ a.button:hover {
 }
 
 .price-box .price {
-    color: $c-text-primary;
+    color: $c-font;
     font-size: $f-size-xl;
 }
 

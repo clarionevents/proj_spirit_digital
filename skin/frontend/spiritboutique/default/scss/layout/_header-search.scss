@@ -74,7 +74,7 @@
         
         form{
           width:100%;
-          
+          max-width: 462px;
           .input-box,
           select{
             float:left;
@@ -83,7 +83,8 @@
           select{
             float: left;
             height: 40px;
-            padding-right: 40px;
+            max-width: 230px;
+            margin-left: 10px;
             font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
           }
         }
@@ -93,7 +94,7 @@
         
         form{
           float: right;
-          margin: 40px 0;
+          margin: 20px 0;
         }
     }
 
@@ -103,20 +104,18 @@
  * Search Input
  * ============================================ */
 
-#search_mini_form .input-box {
+#search_mini_form {
+   
+    input,
+    select{
+      background: #fcfcfc;
+    }
+  
+  .input-box {
     position: relative;
     padding-top: 0;
-    
-    input{
-      background: #fafafa;
-      background: -moz-linear-gradient(top, #fafafa 1%, transparent 49%, #fafafa 100%);
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#fafafa), color-stop(49%,transparent), color-stop(100%,#fafafa));
-      background: -webkit-linear-gradient(top, #fafafa 1%,transparent 49%,#fafafa 100%);
-      background: -o-linear-gradient(top, #fafafa 1%,transparent 49%,#fafafa 100%);
-      background: -ms-linear-gradient(top, #fafafa 1%,transparent 49%,#fafafa 100%);
-      background: linear-gradient(to bottom, #fafafa 1%,transparent 49%,#fafafa 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#fafafa',GradientType=0 );
-    }
+  }
+  
 }
 
 #search_mini_form label {

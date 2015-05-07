@@ -72,7 +72,9 @@
                     <span class="icon"></span>
                     <span class="label"><?php echo $this->__('Login'); ?></span>
                 </a> -->
-           <?php  if ($this->helper('customer')->isLoggedIn()): //Load only if customer/seller is logged in?>  
+                
+            <div class="login-header">
+            	<?php  if ($this->helper('customer')->isLoggedIn()): //Load only if customer/seller is logged in?>  
            		<a href="<?php echo Mage::getUrl('customer/account/logout'); ?>" class="">
                  <span class="label"><?php echo $this->__('Log out'); ?></span>
                </a>   
@@ -88,6 +90,8 @@
                     <span class="label"><?php echo $this->__('Register'); ?></span>
                 </a>
            <?php endif; ?>
+            </div>    
+           
               
                 <!-- Cart -->
 

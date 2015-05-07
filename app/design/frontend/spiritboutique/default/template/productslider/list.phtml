@@ -1,0 +1,57 @@
+
+	<?php 
+	
+	$string_parts = explode("/", $this->getCategoryId()); 
+	$categoryID = $string_parts[1]; 
+
+	$category = Mage::getModel('catalog/category')->load($categoryID);
+	$_productCollection = Mage::getModel('catalog/product')
+							->getCollection()
+							->addAttributeToSelect('*')
+							->addCategoryFilter($category)
+							->load(); ?>
+	<div class="block">
+		<div class="block-title">
+			<h3><?php echo $this->getTitle() ?></h3>
+		</div>
+		<div class="block-content flexslider">
+			<ul class="slides">
+				<?php foreach ($_productCollection as $_product): ?>
+					<li>
+						<a href="<?php echo $_product->getProductUrl() ?>"title="" class="carousel-image">
+						<img src="<?php echo Mage::helper('catalog/image')->init($_product,'small_image')->keepFrame(true)->resize(231) ?>"width="231" height="auto" alt="" /></a>
+						<div class="slider-item-content">
+							<p>
+								<?php 
+								if( strlen($_product->getName()) > 30)
+									echo substr($_product->getName(), 0,30) . "...";
+								else
+									echo $_product->getName();
+								?>
+							</p>
+								<?php echo $this->getPriceHtml($_product) ?>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		  $j(window).load(function() {
+			  $j('.flexslider').flexslider({
+			    animation: "slide",
+			    animationLoop: false,
+			    itemWidth: 210,
+			    itemMargin: 10,
+			    minItems: 2,
+			    maxItems: 4,
+			    controlNav:false
+			  });
+		  });
+		  
+		 // $j("div.flexslider ul.slides li div.slider-item-content p").html(
+		 	// $j("div.flexslider ul.slides li div.slider-item-content p").text().trunc(50) + "..."
+		 // );
+		 
+	</script>

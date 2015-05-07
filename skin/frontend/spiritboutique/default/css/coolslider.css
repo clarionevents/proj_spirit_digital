@@ -104,8 +104,8 @@ a.nivo-nextNav {
  }
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {
-    bottom: 5px;
-    left: 50%;
+    right:5px;
+    top:0;
     margin: 0 auto;
     position: absolute;
     text-align: center;
@@ -113,16 +113,16 @@ a.nivo-nextNav {
     z-index: 999;
 }
 .nivo-controlNav a {
-    background: none repeat scroll 0 0 #000000;
+    background: none repeat scroll 0 0 #f2f2f2;
     cursor: pointer;
     float: left;
-    height: 10px;
+    height: 15px;
     border-radius: 1px;
     margin: 0 0 0 10px;
     text-indent: 9999px;
-    width: 10px;
+    width: 15px;
 }
 .nivo-controlNav a.active {
-    background: none repeat scroll 0 0 #DBDBDB;
+    background: none repeat scroll 0 0 #e44294;
     font-weight: bold;
 }

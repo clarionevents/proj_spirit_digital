@@ -63,6 +63,33 @@ body.cms-home {
     font-size: 36px;
 }
 
+div.flexslider{
+  ul.slides{
+    li{
+        margin:0 5px;
+        border: 1px #bbbaba solid;
+        div.slider-item-content{
+            overflow: hidden;
+            background: rgba(187,186,186, 0.3);
+            height: 45px;
+            p{
+                font-size: 12px;
+                max-width: 150px;
+                float: left;
+                padding:5px;
+                
+            }
+            
+            div.price-box{
+                font-size: 17px;
+                float: right;
+                padding:0 5px 0 0;
+            }
+        }
+    }
+  }
+}
+
 @include bp(max-width, $bp-medium) {
 
     .slideshow .banner-msg h2 {
@@ -146,6 +173,63 @@ body .promos > li {
     font-size: 26px;
     display: block;
 }
+
+div.main-header{
+  height: 35px;
+  display: table;
+  background: $c-header-grey;
+  border:1px $c-header-border solid;
+  width: 100%;
+  margin-bottom:20px;
+  
+  h3{
+    color:#FFF;
+    display: table-cell;
+    text-align:center;
+    vertical-align:middle;
+  }
+}
+
+ 
+ .widget{
+   float:left;
+   clear:none;
+   position:relative;
+   margin: 5px 0;
+   h3{
+      background: rgba(255,255,255, 0.75);
+      padding: 8px 0;
+      position: absolute;
+      text-align: center;
+      margin-top: 20px;
+      width: 100%;
+   }
+ }
+ 
+ #mid-container{
+  width: 100%;
+  max-height: 340px;
+  overflow: hidden;
+  margin: 20px 0;
+  border-bottom: 1px $c-block-divider solid;
+ }
+ 
+  #bottom-left{
+    margin-right:5px;
+  }
+  #bottom-right{
+    margin-left:5px;
+  }
+ 
+ #bottom-left ,
+ #bottom-right {
+   float:left;
+   
+   .widget{
+     clear:both;
+   }
+   
+ }
 
 @include bp(min-width, $bp-medium + 1) {
 

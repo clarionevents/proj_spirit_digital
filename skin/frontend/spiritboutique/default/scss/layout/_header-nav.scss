@@ -59,12 +59,19 @@
       
       li.first a {
         visibility: hidden;
+        width: 70px;
         }
    }
        
         
 }
-
+.login-header{
+  float:left;
+  padding:10px;
+  a{
+    color:$c-font;
+  }
+}
 .header-minicart{
   .button{
     padding: 3px 5px;
@@ -160,7 +167,8 @@ $nav-primary-height: 30px;
       
       &:after {
           content: '';
-          display: inherit;
+          display: block;
+          margin-top: -30px;
           width: 32px;
           height: 32px;
           background: url(../images/spirit-sprite.png);
@@ -183,6 +191,8 @@ $nav-primary-height: 30px;
 
 .nav-primary li.level0 > a {
     text-transform: uppercase;
+    font-size: $f-size-xls;
+    font-family: $f-headers;
 }
 
 /* ============================================ *

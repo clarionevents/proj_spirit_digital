@@ -48,3 +48,52 @@ div.page{
 .wrapper:after {
     @include clearfix;
 }
+div.social{
+   p{
+     float:left;
+     img{
+         margin: -20px 0 0 40px;
+     }
+   }
+  ul.social{
+  
+   li, 
+   a{
+       float: left;
+       margin: 0 2px;
+   }
+   
+  
+   li.facebook a{
+       background: url(../images/spirit-sprite.png);
+       background-position: 0 -95px;
+       width: 32px;
+       height: 32px;
+   }
+   
+   li.twitter a{
+       background: url(../images/spirit-sprite.png);
+       background-position: 0 -128px;
+       width: 32px;
+       height: 32px;
+   }
+   
+   li.pinterest a{
+       background: url(../images/spirit-sprite.png);
+       background-position: 0 -160px;
+       width: 32px;
+       height: 32px;
+   }
+   
+   li.blog a{
+       background: url(../images/spirit-sprite.png);
+       background-position: 0 -65px;
+       width: 32px;
+       height: 32px;
+   }
+   
+   
+}
+  
+}
+
