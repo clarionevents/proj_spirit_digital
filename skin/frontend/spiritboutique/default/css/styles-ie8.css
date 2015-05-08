@@ -2969,12 +2969,11 @@ a.skip-link {
   background-position: 4px 4px;
 }
 
-#header-nav ol.nav-primary {
-  padding-top: 2px;
+#header-nav .nav-container > div {
   border-bottom: 1px solid #f9f9f9;
   border-top: 1px solid #f9f9f9;
 }
-#header-nav ol.nav-primary li.first a {
+#header-nav .nav-container > div div.menu0 a {
   visibility: hidden;
   width: 70px;
 }
@@ -3024,31 +3023,30 @@ a.skip-link {
 /* ============================================ *
  * General Navigation Styles
  * ============================================ */
-.nav-primary a {
+#custommenu .menu a {
   text-decoration: none;
   position: relative;
   display: block;
   color: #636363;
   line-height: 30px;
-  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
 }
-.nav-primary li {
+#custommenu .menu li {
   position: relative;
 }
-.nav-primary li.level1 a {
+#custommenu .menu li.level1 a {
   border-bottom: 1px solid #CCCCCC;
 }
-.nav-primary li.first a:after {
+#custommenu .menu div.menu0 a:after {
   content: '';
   display: block;
-  margin-top: -30px;
+  margin: -17px auto auto 15px;
   width: 32px;
   height: 32px;
   background: url(../images/spirit-sprite.png);
   background-position: 0 0;
   visibility: visible;
 }
-.nav-primary li.first a:after:hover {
+#custommenu .menu div.menu0 a:hover::after {
   background-position: 0 -32px;
 }
 
@@ -3057,7 +3055,7 @@ a.skip-link {
   display: block;
 }
 
-.nav-primary li.level0 > a {
+.nav-container div.parentMenu a {
   text-transform: uppercase;
   font-size: 17px;
   font-family: "Old Standard TT", serif;

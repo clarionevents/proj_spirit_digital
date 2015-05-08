@@ -51,13 +51,12 @@
 }
 
 #header-nav {
-    ol.nav-primary{
+    .nav-container > div{
       
-      padding-top:2px;
       border-bottom: 1px solid #f9f9f9;
       border-top: 1px solid #f9f9f9;
       
-      li.first a {
+      div.menu0 a{
         visibility: hidden;
         width: 70px;
         }
@@ -145,14 +144,17 @@
 
 $nav-primary-height: 30px;
 
-.nav-primary {
+#custommenu {
+  
+  .menu{
+    
     a {
         text-decoration: none;
         position: relative;
         display: block;
         color: $c-text;
         line-height: $nav-primary-height;
-        font-family: $f-stack-special;
+        // font-family: $f-stack-special;
     }
 
     li {
@@ -163,23 +165,31 @@ $nav-primary-height: 30px;
         border-bottom: 1px solid $c-module-border;
     }
     
-    li.first a {
+    div.menu0 {
       
-      &:after {
+      a{
+         &:after {
           content: '';
           display: block;
-          margin-top: -30px;
+          margin: -17px auto auto 15px;
           width: 32px;
           height: 32px;
           background: url(../images/spirit-sprite.png);
           background-position: 0 0;
           visibility: visible;
           
-          &:hover{
+        }
+        
+        &:hover::after{
             background-position: 0 -32px;
           }
-        }
+      }
+      
+     
     }
+    
+  }
+    
 }
 
 // Show sub-menus when JS adds the appropriate classes
@@ -189,7 +199,7 @@ $nav-primary-height: 30px;
     
 }
 
-.nav-primary li.level0 > a {
+.nav-container div.parentMenu  a {
     text-transform: uppercase;
     font-size: $f-size-xls;
     font-family: $f-headers;
