@@ -3049,6 +3049,36 @@ a.skip-link {
 #custommenu .menu div.menu0 a:hover::after {
   background-position: 0 -32px;
 }
+#custommenu div.wp-custom-menu-popup {
+  font-family: Arial;
+}
+#custommenu div.wp-custom-menu-popup h4 {
+  font-family: "Old Standard TT", serif;
+  font-size: 16px;
+  color: #000000;
+  text-transform: none;
+  font-weight: normal;
+}
+#custommenu div.wp-custom-menu-popup .block2 .highlights {
+  height: 100%;
+  position: absolute;
+  width: 210px;
+  border-right: 1px #ECECEC solid;
+  top: 0;
+  overflow: visible;
+}
+#custommenu div.wp-custom-menu-popup .block2 .highlights h4 strong {
+  font-size: 12px;
+  font-weight: bold;
+  color: #E43689;
+  font-family: Arial;
+}
+#custommenu div.wp-custom-menu-popup .block2 a {
+  color: #797979;
+}
+#custommenu .product-image {
+  border: none;
+}
 
 .nav-primary .menu-active > ul.level0,
 .nav-primary li.level0 li.sub-menu-active > ul {

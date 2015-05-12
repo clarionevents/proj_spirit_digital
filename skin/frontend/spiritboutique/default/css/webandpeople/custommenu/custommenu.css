@@ -49,7 +49,8 @@ div.menu a, div.wp-custom-menu-popup a {
     cursor: pointer;
     _height: 0;
     height: auto;
-    line-height:13px;
+    font-size:12px;
+    line-height: 18px;
 }
 div.level1 {
     margin-bottom: 5px;
@@ -64,14 +65,14 @@ div.block2 {
     display: block;
 }
 a.level1:link, a.level1:visited {
-    margin-top: 10px;
+    /*margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px 10px;
-    border-radius: 2px;
+    border-radius: 2px;*/
 }
 a.level2:link, a.level2:visited {
-    padding: 3px 10px;
-    border-radius: 2px;
+    /*padding: 3px 10px;
+    border-radius: 2px;*/
 }
 /* Clearfix */
 div.block2:after {
@@ -121,17 +122,34 @@ div.wp-custom-menu-popup hr {
 
 div.block1{
     max-width:50%;
+    border-right:1px #ECECEC solid;
 }
 
 div.block1,
 div.block2{
     float:left;
+    padding:10px;
 }
+div.block2 .pickoftheweek{
+    margin-left:235px;
+}
+div.block2 .pickoftheweek h4{
+    text-align:center;
+}
+div.block2 .pickoftheweek img,
+div.block2 .pickoftheweek .product-name{
+        margin:auto;
+    }
 
+div.block2 .highlights h4{
+    margin-top:10px;
+    
+}
 div.block2 .highlights,
 div.block2 .pickoftheweek{
     float:left;
 }
+
 /******************************************* COLUMN WIDTH ***************************** */
 div.column {
     float: left;
@@ -186,13 +204,14 @@ div.menu {
 }
 a.level1:link, a.level1:visited {
     text-transform: none;
-    font-weight: normal;
+    font-weight: bold;
+    color:#E64D95;
 }
 a.level2:link, a.level2:visited {
-    font-weight: normal;
+    /*font-weight: normal;
     font-size: 12px;
     line-height: 12px;
-    margin-left: 20px;
+    margin-left: 20px;*/
 }
 /*COLOR*/
 #custommenu {
@@ -202,7 +221,7 @@ div.menu a:link, div.menu a:visited {
     text-transform: uppercase;
 }
 a.level1:link, a.level1:visited {
-    color: #636363;
+    color:#E64D95;
 }
 a.level2:link, a.level2:visited {
     color: #636363;
@@ -213,10 +232,10 @@ div.menu.active a {
     color: #3399cc;
 }
 a.level1:hover, a.level1.act, a.level1.actParent {
-    color: #3399cc;
+    color: #797979;
 }
 a.level2:hover, a.level2.act, a.level2.actParent {
-    color: #3399cc;
+    color: #E43689;
 }
 .block2 table.brand {
     float: left;
@@ -297,6 +316,7 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu {
 .menu-mobile a.itemMenuName {
     display: block;
     text-align: left;
+    font-weight:normal;
 }
 .menu-mobile div.menu-button, .menu-mobile div.menu-mobile {
     float: none;
@@ -316,7 +336,7 @@ html[xmlns] #menu-button, html[xmlns] .parentMenu {
     margin-bottom: 0;
     padding: 10px 10px;
     border-radius: 2px;
-    color: #000;
+    color:#E64D95;
 }
 .menu-mobile a.level2:link, .menu-mobile a.level2:visited {
     padding: 10px 10px;

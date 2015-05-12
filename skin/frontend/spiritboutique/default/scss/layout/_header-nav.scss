@@ -188,7 +188,47 @@ $nav-primary-height: 30px;
      
     }
     
+     
+    
   }
+  
+  div.wp-custom-menu-popup{
+      font-family:Arial;
+      h4{     
+              font-family:$f-headers;
+              font-size: 16px;
+              color:$c-black;
+              text-transform: none;
+              font-weight: normal; 
+          }
+      .block2{
+          .highlights{
+            height:100%;
+            position:absolute;
+            width:210px;
+            border-right:1px #ECECEC solid;
+            top: 0;
+            overflow:visible;
+            h4{
+              strong{
+                font-size:12px;
+                font-weight:bold;
+                color:#E43689;
+                font-family:Arial;
+              }
+              
+            }
+          }
+          
+          a{
+            color:#797979;
+          }
+      }
+    }
+    
+    .product-image{
+      border:none;
+    }
     
 }
 
