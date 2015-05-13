@@ -746,7 +746,7 @@ a.button:hover {
 .footer-container {
     position: relative;
     max-width: $max-container-width;
-    margin: 0 auto;
+    margin: 0px auto;
     padding: 0;
 
     &:after {
@@ -757,6 +757,10 @@ a.button:hover {
         border-top: 1px solid $c-block-divider;
        padding-top: 30px;
     }
+}
+
+.main-container{
+  margin: 20px auto;
 }
 
 @include bp(min-width, 480px) {

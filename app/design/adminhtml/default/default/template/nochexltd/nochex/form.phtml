@@ -1,0 +1,17 @@
+<?php
+/**
+ * @title	   Nochex Checkout Module
+ * @package    NochexLTD_Nochex
+ * @copyright  Copyright (c) 2011 Nochex LTD. (http://www.nochex.com)
+ * @author 	   Nochex 
+ **/
+?>
+<fieldset class="form-list">
+    <?php $_code=$this->getMethodCode() ?>
+    <ul id="payment_form_<?php echo $_code ?>" style="display:none">
+        <li>
+            <?php echo $this->__('You will be redirected to the Nochex payment pages when you place an order.') ?>
+        </li>
+    </ul>
+</fieldset>
+

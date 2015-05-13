@@ -1312,7 +1312,7 @@ a.button:hover {
 .footer-container {
   position: relative;
   max-width: 1260px;
-  margin: 0 auto;
+  margin: 0px auto;
   padding: 0;
 }
 .main-container:after,
@@ -1325,6 +1325,10 @@ a.button:hover {
 .footer-container .footer {
   border-top: 1px solid #f5f5f5;
   padding-top: 30px;
+}
+
+.main-container {
+  margin: 20px auto;
 }
 
 @media only screen and (min-width: 480px) {
@@ -3638,6 +3642,13 @@ a.skip-link {
 }
 #custommenu div.wp-custom-menu-popup .block2 a {
   color: #797979;
+}
+#custommenu div.wp-custom-menu-popup .block1 ul {
+  float: left;
+  padding: 0 10px;
+}
+#custommenu div.wp-custom-menu-popup .block1 ul li.level1 {
+  padding-top: 5px;
 }
 #custommenu .product-image {
   border: none;

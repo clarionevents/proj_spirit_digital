@@ -224,6 +224,22 @@ $nav-primary-height: 30px;
             color:#797979;
           }
       }
+      
+      .block1{
+        ul{
+          float:left;
+          padding:0 10px;
+          
+          li.level1{
+            padding-top:5px;
+          }
+          li.level2{
+            a{
+              // line-height:22px;
+            }
+          }
+        }
+      }
     }
     
     .product-image{

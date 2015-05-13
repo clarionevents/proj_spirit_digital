@@ -152,7 +152,7 @@ div.block2 .pickoftheweek{
 
 /******************************************* COLUMN WIDTH ***************************** */
 div.column {
-    float: left;
+    /*float: left;*/
     /*width: 31%; */
     padding: 0px 1%;
     margin: 0px 0px 0px 0px;
