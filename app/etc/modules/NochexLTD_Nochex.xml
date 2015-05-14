@@ -4,7 +4,7 @@
     <modules>
         <NochexLTD_Nochex>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         <depends>
             <Mage_Payment />
         </depends>
