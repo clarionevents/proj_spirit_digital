@@ -122,13 +122,20 @@ div.wp-custom-menu-popup hr {
 
 div.block1{
     max-width:50%;
-    border-right:1px #ECECEC solid;
 }
 
 div.block1,
 div.block2{
-    float:left;
     padding:10px;
+}
+
+div.block1{
+    float:left;
+}
+
+div.block2{
+    float:right;
+      border-left: 1px #ECECEC solid;
 }
 div.block2 .pickoftheweek{
     margin-left:235px;
@@ -152,8 +159,8 @@ div.block2 .pickoftheweek{
 
 /******************************************* COLUMN WIDTH ***************************** */
 div.column {
-    /*float: left;*/
-    /*width: 31%; */
+    float: left;
+    width: 33%; 
     padding: 0px 1%;
     margin: 0px 0px 0px 0px;
 }
