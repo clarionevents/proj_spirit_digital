@@ -1,0 +1,86 @@
+<?php  
+	$feeds=$this->getFeed();
+	$partner=$this->getProfileDetail();
+	$helper = Mage::helper('marketplace');
+	$userid=$partner['mageuserid'];
+	$customer=Mage::getModel('customer/customer')->load($userid);
+	$locsearch=$partner->getcomplocality()==''? Mage::getModel('directory/country')
+				->load($partner->getcountrypic())->getName():$partner->getcomplocality();
+	$countryflag=$this->getSkinUrl('marketplace/images/country/countryflags/')
+				.strtolower($partner->getcountrypic()==""?"xx":
+				$partner->getcountrypic()).".gif";
+	$baseurl=$this->getUrl('marketplace/seller');
+				
+?>
+<div id="patner-info" class="block block-social-menu">  
+	<div class="block-title">    
+		<strong>
+			<span><?php echo $helper->__('Store FootPrint') ?> </span>
+		</strong>  
+	</div>  
+	<div id="info" class="block-content">    
+		<div class="details">		
+			<div class="seller section first">			
+				<div class="content">				
+					<p class="storename">
+						<a class="store-name" href="<?php echo $baseurl."profile/".$partner->getProfileurl();?>">
+							<?php if($partner->getShoptitle()!='')
+									echo $partner->getShoptitle();
+								  else
+									echo $partner->getProfileurl(); ?>
+						</a>
+					</p>
+					<h4 class="full-view">
+						<a href="<?php echo  $baseurl."collection/".$partner->getProfileurl() ?>">
+							<?php echo $helper->__('View Full Collection') ?>
+						</a>
+					</h4>			
+				</div>		
+			</div>   
+			<div class="wefrom section">     
+				<h4><?php echo $helper->__('We\'re from') ?></h4>		
+				
+				<a title="<?php echo $helper->__('View Map') ?>" target="_blank" href="<?php echo  $baseurl."location/".$partner->getProfileurl()."?q=".$locsearch?>">
+					<img class="piccountry" title="<?php echo $helper->__('View Map') ?>View Map" src="<?php echo$countryflag;  ?>" />
+				</a>		
+				<a class="cont-name" title="<?php echo $helper->__('Search') ?>" href="<?php echo  $baseurl."location/".$partner->getProfileurl()."?q=".$locsearch?>" target="_blank">
+					<span><?php echo $locsearch; ?></span>
+				</a> 	
+			</div>  
+		</div>  
+		<div class="ratings section">    
+			<h4><?php echo $helper->__('Feedback') ?></h4>  
+			<div class="content">     
+				<a class="feedback" href="<?php echo  $baseurl."feedback/".$partner->getProfileurl()?>">     
+					<span title="" class="icon"></span>      
+					<strong><?php echo $feeds['totalfeed']; ?>%</strong>(<strong><?php echo $feeds['feedcount']; ?></strong>)     
+				</a>
+			</div> 
+		</div>
+		<div class="connect section">   
+			<h4><?php echo $helper->__('Connect with Us') ?></h4> 
+			<div class="content">    
+				<ul>      
+					<li>			
+						<span class="icon icon-msg-small"></span>	
+						<a href="mailto:<?php echo $customer->getemail()?>">
+							<?php echo $helper->__('Send us a message') ?>
+						</a>		
+					</li>       
+					<li>			
+						<span class="icon icon-fb-small"></span>			
+						<a target="_blank" href="http://www.facebook.com/<?php echo $partner->getfacebookid()?>">
+							<?php echo $helper->__('Find us on Facebook') ?>
+						</a>		
+					</li>      
+					<li>			
+						<span class="icon icon-tw-small"></span>		
+						<a target="_blank" href="http://twitter.com/<?php echo $partner->gettwitterid() ?>">
+							<?php echo $helper->__('Follow us on Twitter') ?>
+						</a>		
+					</li>	  
+				</ul>    
+			</div>    
+		</div>  
+	</div>
+ </div>

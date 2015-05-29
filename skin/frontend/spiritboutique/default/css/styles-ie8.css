@@ -2569,6 +2569,8 @@ p.required,
 
 .form-list .control {
   margin-top: 10px;
+  float: left;
+  clear: both;
 }
 .form-list .control label {
   float: none;
@@ -2576,6 +2578,7 @@ p.required,
 .form-list .control .radio,
 .form-list .control .checkbox {
   margin-right: 6px;
+  margin-top: 15px;
 }
 .form-list .control .input-box {
   clear: none;

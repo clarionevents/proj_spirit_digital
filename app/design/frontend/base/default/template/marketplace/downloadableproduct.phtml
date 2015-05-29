@@ -1,0 +1,639 @@
+<?php 
+	$isPartner= Mage::getModel('marketplace/userprofile')->isPartner();
+	$customerid=Mage::getSingleton('customer/session')->getCustomerId();
+	$helper=Mage::helper('marketplace');
+	if($isPartner==1){?>
+<style type="text/css">
+.wk_link_title {
+    display: inline-block;
+}
+</style>
+	
+<script type="text/javascript">
+if (typeof jQuery == 'undefined'){
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script> 
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript">
+  bkLib.onDomLoaded(function() {
+        new nicEditor({fullPanel : true}).panelInstance('description');
+        new nicEditor({fullPanel : true}).panelInstance('short_description');
+  });
+</script>
+<?php
+	$categories = Mage::getModel('catalog/category')->getCollection()->addAttributeToSelect('*')->addIsActiveFilter();
+	$allcatid = array();
+	$k=0;
+	foreach ($categories as $c) {
+	   $allcatid[$k] = $c->getId();
+	   $k++;
+	}
+	$finalcat=array_shift($allcatid);
+	$partner=Mage::getModel('marketplace/userprofile')->getPartnerProfileById($customerid); ?>
+	<div class="page-title">
+		<h1><?php echo $helper->__('Add New Downloadable Product') ?></h1>
+	</div>
+	<form action="<?php echo $this->getUrl('marketplace/marketplaceaccount/downloadableproduct') ?>" enctype="multipart/form-data" method="post" id="form-customer-product-new" onsubmit="return applyimgvalidation();">
+		<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+		<div class="fieldset">
+			<input type="hidden" name="attribute_set_id" id="attribute_set_id" value="<?php echo $this->getRequest()->getParam('set')!=''? $this->getRequest()->getParam('set'):4;  ?>" />
+			<input type="hidden" name="type_id" id="producttype" value="<?php echo $this->getRequest()->getParam('type')?>" />
+			<!--input type="hidden" name="status" id="status" value="2" title="status" class="" /-->
+			<!--input type="hidden" name="userid" id="userid" value="<?php //echo Mage::getSingleton('customer/session')->getCustomer()->getId();?>" /-->
+			<input type="hidden"  name="wstoreids" id="wstoreids" value="<?php echo Mage::app()->getStore()->getStoreId(); ?>" title="wstoreids" class="" />
+				<h4 class="legend"><?php echo $helper->__('Downloadable Product') ?></h4>
+					<ul class="form-list" id="wk_bodymain">
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('Product Category') ?>:</label>
+							<div class="wk_field wk_category">
+								<div class="wk_for_validation">
+									<div id="wk_category_label"><?php echo $helper->__('CATEGORIES'); ?></div>
+			<?php					$Mar_lef = 0;$count = 0;
+									$category_helper = Mage::helper("catalog/category");
+									$category_model = Mage::getModel("catalog/category");
+									$_categories = $category_helper->getStoreCategories();
+									$total = count($_categories->getNodes());
+									if($total > 0)	{
+										foreach($_categories as $_category)	{
+											$count++;
+											?>
+											<?php if(count($category_model->getResource()->getAllChildren($category_model->load($_category['entity_id'])))-1 > 0){
+											if($count <= $total) { ?>
+											<div class="wk_cat_container" style="margin-left:0px;"><span class="wk_plus">
+											</span><span class="wk_foldersign"></span>
+											<span class="wk_elements wk_cat_name"><?php echo $_category->getName() ?></span><input class="wk_elements" type="checkbox" name="category[]" value=<?php echo $_category['entity_id'] ?>></div>
+											
+										<?php	} }
+										 else 
+										     {
+										 ?><div class="wk_cat_container">
+											</span><span class="wk_foldersign"></span>
+											<span class="wk_elements wk_cat_name"><?php echo $_category->getName() ?></span><input class="wk_elements" type="checkbox" name="category[]" value=<?php echo $_category['entity_id'] ?>></div> 
+									   <?php }
+									   }                                  									   
+									}				
+                                   ?>						
+								</div>
+							</div>
+						</li>
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('Product Name') ?>:</label>
+							<div class="input-box">
+								<input type="name" class="required-entry input-text" name="name" id="name" />
+							</div>
+						</li>
+						<li>
+							<label><?php echo $helper->__('Description') ?>:</label>
+							<div class="input-box">
+								<textarea name="description" class="input-text" id="description" rows="5" cols="75" ></textarea>
+							</div>
+						</li>
+						<li>
+							<label><?php echo $helper->__('Short Description') ?>:</label>
+							<div class="input-box">
+								<textarea name="short_description" id="short_description" rows="5" cols="75" class="input-text"></textarea>
+							</div>
+						</li>
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('SKU') ?>:</label>
+							<div class="input-box">
+								<input name="sku" id="sku" class="required-entry input-text" />
+							</div>
+							<div id="skuavail" >
+								<span class="success-msg skuavailable"><?php echo $helper->__('SKU Available') ?></span>
+							</div>
+							<div id="skunotavail" >
+								<span class="error-msg skunotavailable"><?php echo $helper->__('SKU Already Exist') ?></span>
+							</div>
+						</li>
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('Price') ?><b><?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); echo  " (". Mage::app()->getLocale()->currency( $currency_code )->getSymbol().")"; ?></b>:</label>
+							<div class="input-box">
+								<input type="price" class="required-entry validate-zero-or-greater input-text" name="price" id="price" />
+							</div>
+						</li>
+						<li>
+							<label class="required"><?php echo $helper->__('Special Price') ?><b><?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); echo  " (". Mage::app()->getLocale()->currency( $currency_code )->getSymbol().")"; ?></b>:</label>
+							<div class="input-box">
+								<input type="special_price" class="widthinput input-text" name="special_price" id="special_price" />
+							</div>
+						</li>
+						<li>
+							<label class="required"><?php echo $helper->__('Special Price From') ?>:</label>
+							<div class="input-box">
+								<input name="special_from_date" id="special_from_date" class="input-text"/>
+							</div>
+						</li>
+						<li>
+							<label class="required"><?php echo $helper->__('Special Price To') ?>:</label>
+							<div class="input-box">
+								<input name="special_to_date" id="special_to_date" class="input-text"/>
+							</div>
+						</li>
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('Stock Availability') ?>:</label>
+							<div class="input-box">
+								<select id="inventory_stock_availability" class="select" name="is_in_stock">
+									<option value="1"><?php echo $helper->__('In Stock'); ?></option>
+									<option value="0"><?php echo $helper->__('Out of Stock'); ?></option>
+								</select>
+							</div>
+						</li>
+						<li>
+							<label class="required"><em>*</em><?php echo $helper->__('Tax Class') ?>:</label>
+							<div class="input-box">
+								<select id="tax_class_id" class=" required-entry required-entry select" name="tax_class_id">
+									<option value=""><?php echo $helper->__('--Please Select--')?></option>
+									<option value="0"><?php echo $helper->__('None')?></option>
+									<?php
+										$taxes=Mage::getModel('tax/class')->getCollection()
+													->addFieldToFilter('class_type',array('eq'=>'PRODUCT'));
+										foreach($taxes as $tax){
+									?>
+									<option value="<?php echo $tax->getId() ?>"><?php echo $tax->getClassName()?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</li>
+						<li>
+							<label><?php echo $helper->__('Sample Image') ?>:</label>
+							<div class="input-box">
+								<input type="file"  name='images[]' class="dumimg wk_imagevalidate" accept="image/*" size="30" ><input type="radio" value='' class='defaultimage' onClick='defaultimagevalue(this)' name="defaultimage"><span class='defaultimageset'><?php echo $helper->__('Base image'); ?></span>
+								<br>
+								<a href="#" onClick="showOtherImage(); return false;"><?php echo $helper->__('Add other image') ?></a>
+								<br />
+								<div id="otherimages"></div>
+							</div>
+						</li>
+						<li>
+							<label><?php echo $helper->__('Downloadable Product') ?>:</label>
+							<div class="wk_cp_links_topbody">
+								<div id="wk_cp_links">
+									<span><?php echo $helper->__('Samples'); ?></span>
+								</div>
+								<div id="wk_cp_links_container">
+									<table cellspacing="0">
+									    <tbody>
+									        <tr>
+									            <td class="wk_cp_link_label"><label for="name"><?php echo $helper->__('Title :'); ?></label></td>
+									            <td class="wk_cp_link_value">
+									                <input type="text" name="samples_title" class="input-text">
+									            </td>
+									        </tr>
+									    </tbody>
+								    </table>
+								    								
+									<div class="grid">
+										<div class="hor-scroll">
+											<table cellspacing="0" class="border" id="wk_cp_sample_table">
+											    <colgroup>
+												    <col width="15%">
+												    <col width="15%">
+												    <col width="1%">
+											    </colgroup>
+											    <thead>
+											        <tr id="wk_cp_tr_heading">
+											            <th><?php echo $helper->__('Title'); ?><span class="required">*</span></th>
+											            <th><?php echo $helper->__('File'); ?></th>
+											            
+											            <th>&nbsp;</th>
+											        </tr>
+											    </thead>
+											    <tfoot>
+											        <tr>
+											            <td class="a-right" colspan="8">
+											            	<button class="wk_cp_add_sample button" type="button" title="Add New Row">
+									            				<span><?php echo $helper->__('Add New Row'); ?></span>
+											            	</button>
+											            </td>
+											        </tr>
+											    </tfoot>
+											    <tbody class="wk_cp_link_body">
+											    	<tr>
+											    		<td>
+											    			<input type="text" class="wk_cp_link_title required-entry" name="samples[0][title]">
+											    			<input type="hidden" class="wk_link_id" name="samples[0][wk_sample_id]">
+											    		</td>
+											    		<td>
+											    			<label class="wk_cp_label"><?php echo $helper->__('Upload')?></label>
+											    			<input type="file" style="display:none;" id="wk_link0" class="wk_link required-entry" name="wk_samples[]">
+											    			<span class="wk_link_title"><?php echo $helper->__('No File Choosen') ?></span>
+											    		</td>
+											    		<td>
+											    			<span onclick="delinkrow(this);" class="wk_cp_samples_delete"></span>
+											    		</td>
+											    	</tr>
+											    </tbody>											    
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="wk_cp_links_topbody">
+								<div id="wk_cp_links">
+									<span><?php echo $helper->__('Links'); ?></span>
+								</div>
+								<div id="wk_cp_links_container">
+									<table cellspacing="0">
+									    <tbody>
+									        <tr>
+									            <td class="wk_cp_link_label"><label for="name"><?php echo $helper->__('Title :'); ?></label></td>
+									            <td class="wk_cp_link_value">
+									                <input type="text" name="links_title" class="input-text">
+									            </td>
+									        </tr>
+									    </tbody>
+								    </table>
+								    <table cellspacing="0">
+									    <tbody>
+									        <tr>
+									            <td class="wk_cp_link_label"><label for="name"><?php echo $helper->__('Links can be purchased separately :'); ?></label></td>
+									            <td class="wk_cp_link_value">
+								                    <select name="links_purchased_separately" class="links_pur_seperately">
+								                    	<option value="1"><?php echo $helper->__('Yes'); ?></option>
+								                    	<option value="0"><?php echo $helper->__('No'); ?></option>
+								                    </select> 
+			                                   </td>
+									        </tr>
+									    </tbody>									
+									</table>									
+									<div class="grid">
+										<div class="hor-scroll">
+											<table cellspacing="0" class="border" id="wk_cp_link_table">
+											    <colgroup>
+												    <col width="15%">
+												    <col width="15%">
+												    <col width="1%">
+												    <col width="15%">
+												    <col width="15%">
+												    <col width="1%">
+											    </colgroup>
+											    <thead>
+											        <tr id="wk_cp_tr_heading">
+											            <th><?php echo $helper->__('Title'); ?><span class="required">*</span></th>
+								                        <th><?php echo $helper->__('Price'); ?></th>
+								                        <th><span class="nobr"><?php echo $helper->__('Max. Downloads'); ?></span></th>
+											            <th><?php echo $helper->__('Sample'); ?></th>
+											            <th><?php echo $helper->__('File'); ?></th>
+											            <th>&nbsp;</th>
+											        </tr>
+											    </thead>
+											    <tfoot>
+											        <tr>
+											            <td class="a-right" colspan="8">
+											            	<button class="wk_cp_add_btn button" type="button" title="Add New Row">
+									            				<span><?php echo $helper->__('Add New Row'); ?></span>
+											            	</button>
+											            </td>
+											        </tr>
+											    </tfoot>
+											    <tbody class="wk_cp_link_body">
+											    	<tr>
+											    		<td>
+											    			<input type="text" class="wk_cp_link_title required-entry" name="link[0][title]">
+											    			<input type="hidden" class="wk_link_id" name="link[0][wk_link_id]">
+											    		</td>
+											    		<td class="input-price">
+											    			<input type="text" class="wk_cp_link_price" name="link[0][price]">
+											    			<label><?php echo $helper->__('[USD]')?></label>
+											    		</td>
+											    		<td>
+											    			<input type="text" name="link[0][n_of_d]" class="wk_cp_link_download">
+											    			<input type="checkbox" name="link[0][is_unlimited]" value="1">
+											    			<label><?php echo $helper->__('Unlimited')?></label>
+											    		</td>
+											    		<td>
+											    			<label class="wk_cp_label"><?php echo $helper->__('Upload')?></label>
+											    			<input type="file" style="display:none;" id="wk_sample0" class="wk_sample" name="sample[]">
+											    			<span class="wk_sample_title"></span>
+											    		</td>
+											    		<td>
+											    			<label class="wk_cp_label"><?php echo $helper->__('Upload')?></label>
+											    			<input type="file" style="display:none;" id="wk_link0" class="wk_link required-entry" name="wk_link[]">
+											    			<span class="wk_link_title"><?php echo $helper->__('No File Choosen') ?></span>
+											    		</td>
+											    		<td>
+											    			<span onclick="delinkrow(this);" class="wk_cp_link_delete"></span>
+											    		</td>
+											    	</tr>
+											    </tbody>											    
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<?php echo $this->getChildHtml(); ?>
+					</ul>
+		</div>
+		<div class="buttons-set">
+			<p class="required">* <?php echo $helper->__('Required Fields') ?></p>
+			<button class="button" title="Save" type="submit" id="save_butn" style="float:none;">
+				<span><span><?php echo $helper->__('Save') ?></span></span>
+			</button>
+			<button type="reset" class="button"><span><span><?php echo $helper->__('Cancel') ?></span></span></button>
+			<p class="back-link">
+				<a href="javascript:;" onclick="javascript: window.history.back();" class="left">&laquo; <?php echo $helper->__('Back') ?></a>
+			</p>
+		</div>
+	</form>
+	<?php
+				$sample_allow_extensions = Mage::getStoreConfig('marketplace/marketplace_options/samplefiletype',Mage::app()->getStore()->getId());
+				$sample_allow_extension = explode(',',$sample_allow_extensions);
+				$sample_extensions = array();
+				$sample_extensions_notify = array();
+				foreach ($sample_allow_extension as $value) {
+					array_push($sample_extensions, '"'.trim($value).'"');
+					array_push($sample_extensions_notify, '*.'.trim($value));					
+				}
+				$supported_samples = implode(',', $sample_extensions);
+				$supported_samples_notify = implode(',', $sample_extensions_notify);
+				$link_allow_extensions = Mage::getStoreConfig('marketplace/marketplace_options/downloadfiletype',Mage::app()->getStore()->getId());
+				$link_allow_extension = explode(',',$link_allow_extensions);
+				$link_extensions = array();
+				$link_extensions_notify = array();
+				foreach ($link_allow_extension as $value) {
+					array_push($link_extensions, '"'.trim($value).'"');
+					array_push($link_extensions_notify, '*.'.trim($value));					
+				}
+				$supported_links = implode(',', $link_extensions);
+				$supported_links_notify = implode(',', $link_extensions_notify);				
+			?>
+<script> 
+jQuery.noConflict();
+var newCustomerProductForm = new VarienForm('form-customer-product-new', true);
+function applyimgvalidation(){		     
+    var imageobj = jQuery('.wk_link');
+    var flag = 1;
+    imageobj.each(function() {
+    	var imageobjval = jQuery(this).val();
+    	var id = jQuery(this).attr('id');
+	    jQuery(this).parent().find('label').removeClass('validation-failed');
+	    jQuery('#advice-validate-'+id).remove();
+	    if(!imageobjval){
+	    	flag = 0;
+	        jQuery(this).parent().find('label').addClass('validation-failed');                    
+	        jQuery('<div id="advice-validate-'+id+'" class="validation-advice" style="">This is an required field.</div>').insertAfter('#'+id);	        
+	    }else{
+	    	flag = 1;
+	    }
+	});
+	if(flag == 0)
+		return false;
+}
+
+(function(jQuery){
+	var deletelinkspancount = jQuery('.wk_cp_link_delete').length;
+	if(deletelinkspancount==1){
+		jQuery('.wk_cp_link_delete').parent('td').remove();
+	}
+	jQuery( "#special_from_date").datepicker({'dateFormat':'yy:mm:dd'});
+	jQuery( "#special_to_date" ).datepicker({'dateFormat':'yy:mm:dd'});
+	jQuery('#save_butn').click(function(e){
+		if(newCustomerProductForm.validator.validate()!=false){
+			
+			var descrip = nicEditors.findEditor( "description" ).getContent();
+		    var sdescrip = nicEditors.findEditor( "short_description" ).getContent();
+			var regex = /(&lt([^>]+)&gt)/ig;
+            var result = descrip .replace(regex, "");
+            nicEditors.findEditor( "description" ).setContent(result);
+		    var sresult = sdescrip .replace(regex, "");
+		    nicEditors.findEditor( "short_description" ).setContent(sresult);
+		    jQuery('#description').text(result);
+		    jQuery('#short_description').text(sresult);
+			
+			jQuery('#save_butn span span').text('Saving..');
+			jQuery('.button').css('opacity','0.7');
+			jQuery('.button').css('cursor','default');
+			jQuery('.button').attr('disabled','disabled');
+			jQuery('#form-customer-product-new').submit();
+		}
+	});
+	
+	jQuery('.input-text').change(function(){
+	 var validt = jQuery(this).val();
+	 var regex = /(<([^>]+)>)/ig;
+     var mainvald = validt .replace(regex, "");
+     jQuery(this).val(mainvald);	
+    })
+	
+	jQuery(".dumimg").change(function(){
+		jQuery( ".defaultimage" ).prop( "checked", false );
+	});
+	jQuery('input#sku').change(function(){
+		var len=jQuery('input#sku').val();
+		var len2=len.length;
+		if(len2==0){
+			alert("SKU can't be left empty");
+			jQuery('div#skuavail').css('display','none');
+			jQuery('div#skunotavail').css('display','none');
+		}
+		else{
+			jQuery.ajax({
+				url: "<?php echo Mage::getUrl('marketplace/marketplaceaccount/verifysku');?>",
+				type: "POST",
+				data: {sku:jQuery('input#sku').val()},
+				dataType: 'html',
+				success:function($data){
+					$data=JSON.parse($data);
+					if($data.avl==1){
+						jQuery('div#skuavail').css('display','block');
+						jQuery('div#skunotavail').css('display','none');
+					}
+					else{
+						jQuery('div#skunotavail').css('display','block');
+						jQuery('div#skuavail').css('display','none');
+						jQuery("input#sku").attr('value','');
+					}
+				}
+			});
+		}
+	});
+	var count_of_link_row = 1;
+	var count_of_sample_row = 1;
+	//var new_form = new VarienForm("new_form", true);	
+
+	jQuery(".wk_cp_add_btn").click(function(){
+		jQuery("#wk_cp_link_table").append("<tbody class='wk_cp_link_body'><tr><td><input type='text' name='link["+count_of_link_row+"][title]' class='wk_cp_link_title required-entry'/><input type='hidden' name='link["+count_of_link_row+"][wk_link_id]' class='wk_link_id'/></td><td class='input-price'><input type='text' name='link["+count_of_link_row+"][price]' class='wk_cp_link_price'/><label>[<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>]</label></td><td><input type='text' class='wk_cp_link_download' name='link["+count_of_link_row+"][n_of_d]'/><input type='checkbox' value='1' name='link["+count_of_link_row+"][is_unlimited]'/><label><?php echo $helper->__(' Unlimited '); ?></label></td><td><label class='wk_cp_label'><?php echo $helper->__(' Upload '); ?></label><input type='file' name='sample[]' class='wk_sample' id='wk_sample"+count_of_link_row+"' style='display:none;'/><span class='wk_sample_title'></span></td><td><label class='wk_cp_label'><?php echo $helper->__(' Upload '); ?></label><input type='file' name='wk_link[]' class='wk_link required-entry' id='wk_link"+count_of_link_row+"' style='display:none;'/><span class='wk_link_title'><?php echo $helper->__(' No File Choosen ') ?></span></td><td><span class='wk_cp_link_delete' onclick='delinkrow(this);'></span></td></tr></tbody>");
+		count_of_link_row++;
+		if(jQuery('.links_pur_seperately').val()==0)
+			jQuery('.wk_cp_link_price').attr('disabled','');	
+		else
+			jQuery('.wk_cp_link_price').removeAttr('disabled');						
+	});
+	
+	jQuery(".wk_cp_add_sample").click(function(){
+		
+		jQuery("#wk_cp_sample_table").append("<tbody class='wk_cp_link_body'><tr><td><input type='text' name='samples["+count_of_sample_row+"][title]' class='wk_cp_link_title required-entry'/><input type='hidden' name='samples["+count_of_sample_row+"][wk_sample_id]' class='wk_link_id'/></td><td><label class='wk_cp_label'><?php echo $helper->__(' Upload '); ?></label><input type='file' name='wk_samples[]' class='wk_link required-entry' id='wk_link"+count_of_sample_row+"' style='display:none;'/><span class='wk_link_title'><?php echo $helper->__(' No File Choosen ') ?></span></td><td><span class='wk_cp_link_delete' onclick='desamplerow(this);'></span></td></tr></tbody>");
+		count_of_sample_row++;					
+	});
+	
+	jQuery(document).on('click','.wk_cp_label',function(){
+		
+		jQuery(this).next().trigger('click');
+		
+	});
+					
+	jQuery( "body" ).delegate( ".wk_sample", "change", function() {
+		var val=jQuery(this).val();
+		var value=val.split(".");
+		var extension=value[1];
+		var extensions = [<?php echo $supported_samples;?>];
+		if (extensions.indexOf(extension) < 0){
+			alert('File type not allowed,\nAllowed file: <?php echo $supported_samples_notify;?>');
+			jQuery(this).val('');
+		}
+		else{
+			var n = val.substr(0,4);
+			var ext=val.split('.');
+			var samplename=n+"..."+ext[1];
+			jQuery(this).next('.wk_sample_title').text(samplename);
+			jQuery(this).next('.wk_sample_title').attr('title',val);
+		}
+	});
+					
+	jQuery( "body" ).delegate( ".wk_link", "change", function() {
+		var val=jQuery(this).val();
+		var value=val.split(".");
+		var extension=value[1];
+		var extensions = [<?php echo $supported_links;?>];
+		if (extensions.indexOf(extension) < 0){
+			alert('File type not allowed,\nAllowed file: <?php echo $supported_links_notify;?>');
+			jQuery(this).val('');
+		}
+		else{
+			var n = val.substr(0,4);
+			var ext=val.split('.');
+			var linkname=n+"..."+ext[1];
+			jQuery(this).parent().find('.wk_link_title').text(linkname);
+			jQuery(this).parent().find('.wk_link_title').attr('title',val);
+		}
+	});
+					
+	jQuery( "body" ).delegate( ".links_pur_seperately", "change", function() {
+		if(jQuery(this).val()==0)
+			jQuery('.wk_cp_link_price').attr('disabled','');
+		else
+			jQuery('.wk_cp_link_price').removeAttr('disabled');
+	});
+					
+	jQuery( "body" ).delegate("input[type='checkbox']", "click", function() {
+		if(jQuery(this).is(':checked')==true)
+			jQuery(this).prev('.wk_cp_link_download').attr('disabled','');
+		else
+			jQuery('.wk_cp_link_download').removeAttr('disabled');
+	});
+})(jQuery);
+</script>	
+<script type="text/javascript">
+	var i=2;
+	function showOtherImage(){
+		var newdiv = document.createElement('div');
+		newdiv.setAttribute("id","childDiv"+i);
+		newdiv.innerHTML = "<input type='file' name='images[]' accept='image/\*' class='wk_imagevalidate'/><input type='radio'  onClick='defaultimagevalue(this)'  value=''  class='defaultimage' name='defaultimage'><span class='defaultimageset'>Base image</span><a href=\"javascript:;\" onclick=\"removeEvent('childDiv"+i+"')\"><?php echo $helper->__(' Remove ') ?></a>";
+		var ni = document.getElementById('otherimages');
+		ni.appendChild(newdiv);
+		i++;
+	}
+	function delinkrow(this_this){
+		jQuery(this_this).parents(".wk_cp_link_body").remove();
+	}
+	function desamplerow(this_this){
+		jQuery(this_this).parents(".wk_cp_link_body").remove();
+	}
+	
+	function removeEvent(divNum){
+		var d = document.getElementById('otherimages');
+		var olddiv = document.getElementById(divNum);
+		d.removeChild(olddiv);
+		i--;
+	}
+	function defaultimagevalue(object){
+		var strs=jQuery(object).prev('input').val().split('\\'); 
+	    jQuery(object).val(strs[strs.length-1]);
+	}
+	function catchanged(){
+		jQuery("#wk_cp_cat_edited").val(1);
+	}
+	jQuery("body").delegate('.wk_imagevalidate',"change",function(){
+		var ext = jQuery(this).val().split('.').pop().toLowerCase();
+		if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+			jQuery(this).val('');
+		    alert('invalid extension! Please Upload an image.');
+		}
+	});
+	jQuery("#wk_bodymain").delegate('.wk_plus ,.wk_plusend,.wk_minus, .wk_minusend ',"click",function(){
+	var thisthis=jQuery(this);	
+		if(thisthis.hasClass("wk_plus") || thisthis.hasClass("wk_plusend")){
+			if(thisthis.hasClass("wk_plus"))
+				thisthis.removeClass('wk_plus').addClass('wk_plus_click');
+			if(thisthis.hasClass("wk_plusend"))
+				thisthis.removeClass('wk_plusend').addClass('wk_plusend_click');
+			thisthis.prepend("<span class='wk_node_loader'></span>");
+			
+			jQuery.ajax({
+				url  	:   "<?php echo $this->getUrl('marketplace/marketplaceaccount/categorytree/');?>",
+				type 	:   "POST",
+				data 	:   {CID:thisthis.siblings("input").val(),
+							ML:thisthis.parent(".wk_cat_container").css("margin-left").replace("px","")},
+				dataType:   "html",
+				success :   function(content){
+					var newdata=  jQuery.parseJSON(content);
+					len= newdata.length;
+					var pxl= parseInt(thisthis.parent(".wk_cat_container").css("margin-left").replace("px",""))+20;
+					thisthis.find(".wk_node_loader").remove();
+					if(thisthis.attr("class") == "wk_plus")
+						thisthis.attr("class","wk_minus");
+					if(thisthis.attr("class") == "wk_plusend")
+						thisthis.attr("class","wk_minusend");
+					if(thisthis.attr("class") == "wk_plus_click")
+						thisthis.attr("class","wk_minus");
+					if(thisthis.attr("class") == "wk_plusend_click")
+						thisthis.attr("class","wk_minusend");
+				    for(i=0;i<len; i++){     
+						id=newdata[i].id;
+						nam=newdata[i].name;
+						if(newdata[i].counting ==0){
+							thisthis.parent(".wk_cat_container").after('<div class="wk_removable wk_cat_container" style="display:none;margin-left:'+pxl+'px;"><span  class="wk_no"></span><span class="wk_foldersign"></span><span class="wk_elements wk_cat_name">'+ nam +'</span><input class="wk_elements" type="checkbox" name="category[]" value='+ id +'></div>');
+						}else{
+							thisthis.parent(".wk_cat_container").after('<div class="wk_removable wk_cat_container" style="display:none;margin-left:'+pxl+'px;"><span  class="wk_plusend"></span><span class="wk_foldersign"></span><span class="wk_elements wk_cat_name">'+ nam +'</span><input class="wk_elements" type="checkbox" name="category[]" value='+ id +'></div>');   
+						}
+	                }	
+					thisthis.parent(".wk_cat_container").nextAll().slideDown(300);
+				}
+			});			
+		}
+		if(thisthis.hasClass("wk_minus") || thisthis.hasClass("wk_minusend")){
+			if(thisthis.attr("class") == "wk_minus")
+				thisthis.attr("class","wk_plus");
+			if(thisthis.attr("class") == "wk_minusend")
+				thisthis.attr("class","wk_plusend");
+			var thiscategory = thisthis.parent(".wk_cat_container");
+			var marg= parseInt(thiscategory.css("margin-left").replace("px",""));
+			while(thiscategory.next().hasClass("wk_removable")){
+			  
+			if(parseInt(thiscategory.next().css("margin-left").replace("px",""))>marg)
+				thiscategory.next().slideUp("slow",function(){jQuery(this).remove();});
+				thiscategory = thiscategory.next();	
+				if(typeof thiscategory.next().css("margin-left")!= "undefined"){
+					if( marg==thiscategory.next().css("margin-left").replace("px",""))
+					{
+					  break;
+					}
+				}
+			}
+		}		
+	});
+
+	jQuery("body").delegate('.nicEdit-main',"blur",function(){
+		var x = jQuery(this).text()
+		jQuery(this).parent().parent().children('textarea').text(x);		
+	});
+</script>
+<?php }else{
+	echo "<h2 class='wk_new_msg'>".$helper->__("FOR BECOME SELLER CONTACT TO ADMIN")."..</h2>";
+}?>

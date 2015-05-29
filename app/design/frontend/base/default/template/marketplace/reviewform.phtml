@@ -1,0 +1,191 @@
+<script type="text/javascript">
+if (typeof jQuery == 'undefined'){
+    document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<style>
+	.button-large{
+		background-color: #39aac5;
+		border-color: #67bdd4 #4ab1cc #359bbd;
+		border-radius: 4px;
+		border-style: solid;
+		border-width: 1px;
+		color: #ffffff;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: bold;
+		line-height: 33px !important;
+		margin-bottom: 9px;
+		padding: 0 11px;
+		text-decoration: none;
+		width: auto;
+	}
+</style>
+<?php 
+	$mediaurl=Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+	$partner=$this->getProfileDetail();
+	$helper = Mage::helper('marketplace');
+?>
+<style>.feedback-item .image {background: url("<?php echo $mediaurl.'avatar/noimage.png'; ?>") no-repeat scroll 0 0 #CCC;}</style>
+<div id="customer-reviews" class="box-collateral box-reviews">
+	<div class="form-add">
+	<?php if(Mage::getSingleton('customer/session')->isLoggedIn()) { ?>
+		<center>
+			<p class="givefeed">
+				<button class="button-large"><span><?php echo $helper->__('Give Feedback') ?></span></button>
+			</p>
+		</center>
+		<div class="showreview">	
+			<h2><?php echo $helper->__('Write Your Own Feedback') ?></h2>
+			<form id="review-form" method="post" action="<?php echo $this->getUrl('marketplace/seller/newfeedback') ?>" enctype="multipart/form-data" >
+				<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+				<fieldset>
+					<h4><?php echo $helper->__('How do you rate this Store') ?>? <em class="required">*</em></h4>
+					<span id="input-message-box"></span>
+					<table id="product-review-table" class="data-table">
+					<colgroup>
+						<col>
+						<col width="1">
+						<col width="1">
+						<col width="1">
+						<col width="1">
+						<col width="1">
+					</colgroup>
+					<thead>
+						<tr class="first last">
+							<th>&nbsp;</th>
+							<th><span class="nobr">1 <?php echo $helper->__('star') ?></span></th>
+							<th><span class="nobr">2 <?php echo $helper->__('stars') ?></span></th>
+							<th><span class="nobr">3 <?php echo $helper->__('stars') ?></span></th>
+							<th><span class="nobr">4 <?php echo $helper->__('stars') ?></span></th>
+							<th><span class="nobr">5 <?php echo $helper->__('stars') ?></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="first odd">
+							<th><?php echo $helper->__('Price') ?></th>
+							<td class="value"><input type="radio" class="radio" value="20" id="Price_1" name="feedprice" checked="checked"/></td>
+							<td class="value"><input type="radio" class="radio" value="40" id="Price_2" name="feedprice"></td>
+							<td class="value"><input type="radio" class="radio" value="60" id="Price_3" name="feedprice"></td>
+							<td class="value"><input type="radio" class="radio" value="80" id="Price_4" name="feedprice"></td>
+							<td class="value last"><input type="radio" class="radio" value="100" id="Price_5" name="feedprice"></td>
+						</tr>
+						<tr class="even">
+							<th><?php echo $helper->__('Value') ?></th>
+							<td class="value"><input type="radio" class="radio" value="20" id="Value_1" name="feedvalue" checked="checked"/></td>
+							<td class="value"><input type="radio" class="radio" value="40" id="Value_2" name="feedvalue"></td>
+							<td class="value"><input type="radio" class="radio" value="60" id="Value_3" name="feedvalue"></td>
+							<td class="value"><input type="radio" class="radio" value="80" id="Value_4" name="feedvalue"></td>
+							<td class="value last"><input type="radio" class="radio" value="100" id="Value_5" name="feedvalue"></td>
+						</tr>
+						<tr class="last odd">
+							<th><?php echo $helper->__('Quality') ?></th>
+							<td class="value"><input type="radio" class="radio" value="20" id="Quality_1" name="feedquality" checked="checked"/></td>
+							<td class="value"><input type="radio" class="radio" value="40" id="Quality_2" name="feedquality"></td>
+							<td class="value"><input type="radio" class="radio" value="60" id="Quality_3" name="feedquality"></td>
+							<td class="value"><input type="radio" class="radio" value="80" id="Quality_4" name="feedquality"></td>
+							<td class="value last"><input type="radio" class="radio" value="100" id="Quality_5" name="feedquality"></td>
+						</tr>
+					</tbody>
+					</table>
+					<?php 
+							$loggeduserid=Mage::getSingleton('customer/session')->getCustomer()->getEntityid();
+							$loggedcustomer = Mage::getModel('customer/customer')->load($loggeduserid); 
+					?>
+				
+					<input type="hidden" class="proownerid" name="proownerid" id="proownerid" value="<?php echo $partner->getMageuserid(); ?>" title="proownerid"/>
+					<input type="hidden" name="profileurl" value="<?php echo $partner->getProfileurl(); ?>" />
+					
+					<script type="text/javascript">decorateTable('product-review-table')</script>
+								<ul class="form-list">
+						<li>
+							<label class="required" for="nickname_field"><em>*</em><?php echo $helper->__('Nickname') ?></label>
+							<div class="input-box">
+								<input type="text" value="<?php  echo $loggedcustomer['nickname']; ?>" class="input-text required-entry widthinput nickname" id="nickname_field" name="feednickname">
+							</div>
+						</li>
+						<li>
+							<label class="required" for="summary_field"><em>*</em><?php echo $helper->__('Summary of Your Review') ?></label>
+							<div class="input-box">
+								<input type="text" value="" class="input-text required-entry widthinput summary_field" id="summary_field" name="feedsummary">
+							</div>
+						</li>
+						<li>
+							<label class="required" for="review_field"><em>*</em><?php echo $helper->__('Review') ?></label>
+							<div class="input-box">
+								<textarea class="required-entry widthinput review_field" rows="3" cols="5" id="review_field" name="feedreview"></textarea>
+							</div>
+						</li>
+					</ul>
+				</fieldset>
+				<div class="buttons-set">
+					<button class="button" title="<?php echo $helper->__('Submit Review') ?>" type="submit"><span><span><?php echo $helper->__('Submit Review') ?></span></span></button>
+				</div>
+		</form>
+	</div>
+	<?php } else { ?>
+			<?php Mage::getSingleton('customer/session')->setAfterAuthUrl(Mage::helper("core/url")->getCurrentUrl());?>
+			 <center><p class="loginmsg"><a class="button-large" href="<?php echo $this->getUrl('customer/account/loginPost/') ?>"><?php echo $helper->__('Login To Give Feedback')?></a></p></center>
+		 <?php } ?>  
+    </div>
+</div>
+
+<div class="feedbacklist">
+	<div class="feedback-list">
+		<?php foreach($this->getCollection() as $keyed){   ?>	
+			<div class="feedback-item">
+				<div class="feedback">
+					<div class="price">
+						<h2><?php echo $helper->__('Price') ?> :</h2>
+						<div class="ratingslider-box">
+							<div class="rating" style="width:<?php echo ceil($keyed['feedprice']);?>%;"></div>
+						</div>
+						<div class="wk_clear"></div>
+					</div>
+					<div class="value">
+						<h2><?php echo $helper->__('Value') ?> :</h2>
+						<div class="ratingslider-box" >
+							<div class="rating" style="width:<?php echo ceil($keyed['feedvalue']);?>%;"></div>
+						</div>
+						<div class="wk_clear"></div>
+					</div>
+					<div class="quality">
+						<h2><?php echo $helper->__('Quality') ?> :</h2>
+						<div class="ratingslider-box">
+							<div class="rating" style="width:<?php echo ceil($keyed['feedquality']);?>%;"></div>
+						</div>
+						<div class="wk_clear"></div>
+					</div>
+				</div>
+				<div class="buyer">
+					<?php echo $helper->__('FeedBack By') ?> 
+					<span>
+						<?php 
+							$feedcustomer = Mage::getModel('customer/customer')->load($keyed['userid']); 
+							echo $feedcustomer['firstname'].' '.$feedcustomer['lastname'];  
+						?>
+					</span>
+				</div>
+				<div class="date"><?php echo $helper->__('Date') ?> <span><?php echo $keyed['createdat']; ?></span></div>
+				<div class="RATING"><span title="" class="icon icon-fbk-pos hastip tooltipsy-init"></span></div>
+				<div class="comment"><?php echo $keyed['feedreview']; ?> </div>
+			</div>
+		<?php } ?>
+	</div>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<script type="text/javascript">
+$wk_jq = jQuery.noConflict();	
+(function($wk_jq){	
+	var reviewform = new VarienForm('review-form', true);
+	 $wk_jq(".givefeed").click(function () {
+		$wk_jq(".givefeed").hide();
+		$wk_jq(".feedmsg").parent().hide()
+		$wk_jq('.showreview').show();
+    });
+	$wk_jq('.limiter option').each(function(){
+		$url=$wk_jq(this).attr('value').replace('feedback/','feedback/'+'<?php echo $partner->getprofileurl();?>/');
+		$wk_jq(this).attr('value',$url);
+	});
+})($wk_jq);
+</script>

@@ -23,11 +23,30 @@
  * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+ 
+  // Get group Id
+      $customer = Mage::getSingleton('customer/session')->getCustomer();
+	  $isSeller= false;
+	  $sellerlist=Mage::getModel('marketplace/userprofile')
+								->getCollection()
+								->addFieldToFilter('partnerstatus',array('eq'=>'Seller'))
+								->addFieldToFilter('wantpartner',array('eq'=>1))
+								->setOrder('autoid','DESC');
+								
+	foreach($sellerlist as $id){
+		if($customer->getId() == $id->getMageuserid()){
+			$isSeller=true;
+		}
+	}	
 ?>
 <div class="dashboard">
     <div class="page-title">
         <h1><?php echo $this->__('My Dashboard') ?></h1>
     </div>
+    <?php if($isSeller) : ?>
+    	<?php Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl() . 'marketplace/marketplaceaccount/mydashboard/'); ?>
+    	
+    <?php else :?>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <?php echo $this->getChildHtml('hello') ?>
     <?php echo $this->getChildHtml('top') ?>
@@ -42,4 +61,5 @@
     <?php echo $this->getChildHtml('address') ?>
     <?php echo $this->getChildHtml('info1') ?>
     <?php echo $this->getChildHtml('info2') ?>
+    <?php endif ?>
 </div>

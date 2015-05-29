@@ -55,21 +55,49 @@ body.customer-account{
     height:auto;
     overflow:hidden;
     
-    .label{
+    .label.wk_action{
       float:left;
       text-align: center;
       
       img{
         float:left;
+        height: 20px;
+        margin: 0 5px;
       }
     }
   }
   
   .form-list > li{
+    float: left;
+    clear: both;
+    width:100%;
     label{
       padding-top:15px;
     }
   }
+  
+  .block-account li strong{
+  color: #FFF;
+  padding: 5px;
+  background: #e44294;
+  }
+  
+  table.wk_mp_list_table{
+     th{
+       font-weight:bold;
+     }
+     td{
+         padding: 0 10px 5px 0;
+     }
+   }
+   
+   .wk_orderbox_details{
+     div.name{
+       button{
+         margin-left:30px;
+       }
+     }
+   }
 }
 
 div.customoption > span,
@@ -92,8 +120,12 @@ div.customoption{
   div.wk_row{
     float:left;
   }
+  
+  
 
 }
+
+
 
 body.customer-account.marketplace-marketplaceaccount-editprofile {
   
@@ -137,6 +169,42 @@ body.customer-account.marketplace-marketplaceaccount-editprofile {
      clear:both;
      width:100%;
    }
+   
+   input{
+     width:auto;
+   }
+   
+   span.wk_mp_td_span{
+     float:left;
+   }
+   
+   
+   
+   button#mass_delete_butn{
+     margin-bottom:5px;
+   }
+   
+   table.wk_mp_list_table{
+     width:100%;
+   }
+   td{
+       span.label.pro_status{
+        padding: 5px;
+        color: #FFF;
+        text-transform: uppercase;
+        font-size: 10px;
+        overflow: visible;
+        width: auto;
+        
+        &.approved{
+          background: green;
+        }
+        &.pending{
+          background: orange;
+        }
+     }
+   }
+   
  }
  
 
@@ -163,5 +231,22 @@ body.marketplace-seller-collection{
     }
   }
 }
+ div.country-profile{
+    .country_img_prev{
+     float: left;
+     margin-left:0;
+     margin-top:0;
+ }
  
+ select#countrypic{
+    margin: 0 5px;
+    height: 22px;
+  }
+ }
  
+ .ratings{
+   .content{
+     overflow:hidden;
+   }
+ }
+

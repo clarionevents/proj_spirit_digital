@@ -23,7 +23,23 @@
  * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+ 
+ 
+ $customer = Mage::getSingleton('customer/session')->getCustomer();
+	  $isSeller= false;
+	  $sellerlist=Mage::getModel('marketplace/userprofile')
+								->getCollection()
+								->addFieldToFilter('partnerstatus',array('eq'=>'Seller'))
+								->addFieldToFilter('wantpartner',array('eq'=>1))
+								->setOrder('autoid','DESC');
+								
+	foreach($sellerlist as $id){
+		if($customer->getId() == $id->getMageuserid()){
+			$isSeller=true;
+		}
+	}
 ?>
+<?php if(!$isSeller) : ?>
 <div class="block block-account">
     <div class="block-title">
         <strong><span><?php echo $this->__('My Account'); ?></span></strong>
@@ -44,3 +60,4 @@
         </ul>
     </div>
 </div>
+<?php endif ?>

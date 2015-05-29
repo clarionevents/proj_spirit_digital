@@ -80,15 +80,36 @@ body.customer-account .wk_row_view {
   height: auto;
   overflow: hidden;
 }
-body.customer-account .wk_row_view .label {
+body.customer-account .wk_row_view .label.wk_action {
   float: left;
   text-align: center;
 }
-body.customer-account .wk_row_view .label img {
+body.customer-account .wk_row_view .label.wk_action img {
   float: left;
+  height: 20px;
+  margin: 0 5px;
+}
+body.customer-account .form-list > li {
+  float: left;
+  clear: both;
+  width: 100%;
 }
 body.customer-account .form-list > li label {
   padding-top: 15px;
+}
+body.customer-account .block-account li strong {
+  color: #FFF;
+  padding: 5px;
+  background: #e44294;
+}
+body.customer-account table.wk_mp_list_table th {
+  font-weight: bold;
+}
+body.customer-account table.wk_mp_list_table td {
+  padding: 0 10px 5px 0;
+}
+body.customer-account .wk_orderbox_details div.name button {
+  margin-left: 30px;
 }
 
 div.customoption > span,
@@ -141,6 +162,32 @@ body.marketplace-marketplaceaccount-myproductslist div.fieldset {
   clear: both;
   width: 100%;
 }
+body.marketplace-marketplaceaccount-myproductslist input {
+  width: auto;
+}
+body.marketplace-marketplaceaccount-myproductslist span.wk_mp_td_span {
+  float: left;
+}
+body.marketplace-marketplaceaccount-myproductslist button#mass_delete_butn {
+  margin-bottom: 5px;
+}
+body.marketplace-marketplaceaccount-myproductslist table.wk_mp_list_table {
+  width: 100%;
+}
+body.marketplace-marketplaceaccount-myproductslist td span.label.pro_status {
+  padding: 5px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 10px;
+  overflow: visible;
+  width: auto;
+}
+body.marketplace-marketplaceaccount-myproductslist td span.label.pro_status.approved {
+  background: green;
+}
+body.marketplace-marketplaceaccount-myproductslist td span.label.pro_status.pending {
+  background: orange;
+}
 
 body.marketplace-seller-collection ul.products-grid li:nth-child(3n+1) {
   clear: none;
@@ -156,4 +203,18 @@ body.marketplace-seller-collection ul.products-grid li .actions {
 body.marketplace-seller-collection ul.products-grid li .actions li {
   float: none;
   max-width: 100%;
+}
+
+div.country-profile .country_img_prev {
+  float: left;
+  margin-left: 0;
+  margin-top: 0;
+}
+div.country-profile select#countrypic {
+  margin: 0 5px;
+  height: 22px;
+}
+
+.ratings .content {
+  overflow: hidden;
 }

@@ -359,6 +359,8 @@ p.required,
 
 .form-list .control {
     margin-top: 10px;
+    float:left;
+    clear:both;
 
     label {
         float: none;
@@ -366,6 +368,7 @@ p.required,
     .radio,
     .checkbox {
         margin-right: 6px;
+        margin-top:15px;
     }
     .input-box {
         clear: none;

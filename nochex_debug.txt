@@ -1,313 +1,209 @@
 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - Description Field: Order created for: 100000012. \n XML Collection Data: <items><item><id>12</id><name>testVendor</name><description>testVendor</description><quantity>1</quantity><price>5.00</price></item></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - All Fields: Array
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - Description Field: Order created for: 100000025. \n XML Collection Data: <items><item><id>26</id><model>BB_FLY001</model><description>Magnetic Origami Kimono Butterflies</description><qty>2</qty><price>29.99</price><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id></item><item><id>27</id><model>pin-spiritabc</model><description>Cotton Tunic</description><qty>1</qty><price>40.00</price><merchant_id>amanda@8fca.co.uk</merchant_id></item><delivery><merchant><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id><price>5.9</price></merchant><merchant><merchant_id>amanda@8fca.co.uk</merchant_id><price>3</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - Billing Address: gsdfgsdgfsd. Shipping Address: gsdfgsdgfsd... 
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - Amount: 108.88. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000012
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
+    [order_id] => 100000025
+    [billing_fullname] => Atulaa Mochilas
+    [customer_phone_number] => 001349879
+    [email_address] => dyla.rodriguez@yahoo.co.uk
+    [billing_address] => gsdfgsdgfsd
+    [billing_city] => dfgsdfgsdfg
+    [billing_postcode] => namd
+    [delivery_fullname] => Atulaa Mochilas
+    [delivery_address] => gsdfgsdgfsd
+    [delivery_city] => dfgsdfgsdfg
+    [delivery_postcode] => namd
+    [amount] => 108.88
     [postage] => 
-    [description] => Order created for: 100000012
-    [xml_item_collection] => <items><item><id>12</id><name>testVendor</name><description>testVendor</description><quantity>1</quantity><price>5.00</price></item></items>
+    [description] => Order created for: 100000025
+    [item_collection] => <items><item><id>26</id><model>BB_FLY001</model><description>Magnetic Origami Kimono Butterflies</description><qty>2</qty><price>29.99</price><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id></item><item><id>27</id><model>pin-spiritabc</model><description>Cotton Tunic</description><qty>1</qty><price>40.00</price><merchant_id>amanda@8fca.co.uk</merchant_id></item><delivery><merchant><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id><price>5.9</price></merchant><merchant><merchant_id>amanda@8fca.co.uk</merchant_id><price>3</price></merchant></delivery></items>
 )
 ... 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - All Fields: Array
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000012
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
+    [order_id] => 100000025
+    [billing_fullname] => Atulaa Mochilas
+    [customer_phone_number] => 001349879
+    [email_address] => dyla.rodriguez@yahoo.co.uk
+    [billing_address] => gsdfgsdgfsd
+    [billing_city] => dfgsdfgsdfg
+    [billing_postcode] => namd
+    [delivery_fullname] => Atulaa Mochilas
+    [delivery_address] => gsdfgsdgfsd
+    [delivery_city] => dfgsdfgsdfg
+    [delivery_postcode] => namd
+    [amount] => 108.88
     [postage] => 
-    [description] => Order created for: 100000012
-    [xml_item_collection] => <items><item><id>12</id><name>testVendor</name><description>testVendor</description><quantity>1</quantity><price>5.00</price></item></items>
+    [description] => Order created for: 100000025
+    [item_collection] => <items><item><id>26</id><model>BB_FLY001</model><description>Magnetic Origami Kimono Butterflies</description><qty>2</qty><price>29.99</price><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id></item><item><id>27</id><model>pin-spiritabc</model><description>Cotton Tunic</description><qty>1</qty><price>40.00</price><merchant_id>amanda@8fca.co.uk</merchant_id></item><delivery><merchant><merchant_id>lampshades@thebespokeboutique.co.uk</merchant_id><price>5.9</price></merchant><merchant><merchant_id>amanda@8fca.co.uk</merchant_id><price>3</price></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 05/14/2015 03:53:24 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - Description Field: Order created for: 100000014. \n XML Collection Data: <items><item><id>14</id><model>12-13</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - All Fields: Array
+ Time and Date: 05/28/2015 12:55:18 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - Description Field: Order created for: 100000026. \n XML Collection Data: <items><item><id>28</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - Amount: 6.25. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000014
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000026
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000014
-    [xml_item_collection] => <items><item><id>14</id><model>12-13</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>
+    [description] => Order created for: 100000026
+    [item_collection] => <items><item><id>28</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
 )
 ... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - All Fields: Array
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000014
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000026
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000014
-    [xml_item_collection] => <items><item><id>14</id><model>12-13</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>
+    [description] => Order created for: 100000026
+    [item_collection] => <items><item><id>28</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 05/14/2015 04:04:06 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - Description Field: Order created for: 100000015. \n XML Collection Data: <items><item><id>15</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - All Fields: Array
+ Time and Date: 05/29/2015 08:30:29 am... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - Description Field: Order created for: 100000027. \n XML Collection Data: <items><item><id>29</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - Amount: 6.25. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000015
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000027
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000015
-    [xml_item_collection] => <items><item><id>15</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>
+    [description] => Order created for: 100000027
+    [item_collection] => <items><item><id>29</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
 )
 ... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - All Fields: Array
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000015
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000027
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000015
-    [xml_item_collection] => <items><item><id>15</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item></items>
+    [description] => Order created for: 100000027
+    [item_collection] => <items><item><id>29</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 05/14/2015 04:19:02 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - Description Field: Order created for: 100000016. \n XML Collection Data: <items><item><id>16</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - All Fields: Array
+ Time and Date: 05/29/2015 09:35:39 am... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - Description Field: Order created for: 100000033. \n XML Collection Data: <items><item><id>35</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - Amount: 6.25. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000016
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000033
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000016
-    [xml_item_collection] => <items><item><id>16</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
+    [description] => Order created for: 100000033
+    [item_collection] => <items><item><id>35</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
 )
 ... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - All Fields: Array
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => christofer.anderson@clarionevents.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000016
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
+    [order_id] => 100000033
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
     [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
+    [billing_address] => 79 Christchurch Avenue, London
     [billing_city] => London
     [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
     [delivery_city] => London
     [delivery_postcode] => UK
-    [amount] => 5
+    [amount] => 6.25
     [postage] => 
-    [description] => Order created for: 100000016
-    [xml_item_collection] => <items><item><id>16</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
+    [description] => Order created for: 100000033
+    [item_collection] => <items><item><id>35</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>1.25</price></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 05/14/2015 04:27:10 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - Description Field: Order created for: 100000017. \n XML Collection Data: <items><item><id>17</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - All Fields: Array
-(
-    [merchant_id] => Christofer.Anderson@clarionevents.com
-    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
-    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000017
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
-    [postage] => 
-    [description] => Order created for: 100000017
-    [xml_item_collection] => <items><item><id>17</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
-)
-... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - All Fields: Array
-(
-    [merchant_id] => Christofer.Anderson@clarionevents.com
-    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
-    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000017
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
-    [postage] => 
-    [description] => Order created for: 100000017
-    [xml_item_collection] => <items><item><id>17</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
-    [test_transaction] => 100
-    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-)
-... 
- Time and Date: 05/14/2015 05:12:40 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - Description Field: Order created for: 100000018. \n XML Collection Data: <items><itemLOOOOL><id>18</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - Billing Address: 56 Christchurch Avenue, London. Shipping Address: 56 Christchurch Avenue, London... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - Amount: 5. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - All Fields: Array
-(
-    [merchant_id] => Christofer.Anderson@clarionevents.com
-    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
-    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000018
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
-    [postage] => 
-    [description] => Order created for: 100000018
-    [xml_item_collection] => <items><itemLOOOOL><id>18</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
-)
-... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - All Fields: Array
-(
-    [merchant_id] => Christofer.Anderson@clarionevents.com
-    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
-    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000018
-    [billing_fullname] => Giovanni Capuano
-    [customer_phone_number] => 07523394583
-    [email_address] => giovanni.capuano@clarionevents.com
-    [billing_address] => 56 Christchurch Avenue, London
-    [billing_city] => London
-    [billing_postcode] => UK
-    [delivery_fullname] => Giovanni Capuano
-    [delivery_address] => 56 Christchurch Avenue, London
-    [delivery_city] => London
-    [delivery_postcode] => UK
-    [amount] => 5
-    [postage] => 
-    [description] => Order created for: 100000018
-    [xml_item_collection] => <items><itemLOOOOL><id>18</id><model>12</model><description>testVendor</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>5.00</price></merchant></delivery></items>
-    [test_transaction] => 100
-    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
-)
-... 
- Time and Date: 05/14/2015 05:14:40 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 05/29/2015 10:41:42 am... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 

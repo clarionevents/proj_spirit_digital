@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Clarion_Customer>
+			<active>flase</active>
+			<codePool>local</codePool>
+		</Clarion_Customer>
+	</modules>
+</config>
