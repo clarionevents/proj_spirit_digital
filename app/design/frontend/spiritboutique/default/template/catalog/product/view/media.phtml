@@ -38,6 +38,7 @@
 ?>
 <div class="product-image product-image-zoom">
     <div class="product-image-gallery">
+    	<ul class="img-direction-nav"><li class="img-nav-prev"><a class="img-flex-prev" href="#" tabindex="-1">Previous</a></li><li class="img-nav-next"><a class="img-flex-next" href="#">Next</a></li></ul>
         <img id="image-main"
              class="gallery-image visible"
              src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
@@ -49,7 +50,7 @@
             <img id="image-<?php echo $i; ?>"
                  class="gallery-image"
                  src="<?php echo $this->getGalleryImageUrl($_image); ?>"
-                 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
+                 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>"/>
             <?php endif; ?>
         <?php $i++; endforeach; ?>
     </div>
@@ -57,20 +58,93 @@
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
-    <h2><?php echo $this->__('More Views') ?></h2>
-    <ul class="product-image-thumbs">
-    <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
-        <?php if ($this->isGalleryImageVisible($_image)): ?>
-        <li>
-            <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
-                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(75); ?>"
-                     width="75" height="75" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
-            </a>
-        </li>
-        <?php endif; ?>
-    <?php $i++; endforeach; ?>
-    </ul>
+    <!-- <h2><?php //echo $this->__('More Views') ?></h2> -->
+    
+    <div class="block-content product-slider">
+	    <ul class="slides product-image-thumbs">
+	    <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+	        <?php if ($this->isGalleryImageVisible($_image)): ?>
+	        <li class="item-<?php echo $i; ?>">
+	            <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+	                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(146); ?>"
+	                     width="146" height="auto" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+	            </a>
+	        </li>
+	        <?php endif; ?>
+	    <?php $i++; endforeach; ?>
+	    </ul>
+    </div>
 </div>
 <?php endif; ?>
 
 <?php echo $this->getChildHtml('after'); ?>
+
+<script type="text/javascript">
+		  $j(window).load(function() {
+			  $j('.product-slider').flexslider({
+			    animation: "slide",
+			    animationDuration: 600,
+			    slideshow: false,
+			    animationLoop: false,
+			    itemMargin: 10,
+			    minItems: 2,
+			    maxItems: 4,
+			    direction: "vertical", 
+			    controlNav:false
+			  });
+		  
+		  
+			  $j('.img-direction-nav li').on('click',function(){
+			  	currentVisible = $j('.product-image-gallery img.visible');
+			  	dataIndex =  currentVisible.attr('id');
+			  	if(dataIndex == 'image-main'){
+			  		
+			  		dataIndex = 1;
+			  	}else{
+			  		dataIndex = dataIndex.split("-");
+			  		dataIndex = parseInt(dataIndex[1],10);
+			  		
+			  	}
+			  	
+			  	
+			  	if($j(this).hasClass('img-nav-prev')){
+			  			dataIndex --;
+			  		}else if($j(this).hasClass('img-nav-next')){
+			  			dataIndex ++;
+			  		}
+			  	
+			  	if($j('#image-' + (dataIndex)).get(0)){
+			  		$j('.product-image-thumbs li.item-' + (dataIndex) + ' a').click();
+			  	}
+			  	
+			  	var slider = $j('.product-slider').data('flexslider');
+				var animationSpeed = slider.vars.animationSpeed; 	//save animation speed to reset later
+				slider.vars.animation = 'slide';
+				slider.vars.animationSpeed = 2;
+				slider.vars.animationDuration = 600;
+				slider.flexAnimate(dataIndex, true); 				//position index for desired slide goes here
+				slider.vars.animationSpeed = animationSpeed;
+				
+			  });
+		  
+		  	  $j('.product-slider').on('mouseenter',function(){
+		  	  	
+		  	  	$j('.flex-direction-nav a').css({
+		  	  		'opacity':1
+		  	  	});
+		  	  });
+		  	  
+		  	   $j('.product-slider').on('mouseleave',function(){
+		  	  	
+		  	  	$j('.flex-direction-nav a').css({
+		  	  		'opacity':0
+		  	  	});
+		  	  });
+		  
+		  });
+		  
+		 // $j("div.flexslider ul.slides li div.slider-item-content p").html(
+		 	// $j("div.flexslider ul.slides li div.slider-item-content p").text().trunc(50) + "..."
+		 // );
+		 
+	</script>

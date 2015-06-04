@@ -51,7 +51,7 @@
                 </p>
             <?php endif; ?>
 
-            <div class="sort-by">
+            <!-- <div class="sort-by">
                 <label><?php echo $this->__('Sort By') ?></label>
                 <select onchange="setLocation(this.value)" title="<?php echo $this->__('Sort By') ?>">
                     <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
@@ -65,11 +65,11 @@
                 <?php else: ?>
                     <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>" class="sort-by-switcher sort-by-switcher--asc" title="<?php echo $this->__('Set Descending Direction') ?>"><?php echo $this->__('Set Descending Direction') ?></a>
                 <?php endif; ?>
-            </div>
+            </div> -->
         </div>
     <?php endif; ?>
     <div class="pager">
-        <div class="count-container">
+        <!-- <div class="count-container">
             <?php if($this->getLastPageNum()>1): ?>
                 <p class="amount amount--has-pages">
                     <?php echo $this->__('%s-%s of %s', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
@@ -90,10 +90,13 @@
                 <?php endforeach; ?>
                 </select>
             </div>
-        </div>
+        </div> -->
 
         <?php echo $this->getPagerHtml() ?>
-
+		
     </div>
+     <!-- <a class="view-all" href="<?php //echo $this->getLimitUrl('all')?>" title="<?php //echo $this->__('View All Products') ?>">
+		<?php //echo $this->__('View All') ?>
+	</a> -->
 </div>
 <?php endif ?>

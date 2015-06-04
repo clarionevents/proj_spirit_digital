@@ -54,5 +54,46 @@
 			<reference name="Bottom-right">
 				<block type="core/template" name="bottom-right-block" template="homepage/bottom_right.phtml" />
 			</reference>
+		<!-- END HOMEPAGE SPECIFICATION -->
+			
+		<!-- PRODUCT CATALOG -->
+			<!-- top left -->
+			<reference name="root">
+				<block type="core/text_list" name="catalog-top-left" as="catalog-top-left" translate="label">
+					<label>Catalog Top Left</label>
+				</block>
+			</reference>
+			<reference name="catalog-top-left">
+				<block type="core/template" name="catalog-top-left-block" template="page/html/catalog_top_left.phtml" />
+			</reference>
+			
+			<!-- top right -->
+			<reference name="root">
+				<block type="core/text_list" name="catalog-top-right" as="catalog-top-right" translate="label">
+					<label>Catalog Top Right</label>
+				</block>
+			</reference>
+			<reference name="catalog-top-right">
+				<block type="core/template" name="catalog-top-right-block" template="page/html/catalog_top_right.phtml" />
+			</reference>
 	</default>
+	<catalog_category_default>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left-spiritboutique.phtml</template></action>
+        </reference>
+	</catalog_category_default>
+	<catalog_product_view>
+     	<reference name="head">
+     		<action method="addItem"><type>skin_css</type><name>css/flexslider.css</name><params/></action>
+            <action method="addJs"><script>flexslider/jquery.flexslider-min.js</script></action>
+            <remove name="product_tag_list" />
+        </reference>
+         
+        <reference name="content">
+			<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed.phtml"/>
+			<block type="core/template" name="mayalsolike" template="catalog/product/view/mayalsolike.phtml"/>
+			<block type="core/template" name="moreretailer" template="catalog/product/view/moreretailer.phtml"/>
+		</reference>
+ 	</catalog_product_view>
+ 	
 </layout>

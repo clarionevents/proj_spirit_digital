@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Clarion_Customer>
-			<active>flase</active>
+			<active>false</active>
 			<codePool>local</codePool>
 		</Clarion_Customer>
 	</modules>

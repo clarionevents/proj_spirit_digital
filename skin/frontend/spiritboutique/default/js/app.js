@@ -1191,7 +1191,7 @@ var ProductMediaManager = {
             }
         }
 
-        image.elevateZoom();
+        image.elevateZoom({constrainType:"height", constrainSize:350, zoomType: "lens", containLensZoom: true, gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: "active"});
     },
 
     swapImage: function(targetImage) {

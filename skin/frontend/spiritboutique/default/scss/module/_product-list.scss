@@ -72,10 +72,13 @@ p.product-name {
 
 .products-grid .product-name,
 .products-list .product-name {
-    text-transform: uppercase;
+    text-transform: none;
     margin-bottom: 5px;
-    font-size: $f-size;
+    font-size: $f-size-xs;
+    text-align: left;
+    float: left;
     font-family: $f-stack-special;
+    max-width:130px;
 
     a {
         font-weight: 500;
@@ -132,8 +135,12 @@ $product-column-spacing: 20px;
 $productsGridActionHeight: 85px;
 
 .products-grid .product-info {
-    position: relative;
-    padding-bottom: $productsGridActionHeight + 10px;
+    position: absolute;
+    bottom: 0px;
+    padding:5px;
+    width:100%;
+    background-color: rgba(255,255,255,0.75);
+    // padding-bottom: $productsGridActionHeight + 10px;
 }
 
 .products-grid .actions {
@@ -156,6 +163,8 @@ $productsGridActionHeight: 85px;
     color: $c-text-gray;
     font-size: $f-size-s;
     margin: 0 0 5px;
+    float: right;
+    text-align:right;
 }
 
 .products-grid .add-to-links {

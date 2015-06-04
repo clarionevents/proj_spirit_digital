@@ -1,0 +1,70 @@
+<?php
+
+ /*
+ * @category    design
+ * @package     spiritboutique
+ * @copyright   Copyright (c) 2015 Clarion Digital
+ * @author 		Giovanni Capuano <giovanni.capuano@clarionevents.com>
+ */
+
+	$_product = Mage::registry('current_product');
+	
+	$_cats = $_product->getCategoryIds();
+	$_last_cat = end($_cats);
+	if($_last_cat == 170){
+		$_last_cat= $_cats[count($_cats)-2];
+	}
+	
+	$_category = Mage::getModel('catalog/category')->load($_last_cat);
+	
+	$_collection = Mage::getModel('catalog/product')
+							->getCollection()
+							->addAttributeToSelect('*')
+							->addCategoryFilter($_category)
+							->load(); 
+			$i = 0;				
+							?>
+<div class="block-title">
+	<strong><span>YOU MAY ALSO LIKE</span></strong>
+</div>
+
+<div class="flexslider">
+	<ul class="slides">
+		<?php foreach($_collection as $item): ?>
+			<?php if($i++ == 11){
+				break;
+			} ?>
+			<li>
+				<a href="<?php echo $item->getProductUrl() ?>"title="" class="carousel-image">
+						<img src="<?php echo Mage::helper('catalog/image')->init($item,'small_image')->keepFrame(true)->resize(146) ?>"width="146" height="auto" alt="" /></a>
+						<div class="slider-item-content">
+							<p>
+								<?php 
+								if( strlen($item->getName()) > 30)
+									echo substr($item->getName(), 0,30) . "...";
+								else
+									echo $item->getName();
+								?>
+							</p>
+								<?php echo $item->getPrice();?>
+						</div>
+			</li>
+		<?php endforeach ?>
+	</ul>
+</div>
+
+
+<script type="text/javascript">
+		  $j(window).load(function() {
+			  $j('.flexslider').flexslider({
+			    animation: "slide",
+			    animationLoop: false,
+			    itemWidth: 146,
+			    itemMargin: 10,
+			    minItems: 2,
+			    maxItems: 4,
+			    controlNav:false
+			  });
+		  });
+		 
+	</script>

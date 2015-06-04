@@ -158,7 +158,7 @@ textarea {
     @include border-radius(2px);
     border: 1px solid $c-input-border;
     background: #FFFFFF;
-    font-size: $f-size-l;
+    font-size: $f-size-xs;
 
     &:focus {
         border: 1px solid $c-input-border-focus;

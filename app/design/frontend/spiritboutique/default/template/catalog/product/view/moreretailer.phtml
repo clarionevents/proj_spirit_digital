@@ -1,0 +1,77 @@
+<?php
+
+ /*
+ * @category    design
+ * @package     spiritboutique
+ * @copyright   Copyright (c) 2015 Clarion Digital
+ * @author 		Giovanni Capuano <giovanni.capuano@clarionevents.com>
+ */
+
+	$_product = Mage::registry('current_product');
+	$_seller;
+	$collection = Mage::getModel('marketplace/product')->getCollection();
+	$collection->addFieldToFilter('mageproductid',array('eq'=>$_product->getId()));
+		
+	$_sellerid='';
+	foreach($collection as $record){
+		$_sellerid=$record->getuserid();
+	}
+	if($_sellerid !== ''){
+		$_seller = Mage::getModel('customer/customer')->load($_sellerid);
+		$_seller_url= Mage::getModel('marketplace/userprofile')->getPartnerProfileById($_sellerid);
+	}
+	
+	$partnerproducts = Mage::getModel('marketplace/product')
+										->getCollection()					
+										->addFieldToFilter('userid', array('eq' =>$_sellerid))				
+										->addFieldToFilter('status', array('neq' => 2))					
+										->setOrder('mageproductid')
+										->setPageSize(20)
+										->setCurPage(1);
+			$i = 0;				
+							?>
+<div class="block-title">
+	<strong><span>MORE FROM THIS RETAILER</span></strong>
+</div>
+
+<div class="flexslider">
+	<ul class="slides">
+		<?php foreach($partnerproducts as $retItem): ?>
+			<?php $item=Mage::getModel('catalog/product')->load($retItem->getMageproductid());?>
+			<?php if($i++ == 11){
+				break;
+			} ?>
+			<li>
+				<a href="<?php echo $item->getProductUrl() ?>"title="" class="carousel-image">
+						<img src="<?php echo Mage::helper('catalog/image')->init($item,'small_image')->keepFrame(true)->resize(146) ?>"width="146" height="auto" alt="" /></a>
+						<div class="slider-item-content">
+							<p>
+								<?php 
+								if( strlen($item->getName()) > 30)
+									echo substr($item->getName(), 0,30) . "...";
+								else
+									echo $item->getName();
+								?>
+							</p>
+								<?php echo $item->getPrice();?>
+						</div>
+			</li>
+		<?php endforeach ?>
+	</ul>
+</div>
+
+
+<script type="text/javascript">
+		  $j(window).load(function() {
+			  $j('.flexslider').flexslider({
+			    animation: "slide",
+			    animationLoop: false,
+			    itemWidth: 146,
+			    itemMargin: 10,
+			    minItems: 2,
+			    maxItems: 4,
+			    controlNav:false
+			  });
+		  });
+		 
+	</script>

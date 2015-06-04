@@ -35,28 +35,49 @@
 <?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
 <?php if($_count): ?>
 <div class="block block-layered-nav block-layered-nav--no-filters">
-    <div class="block-title">
-        <strong><span><?php echo $this->__('Browse By') ?></span></strong>
-    </div>
     <div class="block-content toggle-content open">
         <p class="block-subtitle block-subtitle--filter"><?php echo $this->__('Filter') ?></p>
         <dl id="narrow-by-list2">
-            <dt><?php echo $this->__('Category') ?></dt>
+            <dt><?php echo $this->getCurrentCategory()->getName(); ?></dt>
             <dd>
                 <ol>
                 <?php foreach ($_categories as $_category): ?>
                     <?php if($_category->getIsActive()): ?>
-                    <li>
-                        <a href="<?php echo $this->getCategoryUrl($_category) ?>"<?php if ($this->isCategoryActive($_category)): ?> class="current"<?php endif; ?>>
-                            <?php echo $this->escapeHtml($_category->getName()) ?>
-                            <span class="count">(<?php echo $_category->getProductCount() ?>)</span>
-                        </a>
-                    </li>
+                    <?php 
+                     $cat_obj = Mage::getModel('catalog/category')->load($_category->getId());
+                     $_newcategory= Mage::getModel('catalog/category')->getResource()->getAllChildren($_category);
+					 // if(count($_newcategory) > 0) :
+                    ?>
+                    <?php foreach ($_newcategory as $_sub_category): ?>
+                    	<?php
+                    	$subCat = Mage::getModel('catalog/category')->load($_sub_category);
+	                     if($subCat->getIsActive()): ?>
+		                    <li>
+		                        <a href="<?php echo $this->getCategoryUrl($subCat) ?>"<?php if ($this->isCategoryActive($subCat)): ?> class="current"<?php endif; ?>>
+		                            <?php echo $this->escapeHtml($subCat->getName()) ?>
+		                            <!-- <span class="count">(<?php //echo $_category->getProductCount() ?>)</span> -->
+		                        </a>
+		                    </li>
+	                    <?php endif; ?>
+               		<?php endforeach ?>
+               		<?php //endif; ?>
+               		
                     <?php endif; ?>
                 <?php endforeach ?>
                 </ol>
             </dd>
         </dl>
+        <script type="text/javascript">decorateDataList('narrow-by-list2')</script>
+    </div>
+</div>
+<?php else: ?>
+	
+	<div class="block block-layered-nav block-layered-nav--no-filters">
+    <div class="block-content toggle-content open">
+        <p class="block-subtitle block-subtitle--filter"><?php echo $this->__('Filter') ?></p>
+        <dl id="narrow-by-list2">
+            <dt><?php echo $this->getCurrentCategory()->getName(); ?></dt>
+            </dl>
         <script type="text/javascript">decorateDataList('narrow-by-list2')</script>
     </div>
 </div>

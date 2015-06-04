@@ -33,6 +33,20 @@
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
+<?php 	
+		$_seller;
+		$collection = Mage::getModel('marketplace/product')->getCollection();
+		$collection->addFieldToFilter('mageproductid',array('eq'=>$_product->getId()));
+		
+		$_sellerid='';
+		foreach($collection as $record){
+			$_sellerid=$record->getuserid();
+		} 
+		if($_sellerid !== ''){
+			$_seller = Mage::getModel('customer/customer')->load($_sellerid);
+			$_seller_url= Mage::getModel('marketplace/userprofile')->getPartnerProfileById($_sellerid);
+		}
+		?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
@@ -55,7 +69,9 @@
 
             <div class="product-shop">
                 <div class="product-name">
+                	
                     <span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                    <span>by <a href="/marketplace/seller/profile/<?php echo $_seller_url['profileurl'] ?>"><?php echo  $_seller->getName()  ?></a></span>
                 </div>
 
                 <div class="price-info">
@@ -71,11 +87,11 @@
 
                 <?php echo $this->getChildHtml('alert_urls') ?>
 
-                <?php if ($_product->getShortDescription()):?>
-                    <div class="short-description">
-                        <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-                    </div>
-                <?php endif;?>
+                <?php //if ($_product->getShortDescription()):?>
+                    <!-- <div/class="short-description">
+                        <div class="std"><?php //echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                    </div> -->
+                <?php //endif;?>
 
 
 
@@ -84,6 +100,7 @@
 
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                     <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                 <?php endif;?>
 
             </div>
@@ -113,11 +130,13 @@
             </div>
 
             <?php echo $this->getChildHtml('related_products') ?>
+            <?php echo $this->getChildHtml('mayalsolike') ?>
+            <?php echo $this->getChildHtml('moreretailer') ?>
 
             <div class="clearer"></div>
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-            <?php endif;?>
+            <?php //if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php //echo $this->getChildChildHtml('container2', '', true, true) ?>
+            <?php //endif;?>
         </form>
         <script type="text/javascript">
         //<![CDATA[

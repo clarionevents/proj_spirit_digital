@@ -116,12 +116,12 @@ h6, .h6 { @include h6; }
 }
 
 .availability.in-stock {
-    color: $c-success;
+    // color: $c-success;
 }
 
 .availability.available-soon,
 .availability.out-of-stock {
-    color: $c-danger;
+    // color: $c-danger;
 }
 
 .availability-only {
@@ -244,6 +244,20 @@ body:not(.customer-account) .block:first-child .block-title {
       }
     }
 }
+
+.block-layered-nav{
+  .block-content > dl > dt{
+  font-family: "Old Standard TT", serif !important;
+  font-size: 17px !important;
+  text-align:center;
+}
+
+a{
+  color:$c-font;
+  font-size:$f-size-xs;
+}
+  
+} 
 @include bp(max-width, $bp-medium) {
 
     .sidebar {
@@ -789,6 +803,15 @@ a.button:hover {
           }
       }
     }
+    
+    body.catalog-category-view{
+      #top-container{
+        margin-bottom: 20px;
+        .right{
+            max-width:233px;
+        }
+      }
+    }
 }
 
 .footer-before-container{
@@ -811,7 +834,12 @@ a.button:hover {
 .col-left,
 .col-right,
 .col-main {
-    padding: 0 10px;
+    // padding: 0 10px;
+    padding: 0 5px 10px 0;
+}
+
+.col-main{
+  font-size: $f-size-xs;
 }
 
 .col-left {
@@ -1574,15 +1602,25 @@ span.weee {
  */
 
 .toolbar {
-    margin-top: $box-spacing;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $c-module-border;
-    border-top: 1px solid $c-module-border;
-    background: $c-module-background;
-    padding: 5px 10px 0px 10px;
+    // margin-top: $box-spacing;
+    // margin-bottom: 15px;
+    // border-bottom: 1px solid $c-module-border;
+    // border-top: 1px solid $c-module-border;
+    // background: $c-module-background;
+    // padding: 5px 10px 0px 10px;
 
     &:after {
         @include clearfix;
+    }
+    
+    .view-all{
+      position:absolute;
+      right:0;
+      top: 35px;
+      background:#f2f2f2;
+      padding: 0px 5px;
+      color:$c-font;
+      
     }
 }
 
@@ -1679,7 +1717,9 @@ $toolbar-icon-padding-offset: 8px;
 }
 
 .pager {
-    float: right;
+    float: none;
+    max-width:395px;
+    margin:auto;
     overflow: hidden;
 
     & > .count-container {
@@ -1710,15 +1750,15 @@ $toolbar-icon-padding-offset: 8px;
     .amount,
     .limiter,
     .pages {
-        margin-bottom: 5px;
+        margin-bottom: 18px;
     }
 
 }
 
 .pages {
-    float: right;
+    float: none;
     overflow: hidden;
-    margin-left: 15px;
+    // margin-left: 15px;
 
     strong {
         display: none;
@@ -1735,64 +1775,68 @@ $toolbar-icon-padding-offset: 8px;
     border: 0;
     font-size: $f-size-s;
     text-align: center;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
     line-height: 30px;
-    width: 25px;
+    min-width: 25px;
     height: 30px;
     padding: 0;
-    color: $c-action;
+    color: $c-font;
     font-family: $f-stack-sans;
+    background: #f2f2f2;
+    margin: 0 4px;
 }
+
 
 .pages .current,
 .pages .current:hover {
     color: $c-text;
     border: 1px solid $c-module-border;
     width: 30px;
-    background-color: #FFFFFF;
+    background-color: $c-violet;
+    color: #FFFFFF;
     cursor: default;
 }
 
 .pages .next,
 .pages .previous {
     // New HP5BP technique: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757c9e03dda4e463fb0d4db5a5f82d7
-    font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
-    background-color: transparent;
-    position: relative;
-
+    // font: 0/0 a;
+    // text-shadow: none;
+    // color: transparent;
+    // background-color: transparent;
+    // position: relative;
+    padding: 0 5px;
     &:hover {
-        border: 1px solid $c-action;
+        // border: 1px solid $c-action;
     }
 }
 
 .pages .next {
-    &:before {
-        @include triangle(right, 4px, $c-action);
-        top: 50%;
-        margin-top: -3px;
-        left: 50%;
-        margin-left: -2px;
-    }
-    &:hover:before {
-        @include triangle(right, 4px, $c-stimulus);
-    }
+    // &:before {
+        // @include triangle(right, 4px, $c-action);
+        // top: 50%;
+        // margin-top: -3px;
+        // left: 50%;
+        // margin-left: -2px;
+    // }
+    // &:hover:before {
+        // @include triangle(right, 4px, $c-stimulus);
+    // }
 }
 
 .pages .previous {
-    &:before {
-        @include triangle(left, 4px, $c-action);
-        top: 50%;
-        margin-top: -3px;
-        left: 50%;
-        margin-left: -2px;
-    }
-    &:hover:before {
-        @include triangle(left, 4px, $c-stimulus);
-    }
+    // &:before {
+        // @include triangle(left, 4px, $c-action);
+        // top: 50%;
+        // margin-top: -3px;
+        // left: 50%;
+        // margin-left: -2px;
+    // }
+    // &:hover:before {
+        // @include triangle(left, 4px, $c-stimulus);
+    // }
 }
 
 @include bp(max-width, $bp-xsmall) {

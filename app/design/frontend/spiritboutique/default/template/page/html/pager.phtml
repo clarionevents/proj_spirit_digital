@@ -31,6 +31,8 @@
  * @see Mage_Page_Block_Html_Pager
  */
 ?>
+<?php //$defaultLimit = $this->getDefaultPerPageValue();
+	  //Mage::getSingleton(‘catalog/session’)->setData(“limit_page”,$defaultLimit); ?>
 <?php if($this->getCollection()->getSize()): ?>
 
     <?php if($this->getUseContainer()): ?>
@@ -121,10 +123,12 @@
         </ol>
 
     </div>
+   
     <?php endif; ?>
 
     <?php if($this->getUseContainer()): ?>
     </div>
+    
     <?php endif ?>
 
 <?php endif ?>
