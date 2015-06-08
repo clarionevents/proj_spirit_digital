@@ -30,42 +30,53 @@
 										->setCurPage(1);
 			$i = 0;				
 							?>
-<div class="block-title">
-	<strong><span>MORE FROM THIS RETAILER</span></strong>
+<div class="lateral-slider">
+	<div class="block-title">
+		<strong><span>MORE FROM THIS RETAILER</span></strong>
+		<a href="<?php echo $this->getUrl('marketplace/seller/collection').$_seller_url['profileurl']; ?>" target="_blank">View Full Range</a>
+	</div>
+	
+	<div class="flexslider collaterals">
+		<ul class="slides">
+			<?php foreach($partnerproducts as $retItem): ?>
+				<?php $item=Mage::getModel('catalog/product')->load($retItem->getMageproductid());?>
+				<?php if($i++ == 11){
+					break;
+				} ?>
+				<li>
+					<a href="<?php echo $item->getProductUrl() ?>"title="" class="carousel-image">
+						<span class="product-image">
+							<img src="<?php echo Mage::helper('catalog/image')->init($item,'small_image')->keepFrame(true)->resize(146) ?>"width="146" height="auto" alt="" />
+						</span>
+					</a>
+					<div class="slider-item-content">
+						<p>
+							<?php 
+							if( strlen($item->getName()) > 30)
+								echo substr($item->getName(), 0,30) . "...";
+							else
+								echo $item->getName();
+							?>
+						</p>
+						
+					</div>
+					<div class="price-box">
+						<span class="regular-price">
+							<span class="price">£<?php echo number_format($item->getPrice(), 2, ',', ' ');;?></span>
+						</span>
+					</div>
+				</li>
+			<?php endforeach ?>
+		</ul>
+	</div>
 </div>
-
-<div class="flexslider">
-	<ul class="slides">
-		<?php foreach($partnerproducts as $retItem): ?>
-			<?php $item=Mage::getModel('catalog/product')->load($retItem->getMageproductid());?>
-			<?php if($i++ == 11){
-				break;
-			} ?>
-			<li>
-				<a href="<?php echo $item->getProductUrl() ?>"title="" class="carousel-image">
-						<img src="<?php echo Mage::helper('catalog/image')->init($item,'small_image')->keepFrame(true)->resize(146) ?>"width="146" height="auto" alt="" /></a>
-						<div class="slider-item-content">
-							<p>
-								<?php 
-								if( strlen($item->getName()) > 30)
-									echo substr($item->getName(), 0,30) . "...";
-								else
-									echo $item->getName();
-								?>
-							</p>
-								<?php echo $item->getPrice();?>
-						</div>
-			</li>
-		<?php endforeach ?>
-	</ul>
-</div>
-
 
 <script type="text/javascript">
 		  $j(window).load(function() {
 			  $j('.flexslider').flexslider({
 			    animation: "slide",
 			    animationLoop: false,
+			    slideshow: false,
 			    itemWidth: 146,
 			    itemMargin: 10,
 			    minItems: 2,

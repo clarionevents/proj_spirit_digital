@@ -76,6 +76,7 @@
 			<reference name="catalog-top-right">
 				<block type="core/template" name="catalog-top-right-block" template="page/html/catalog_top_right.phtml" />
 			</reference>
+			<remove name="breadcrumbs" />
 	</default>
 	<catalog_category_default>
         <reference name="root">
@@ -90,9 +91,9 @@
         </reference>
          
         <reference name="content">
-			<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed.phtml"/>
-			<block type="core/template" name="mayalsolike" template="catalog/product/view/mayalsolike.phtml"/>
-			<block type="core/template" name="moreretailer" template="catalog/product/view/moreretailer.phtml"/>
+			<!-- <block type="core/template" name="moreretailer" template="catalog/product/view/moreretailer.phtml"/>
+			<block type="core/template" name="mayalsolike" template="catalog/product/view/mayalsolike.phtml"/> -->
+			<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed_slider.phtml"/>
 		</reference>
  	</catalog_product_view>
  	

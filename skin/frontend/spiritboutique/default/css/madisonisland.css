@@ -72,6 +72,7 @@ body.cms-home .slideshow-container {
 div.flexslider ul.slides li {
   margin: 0 5px;
   border: 1px #bbbaba solid;
+  width: 210px !important;
 }
 div.flexslider ul.slides li div.slider-item-content {
   overflow: hidden;

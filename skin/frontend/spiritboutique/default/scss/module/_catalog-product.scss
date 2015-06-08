@@ -28,6 +28,8 @@
  * ============================================ */
 
 .product-view {
+    overflow: hidden;
+    border-bottom: 1px #f9f9f9 solid;
     .product-essential {
 
         .extra-info {
@@ -169,7 +171,7 @@
 
     .add-to-cart-wrapper,
     .block-related {
-        width: 50%;
+        max-width: 50%;
         float: right;
         clear: right;
     }
@@ -220,6 +222,10 @@
         a.flex-next:before{
             background-position: 0 -72px;
         }
+        a.flex-prev:before{
+            background-position: 0 0px;
+            margin-top: 10px;
+        }
         
         a.flex-prev{
            top:15px;
@@ -228,8 +234,60 @@
         }
       }
     }
+    
+    
 
 }
+body.catalog-product-view {
+  div.collaterals{
+    ul.slides{
+      li{
+          border:none;
+          width:148px !important;
+          
+          div.slider-item-content{
+            background:none;
+          }
+          
+          .price-box{
+            margin:0;
+            .price{
+            float: right;
+            padding-right: 5px;
+            }
+          } 
+        }
+      }
+      
+      
+    }
+    .flex-direction-nav{
+      a{visibility:hidden;}
+      a:before{
+        visibility:visible;
+        content:'';
+        background: url("../images/arrow-sprite.png");
+        background-position: 0 -20px;
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        color: rgba(0, 0, 0, 0.8);
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+      }
+      a.flex-prev:before{background-position: 0 -46px;}
+  }
+  .block-viewed{
+    float:left;
+    width:100%;
+    div.slider-item-content{
+      .product-name{
+        text-transform: none;
+      }
+    }
+  }
+
+}
+
 .zoomContainer{
   // position:relative !important;
 }
@@ -337,7 +395,7 @@
     position: relative;
     float:left;
     width: 475px;
-    height:477px;
+    max-height:477px;
     .gallery-image {
         display: none;
 
@@ -353,7 +411,7 @@
     ul.img-direction-nav{
       z-index: 9999;
       position: absolute;
-      margin: 50% 0;
+      margin: 40% 0;
       width: 100%;
       li.img-nav-prev{
         float:left;
@@ -418,7 +476,7 @@
 // .product-view .product-shop,
 .product-view .add-to-cart-wrapper,
 .product-view .block-related {
-    padding-left: $trim/2;
+    padding-left: 5px;
 }
 
 .product-img-box {
@@ -667,8 +725,56 @@
 }
 
 .product-collateral {
-    clear: both;
-    max-width:475px;
+    float: left;
+    width:475px;
+    min-height:515px;
+    dl{
+      dd{
+        min-height:515px;
+        div.std{
+          word-wrap:break-word;
+        }
+      }
+    }
+    
+    .toggle-tabs{
+      border-bottom:none !important;
+      li{
+        width:118px;
+        text-align:center;
+        border-bottom:1px solid #CCCCCC;
+        border-left:1px solid #CCCCCC;
+        display:table;
+        span{
+          padding:0 !important;
+          line-height:inherit !important;
+          text-transform:none !important;
+          vertical-align: middle;
+          display: table-cell !important;
+        }
+      }
+      li.current {
+        background:#FFF;
+        border-bottom:1px #FFF solid;
+        border-left:none;
+      }
+      li.last.current{
+        border-right:none;
+      }
+    }
+}
+
+.lateral-slider{
+    overflow: hidden;
+    float: left;
+    max-width: 475px;
+    margin-left: 10px;
+    max-height: 290px;
+    .block-title{
+      a{
+        float:right;
+      }
+    }
 }
 
 .collateral-tabs {
@@ -716,6 +822,10 @@
 
     .product-view .product-shop .product-name {
         display: block;
+        span.seller-name{
+          float:left;
+          clear:both;
+        }
     }
     .product-img-box .product-name {
         display: none;

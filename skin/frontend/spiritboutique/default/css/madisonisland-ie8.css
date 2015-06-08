@@ -1,59 +1,262 @@
 /*
-Error: File to import not found or unreadable: content/home.
-       Load paths:
-         Compass::SpriteImporter
-         c:/www/spirit-boutique/skin/frontend/spiritboutique/default/scss
-         c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets
-        on line 38 of c:/www/spirit-boutique/skin/frontend/spiritboutique/default/scss/../scss/madisonisland-ie8.scss
+// ----------------------------------------------
+// Usage example:
+// For IE set $mq-support to false.
+// Set the fixed value.
+// Then use mixins to test whether styles should be applied.
+// ----------------------------------------------
 
-33: @import "framework";
-34: 
-35: // ----------------------------------------------
-36: // Content
-37: 
-38: @import "content/home";
+$mq-support: false;
+$mq-fixed-value: 1024;
 
-Backtrace:
-c:/www/spirit-boutique/skin/frontend/spiritboutique/default/scss/../scss/madisonisland-ie8.scss:38
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:66:in `rescue in import'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:45:in `import'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:28:in `imported_file'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/import_node.rb:37:in `css_import?'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:20:in `render'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/engine.rb:268:in `render'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:328:in `block in watch'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:252:in `call'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+// Renders at fixed value
+@include bp (min-width, 300px) { 
+    div { color:#000; }
+}
+
+// Doesn't render without MQ support
+@include bp (min-width, 1200px) { 
+    div { color:#FFF; }
+}
+
+// Doesn't render without MQ support
+@include bp (max-width, 300px) { 
+    div { color:#444; }
+}
+
+// Renders at fixed value
+@include bp (max-width, 1200px) { 
+    div { color:#888; }
+}
+
+// ----------------------------------------------
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: content/home.\A        Load paths:\A          Compass::SpriteImporter\A          c:/www/spirit-boutique/skin/frontend/spiritboutique/default/scss\A          c:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets\A         on line 38 of c:/www/spirit-boutique/skin/frontend/spiritboutique/default/scss/../scss/madisonisland-ie8.scss\A \A 33: @import \"framework\";\A 34: \A 35: // ----------------------------------------------\A 36: // Content\A 37: \A 38: @import \"content/home\";"; }
+/* ============================================ *
+ * Homepage
+ * ============================================ */
+/* -------------------------------------------- *
+ * Primary Banner
+ */
+body.cms-home .main-container {
+  padding-top: 20px;
+}
+body.cms-home .slideshow-container {
+  margin-top: 0;
+}
+
+.slideshow .banner-msg {
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  top: 30%;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.slideshow .banner-msg h2 {
+  color: #FFFFFF;
+  font-size: 24px;
+  text-shadow: 1px 1px 3px #555555;
+}
+
+.slideshow .banner-msg h2 strong {
+  font-weight: bold;
+  display: block;
+  font-size: 36px;
+}
+
+div.flexslider ul.slides li {
+  margin: 0 5px;
+  border: 1px #bbbaba solid;
+  width: 210px !important;
+}
+div.flexslider ul.slides li div.slider-item-content {
+  overflow: hidden;
+  background: rgba(187, 186, 186, 0.3);
+  height: 45px;
+}
+div.flexslider ul.slides li div.slider-item-content p {
+  font-size: 12px;
+  max-width: 150px;
+  float: left;
+  padding: 5px;
+}
+div.flexslider ul.slides li div.slider-item-content div.price-box {
+  font-size: 17px;
+  float: right;
+  padding: 0 5px 0 0;
+}
+
+/* -------------------------------------------- *
+ * Promotion Banner Section
+ */
+.promos {
+  margin: 0 0 10px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.promos:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Specifying the body only in order to override the .std ul li styling */
+body .promos > li {
+  margin: 0 0 10px 0;
+  list-style: none;
+  text-align: center;
+  position: relative;
+  border: 1px solid #CCCCCC;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.promos > li:last-child {
+  margin-bottom: 0;
+}
+
+.promos img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.promos a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  display: block;
+}
+
+.promos span {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 10%;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  text-shadow: 1px 1px 3px #555555;
+}
+
+.promos strong {
+  font-weight: 600;
+  font-size: 26px;
+  display: block;
+}
+
+div.main-header {
+  height: 35px;
+  display: table;
+  background: #d0d0d0;
+  border: 1px #bbbaba solid;
+  width: 100%;
+  margin-bottom: 20px;
+}
+div.main-header h3 {
+  color: #FFF;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.widget {
+  float: left;
+  clear: none;
+  position: relative;
+  margin: 5px 0;
+}
+.widget h3 {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 8px 0;
+  position: absolute;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+#mid-container {
+  width: 100%;
+  max-height: 340px;
+  overflow: hidden;
+  margin: 20px 0;
+  border-bottom: 1px #f5f5f5 solid;
+}
+
+#bottom-left {
+  margin-right: 5px;
+}
+
+#bottom-right {
+  margin-left: 5px;
+}
+
+#bottom-left,
+#bottom-right {
+  float: left;
+}
+#bottom-left .widget,
+#bottom-right .widget {
+  clear: both;
+}
+
+.promos span {
+  font-size: 16px;
+}
+
+.promos strong {
+  font-size: 17px;
+}
+
+/* Config: Three columns + flexible gutter */
+body .promos > li {
+  float: left;
+  width: 31.74603%;
+  margin-right: 2.38095%;
+}
+
+.promos > li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.promos span {
+  font-size: 18px;
+}
+
+.promos strong {
+  font-size: 24px;
+}
+
+/* -------------------------------------------- *
+ * New Products Section
+ */
+/* Hiding the reviews content via CSS because we can't modify the template, */
+/* since it may be used in other places where those elements are needed */
+.cms-index-index .products-grid .ratings,
+.cms-index-index .products-grid .actions,
+.cms-index-noroute .products-grid .ratings,
+.cms-index-noroute .products-grid .actions {
+  display: none;
+}
+
+.cms-index-index h2.subtitle {
+  padding: 6px 0;
+  text-align: center;
+  color: #3399CC;
+  font-weight: 600;
+  border-bottom: 1px solid #CCCCCC;
+  border-top: 1px solid #CCCCCC;
+}
+
+.cms-index-noroute h2.subtitle {
+  display: none;
+}

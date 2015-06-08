@@ -5093,6 +5093,10 @@ p.product-name a:hover {
 /* ============================================ *
  * Catalog - Product
  * ============================================ */
+.product-view {
+  overflow: hidden;
+  border-bottom: 1px #f9f9f9 solid;
+}
 .product-view .product-essential .extra-info .ratings .rating-box,
 .product-view .product-essential .extra-info .ratings .amount {
   float: left;
@@ -5200,7 +5204,7 @@ p.product-name a:hover {
 }
 .product-view .add-to-cart-wrapper,
 .product-view .block-related {
-  width: 50%;
+  max-width: 50%;
   float: right;
   clear: right;
 }
@@ -5244,10 +5248,53 @@ p.product-name a:hover {
 .product-view div.product-slider .flex-direction-nav a.flex-next:before {
   background-position: 0 -72px;
 }
+.product-view div.product-slider .flex-direction-nav a.flex-prev:before {
+  background-position: 0 0px;
+  margin-top: 10px;
+}
 .product-view div.product-slider .flex-direction-nav a.flex-prev {
   top: 15px;
   bottom: auto;
   left: 30%;
+}
+
+body.catalog-product-view div.collaterals ul.slides li {
+  border: none;
+  width: 148px !important;
+}
+body.catalog-product-view div.collaterals ul.slides li div.slider-item-content {
+  background: none;
+}
+body.catalog-product-view div.collaterals ul.slides li .price-box {
+  margin: 0;
+}
+body.catalog-product-view div.collaterals ul.slides li .price-box .price {
+  float: right;
+  padding-right: 5px;
+}
+body.catalog-product-view .flex-direction-nav a {
+  visibility: hidden;
+}
+body.catalog-product-view .flex-direction-nav a:before {
+  visibility: visible;
+  content: '';
+  background: url("../images/arrow-sprite.png");
+  background-position: 0 -20px;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+body.catalog-product-view .flex-direction-nav a.flex-prev:before {
+  background-position: 0 -46px;
+}
+body.catalog-product-view .block-viewed {
+  float: left;
+  width: 100%;
+}
+body.catalog-product-view .block-viewed div.slider-item-content .product-name {
+  text-transform: none;
 }
 
 @media only screen and (max-width: 850px) {
@@ -5315,7 +5362,7 @@ p.product-name a:hover {
   position: relative;
   float: left;
   width: 475px;
-  height: 477px;
+  max-height: 477px;
 }
 .product-image-gallery .gallery-image {
   display: none;
@@ -5329,7 +5376,7 @@ p.product-name a:hover {
 .product-image-gallery ul.img-direction-nav {
   z-index: 9999;
   position: absolute;
-  margin: 50% 0;
+  margin: 40% 0;
   width: 100%;
 }
 .product-image-gallery ul.img-direction-nav li.img-nav-prev {
@@ -5408,7 +5455,7 @@ p.product-name a:hover {
 
 .product-view .add-to-cart-wrapper,
 .product-view .block-related {
-  padding-left: 15px;
+  padding-left: 5px;
 }
 
 .product-view .product-shop,
@@ -5622,8 +5669,51 @@ p.product-name a:hover {
   }
 }
 .product-collateral {
-  clear: both;
+  float: left;
+  width: 475px;
+  min-height: 515px;
+}
+.product-collateral dl dd {
+  min-height: 515px;
+}
+.product-collateral dl dd div.std {
+  word-wrap: break-word;
+}
+.product-collateral .toggle-tabs {
+  border-bottom: none !important;
+}
+.product-collateral .toggle-tabs li {
+  width: 118px;
+  text-align: center;
+  border-bottom: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  display: table;
+}
+.product-collateral .toggle-tabs li span {
+  padding: 0 !important;
+  line-height: inherit !important;
+  text-transform: none !important;
+  vertical-align: middle;
+  display: table-cell !important;
+}
+.product-collateral .toggle-tabs li.current {
+  background: #FFF;
+  border-bottom: 1px #FFF solid;
+  border-left: none;
+}
+.product-collateral .toggle-tabs li.last.current {
+  border-right: none;
+}
+
+.lateral-slider {
+  overflow: hidden;
+  float: left;
   max-width: 475px;
+  margin-left: 10px;
+  max-height: 290px;
+}
+.lateral-slider .block-title a {
+  float: right;
 }
 
 .collateral-tabs dd h2 {
@@ -5644,8 +5734,6 @@ p.product-name a:hover {
   }
   .product-collateral .toggle-tabs li {
     float: left;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
   }
   .product-collateral .toggle-tabs li > span {
     -moz-user-select: none;
@@ -5817,6 +5905,10 @@ p.product-name a:hover {
 @media only screen and (min-width: 771px) {
   .product-view .product-shop .product-name {
     display: block;
+  }
+  .product-view .product-shop .product-name span.seller-name {
+    float: left;
+    clear: both;
   }
 
   .product-img-box .product-name {
