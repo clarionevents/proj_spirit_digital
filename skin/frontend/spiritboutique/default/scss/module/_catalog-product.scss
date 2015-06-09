@@ -290,6 +290,7 @@ body.catalog-product-view {
 
 .zoomContainer{
   // position:relative !important;
+  // z-index:1102;
 }
 @include bp(max-width, 850px) {
     .product-view {
@@ -409,15 +410,20 @@ body.catalog-product-view {
     }
     
     ul.img-direction-nav{
-      z-index: 9999;
+      
       position: absolute;
       margin: 40% 0;
       width: 100%;
       li.img-nav-prev{
         float:left;
+        z-index: 9999;
+        position:absolute;
       }
       li.img-nav-next{
         float:right;
+        z-index: 9999;
+        position:absolute;
+        right:0;
       }
       
       a{

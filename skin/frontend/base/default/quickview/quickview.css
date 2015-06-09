@@ -1,0 +1,4 @@
+.quick-view-holder{position:relative;display:none}
+ul.products-grid .quick-view-holder button.button{bottom: 20px;left: 25px;position: absolute;}
+ol.products-list .quick-view-holder button.button{left: 20px;position: absolute;top: 50px;}
+ul.products-grid li:hover .quick-view-holder, ol.products-list li:hover .quick-view-holder{display:block}

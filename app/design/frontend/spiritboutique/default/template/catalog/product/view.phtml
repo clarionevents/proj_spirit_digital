@@ -197,7 +197,12 @@
         <?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):?>
             <dl id="collateral-tabs" class="collateral-tabs">
                 <?php foreach ($detailedInfoGroup as $alias => $html):?>
-                    <dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+                	<?php if($this->escapeHtml($this->getChildData($alias, 'title')) == ""):?>
+                		<dt class="tab"><span><?php echo 'Description' ?></span></dt>
+                	<?php else: ?>
+                		<dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+                	<?php endif;?>
+                   
                     <dd class="tab-container">
                         <div class="tab-content"><?php echo $html ?></div>
                     </dd>
@@ -243,3 +248,4 @@
     <?php echo $this->getChildHtml('mayalsolike') ?>
 
 </div>
+

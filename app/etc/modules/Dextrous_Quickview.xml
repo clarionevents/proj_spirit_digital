@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dextrous_Quickview>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Dextrous_Quickview>
+    </modules>
+</config> 

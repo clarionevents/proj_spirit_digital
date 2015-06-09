@@ -97,3 +97,110 @@ div.social{
   
 }
 
+body.catalog-category-view{
+  #fancybox-wrap{
+    width:716px !important;
+    height:500px !important;
+    .product-image-gallery,
+    .product-img-box .product-image img{
+        width: 327px;
+        max-height: 328px;
+    }
+    .product-img-box{
+      width:330px;
+    }
+    .product-shop{
+        width: 300px;
+        .product-options dd select{
+          margin-bottom:0;
+        }
+    }
+    div.more-views{
+      max-width: 450px;
+      float: none;
+      
+      div.product-slider{
+          max-width: 450px;
+          width:100%;
+        .flex-viewport{
+          min-height:inherit;
+          width:327px;
+          margin-left: -5px;
+          li{
+              margin-right: 20px;
+              border: none;
+              img{
+                  border: 1px #f1efef solid;
+              }
+              &:hover{
+                border: none;
+              }
+          }
+          li,
+          li a,
+          li a img{
+              width:97px !important;
+              height:97px !important;
+            }
+        }
+        .flex-direction-nav{  
+          width: 100%;
+          max-width: 290px;
+          height: 26px;
+          /* overflow: hidden; */
+          position: absolute; 
+          
+          a{
+            margin:-100px 0 0;
+            &:before{
+              height:26px;
+            }
+          }
+          
+          li.flex-nav-prev{
+            position:relative;
+            float:left;
+          }
+          li.flex-nav-next{
+            position:relative;
+            float:right;
+          }
+          a.flex-next:before{
+              background-position: 0 -20px;
+              margin: 20px 0 10px 0;
+          }
+          a.flex-prev:before{
+              background-position: 0 -46px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+body.catalog-category-view{
+  
+  .quick-links{
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    height: 35px;
+    z-index: 9999;
+    background-color: rgba(100,100,100,0.5);
+    color: #FFF;
+    display:none;
+    opacity:0;
+    div{
+      float: left;
+      width: 60px;
+      margin-right: 12px;
+      a{
+        color:#FFF;
+      }
+    }
+  }
+  li.visible .quick-links{
+    display:inherit;
+  }
+}

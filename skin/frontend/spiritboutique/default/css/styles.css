@@ -3202,6 +3202,105 @@ div.social ul.social li.blog a {
   height: 32px;
 }
 
+body.catalog-category-view #fancybox-wrap {
+  width: 716px !important;
+  height: 500px !important;
+}
+body.catalog-category-view #fancybox-wrap .product-image-gallery,
+body.catalog-category-view #fancybox-wrap .product-img-box .product-image img {
+  width: 327px;
+  max-height: 328px;
+}
+body.catalog-category-view #fancybox-wrap .product-img-box {
+  width: 330px;
+}
+body.catalog-category-view #fancybox-wrap .product-shop {
+  width: 300px;
+}
+body.catalog-category-view #fancybox-wrap .product-shop .product-options dd select {
+  margin-bottom: 0;
+}
+body.catalog-category-view #fancybox-wrap div.more-views {
+  max-width: 450px;
+  float: none;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider {
+  max-width: 450px;
+  width: 100%;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport {
+  min-height: inherit;
+  width: 327px;
+  margin-left: -5px;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li {
+  margin-right: 20px;
+  border: none;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li img {
+  border: 1px #f1efef solid;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li:hover {
+  border: none;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li a,
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li a img {
+  width: 97px !important;
+  height: 97px !important;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav {
+  width: 100%;
+  max-width: 290px;
+  height: 26px;
+  /* overflow: hidden; */
+  position: absolute;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a {
+  margin: -100px 0 0;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a:before {
+  height: 26px;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-prev {
+  position: relative;
+  float: left;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-next {
+  position: relative;
+  float: right;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-next:before {
+  background-position: 0 -20px;
+  margin: 20px 0 10px 0;
+}
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-prev:before {
+  background-position: 0 -46px;
+}
+
+body.catalog-category-view .quick-links {
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  height: 35px;
+  z-index: 9999;
+  background-color: rgba(100, 100, 100, 0.5);
+  color: #FFF;
+  display: none;
+  opacity: 0;
+}
+body.catalog-category-view .quick-links div {
+  float: left;
+  width: 60px;
+  margin-right: 12px;
+}
+body.catalog-category-view .quick-links div a {
+  color: #FFF;
+}
+body.catalog-category-view li.visible .quick-links {
+  display: inherit;
+}
+
 /* ============================================ *
  * Header
  * ============================================ */
@@ -4481,6 +4580,10 @@ p.product-name a:hover {
   float: left;
   width: 47.72727%;
   margin-right: 4.54545%;
+  border: 1px #f5f5f5 solid;
+}
+.products-grid > li a {
+  border: none;
 }
 
 .products-grid > li:nth-child(odd) {
@@ -5374,16 +5477,20 @@ body.catalog-product-view .block-viewed div.slider-item-content .product-name {
   visibility: hidden;
 }
 .product-image-gallery ul.img-direction-nav {
-  z-index: 9999;
   position: absolute;
   margin: 40% 0;
   width: 100%;
 }
 .product-image-gallery ul.img-direction-nav li.img-nav-prev {
   float: left;
+  z-index: 9999;
+  position: absolute;
 }
 .product-image-gallery ul.img-direction-nav li.img-nav-next {
   float: right;
+  z-index: 9999;
+  position: absolute;
+  right: 0;
 }
 .product-image-gallery ul.img-direction-nav a {
   top: auto;
