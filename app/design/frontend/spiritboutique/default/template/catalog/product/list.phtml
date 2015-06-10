@@ -70,16 +70,25 @@
                         <?php echo $this->getReviewsSummaryHtml($_product) ?>
                         <?php endif; ?>
                         <?php
+						//set product collection on after blocks
+						$_afterChildren = $this->getChild('after')->getSortedChildren();
+						foreach($_afterChildren as $_afterChildName):
+						$_afterChild = $this->getChild('after')->getChild($_afterChildName);
+						$_afterChild->setProductCollection($_productCollection);
+						?>
+						<?php echo $_afterChild->toHtml(); ?>
+						<?php endforeach; ?>
+                        <?php
                         // Provides extra blocks on which to hang some features for products in the list
                         // Features providing UI elements targeting this block will display directly below the product name
-                        if ($this->getChild('name.after')) {
-                            $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
-                            foreach ($_nameAfterChildren as $_nameAfterChildName) {
-                                $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
-                                $_nameAfterChild->setProduct($_product);
-                                echo $_nameAfterChild->toHtml();
-                            }
-                        }
+                        // if ($this->getChild('name.after')) {
+                            // $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
+                            // foreach ($_nameAfterChildren as $_nameAfterChildName) {
+                                // $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
+                                // $_nameAfterChild->setProduct($_product);
+                                // echo $_nameAfterChild->toHtml();
+                            // }
+                        // }
                         ?>
                     </div>
                     <div class="product-secondary">
@@ -124,10 +133,12 @@
             <?php /*if ($i++%$_columnCount==0): ?>
             <?php endif*/ ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
-            	<div class="quick-links">
-        		<a>Add to Basket</a>
-        		<a>Personalise this item</a>
-        	</div>
+	        	<div class="quick-links">
+	            	<div class="quick-link"><a href='<?php echo $this->getUrl('quickview/index/options',array('product_id'=>$_product->getId()));?>' class='ajax-fancybox' id='fancybox<?php echo $_product->getId()?>'>Quick view</a></div>	
+	        		<div class="quick-link"><a href="#" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')">Add to Basket</a></div>
+	        		<div class="quick-link"><a href="<?php echo $_product->getProductUrl() ?>">Personalise this item</a></div>
+	        	</div>
+        		
                 <a id="pb_item_<?php echo $_product->getId()?>" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                     <?php $_imgSize = 210; ?>
                     <img id="product-collection-image-<?php echo $_product->getId(); ?>"
@@ -195,3 +206,24 @@ if ($this->getChild('after')) {
     }
 }
 ?>
+<script type="text/javascript">
+        	var lastHover;
+        	$j('.products-grid > li').on('mouseenter', function(e){
+        		$j(e.currentTarget).addClass('visible');
+        		$j(e.currentTarget).children('div.quick-links').animate({
+        			'opacity':1
+        		},1000);
+        		
+        		lastHover = e.currentTarget;
+        	});
+        	
+        	$j('.products-grid > li').on('mouseleave', function(e){
+        		$j('.products-grid > li.visible').removeClass('visible');
+        		if($j(lastHover)){
+        			$j(lastHover).children('div.quick-links').animate({
+        				'opacity':0
+        			},1000);
+        		}
+        		
+        	});
+</script>

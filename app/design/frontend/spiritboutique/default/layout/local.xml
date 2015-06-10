@@ -79,13 +79,15 @@
 			<remove name="breadcrumbs" />
 	</default>
 	<catalog_category_default>
-		<reference name="head">
-			
-		</reference>
         <reference name="root">
             <action method="setTemplate"><template>page/2columns-left-spiritboutique.phtml</template></action>
         </reference>
 	</catalog_category_default>
+	<catalog_category_layered>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left-spiritboutique.phtml</template></action>
+        </reference>
+    </catalog_category_layered>
 	<catalog_product_view>
      	<reference name="head">
      		<action method="addItem"><type>skin_css</type><name>css/flexslider.css</name><params/></action>
@@ -99,5 +101,26 @@
 			<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed_slider.phtml"/>
 		</reference>
  	</catalog_product_view>
- 	
+ 	<catalogsearch_result_index translate="label">
+ 		<reference name="head">
+			<action method="addItem" ifconfig="quickview/setting/loadjquery"><type>skin_js</type><name>quickview/jquery-1.4.3.min.js</name><params/></action>
+			<action method="addItem" ifconfig="quickview/setting/enable"><type>skin_js</type><name>quickview/jquery.mousewheel-3.0.4.pack.js</name><params/></action>
+			<action method="addItem" ifconfig="quickview/setting/enable"><type>skin_js</type><name>quickview/quickview.js</name><params/></action>
+			<action method="addItem" ifconfig="quickview/setting/enable"><type>skin_js</type><name>quickview/jquery.fancybox-1.3.4.pack.js</name><params/></action>
+			<action method="addItem" ifconfig="quickview/setting/enable"><type>skin_css</type><name>quickview/jquery.fancybox-1.3.4.css</name><params/></action>
+			<action method="addItem" ifconfig="quickview/setting/enable"><type>skin_css</type><name>quickview/quickview.css</name><params/></action>
+			<action method="addItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
+            <action method="addItem"><type>skin_css</type><name>css/flexslider.css</name><params/></action>
+			<action method="addItem"><type>js</type><name>flexslider/jquery.flexslider-min.js</name></action>
+			<action method="addItem"><type>js</type><name>custom/popup.js</name></action>
+		</reference>
+	    <reference name="root">
+	        <action method="setTemplate"><template>page/2columns-left-spiritboutique.phtml</template></action>
+	    </reference>
+	    <reference name="product_list">
+			<action method="setTemplate" ifconfig="quickview/setting/enable">
+				<template>catalog/product/list.phtml</template>
+			</action>
+		</reference>
+	</catalogsearch_result_index>
 </layout>

@@ -669,7 +669,12 @@ a.button:hover {
 .btn-remove {
     &:after {
         content: 'X';
-        color: $c-action;
+        visibility:visible;
+        padding:5px;
+        position:relative;
+        right:30px;
+        color: #FFF;
+        background-color: $c-action;
         height: 20px;
         line-height: 20px;
         width: 100%;
@@ -788,8 +793,8 @@ a.button:hover {
       
       #top-container{
           overflow: hidden;
-          padding-bottom: 20px;
-          border-bottom: 1px $c-block-divider solid;
+          // padding-bottom: 20px;
+          // border-bottom: 1px $c-block-divider solid;
           .left-column{
             float:left;
           }
@@ -806,7 +811,7 @@ a.button:hover {
     
     body.catalog-category-view{
       #top-container{
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         .right{
             max-width:233px;
         }

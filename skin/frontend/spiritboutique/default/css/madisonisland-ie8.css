@@ -163,10 +163,15 @@ div.main-header {
   margin-bottom: 20px;
 }
 div.main-header h3 {
-  color: #FFF;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
+}
+div.main-header h3 a {
+  color: #FFF;
+}
+div.main-header h3 a:hover {
+  text-decoration: none;
 }
 
 .widget {

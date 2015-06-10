@@ -28,7 +28,7 @@ div.menu a span {
     display: block;
     height: 28px;
     padding-right: 0px;
-    padding-top: 12px;
+    padding-top: 6px;
 }
 div.menu a span:hover {
     cursor: pointer;

@@ -97,13 +97,18 @@ div.social{
   
 }
 
-body.catalog-category-view{
+body.catalog-category-view,
+body.catalogsearch-result-index{
   #fancybox-wrap{
+    
+    #fancybox-content{
+      position:static;
+    }
     width:716px !important;
     height:500px !important;
     .product-image-gallery,
     .product-img-box .product-image img{
-        width: 327px;
+        max-width: 327px;
         max-height: 328px;
     }
     .product-img-box{
@@ -179,7 +184,8 @@ body.catalog-category-view{
   }
 }
 
-body.catalog-category-view{
+body.catalog-category-view,
+body.catalogsearch-result-index{
   
   .quick-links{
     width: 100%;
@@ -194,7 +200,7 @@ body.catalog-category-view{
     div{
       float: left;
       width: 60px;
-      margin-right: 12px;
+      margin-right: 11px;
       a{
         color:#FFF;
       }

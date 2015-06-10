@@ -218,3 +218,7 @@ div.country-profile select#countrypic {
 .ratings .content {
   overflow: hidden;
 }
+
+body.marketplace-seller-collection .price-box .price, body.marketplace-seller-collection .price {
+  font-size: 12px;
+}

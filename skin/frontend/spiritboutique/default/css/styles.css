@@ -1215,7 +1215,12 @@ a.button:hover {
 
 .btn-remove:after {
   content: 'X';
-  color: #e44294;
+  visibility: visible;
+  padding: 5px;
+  position: relative;
+  right: 30px;
+  color: #FFF;
+  background-color: #e44294;
   height: 20px;
   line-height: 20px;
   width: 100%;
@@ -1340,8 +1345,6 @@ a.button:hover {
 
   .main-container #top-container {
     overflow: hidden;
-    padding-bottom: 20px;
-    border-bottom: 1px #f5f5f5 solid;
   }
   .main-container #top-container .left-column {
     float: left;
@@ -1354,9 +1357,6 @@ a.button:hover {
     margin-right: 9px;
   }
 
-  body.catalog-category-view #top-container {
-    margin-bottom: 20px;
-  }
   body.catalog-category-view #top-container .right {
     max-width: 233px;
   }
@@ -3202,83 +3202,110 @@ div.social ul.social li.blog a {
   height: 32px;
 }
 
-body.catalog-category-view #fancybox-wrap {
+body.catalog-category-view #fancybox-wrap,
+body.catalogsearch-result-index #fancybox-wrap {
   width: 716px !important;
   height: 500px !important;
 }
+body.catalog-category-view #fancybox-wrap #fancybox-content,
+body.catalogsearch-result-index #fancybox-wrap #fancybox-content {
+  position: static;
+}
 body.catalog-category-view #fancybox-wrap .product-image-gallery,
-body.catalog-category-view #fancybox-wrap .product-img-box .product-image img {
-  width: 327px;
+body.catalog-category-view #fancybox-wrap .product-img-box .product-image img,
+body.catalogsearch-result-index #fancybox-wrap .product-image-gallery,
+body.catalogsearch-result-index #fancybox-wrap .product-img-box .product-image img {
+  max-width: 327px;
   max-height: 328px;
 }
-body.catalog-category-view #fancybox-wrap .product-img-box {
+body.catalog-category-view #fancybox-wrap .product-img-box,
+body.catalogsearch-result-index #fancybox-wrap .product-img-box {
   width: 330px;
 }
-body.catalog-category-view #fancybox-wrap .product-shop {
+body.catalog-category-view #fancybox-wrap .product-shop,
+body.catalogsearch-result-index #fancybox-wrap .product-shop {
   width: 300px;
 }
-body.catalog-category-view #fancybox-wrap .product-shop .product-options dd select {
+body.catalog-category-view #fancybox-wrap .product-shop .product-options dd select,
+body.catalogsearch-result-index #fancybox-wrap .product-shop .product-options dd select {
   margin-bottom: 0;
 }
-body.catalog-category-view #fancybox-wrap div.more-views {
+body.catalog-category-view #fancybox-wrap div.more-views,
+body.catalogsearch-result-index #fancybox-wrap div.more-views {
   max-width: 450px;
   float: none;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider {
   max-width: 450px;
   width: 100%;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport {
   min-height: inherit;
   width: 327px;
   margin-left: -5px;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li {
   margin-right: 20px;
   border: none;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li img {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li img,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li img {
   border: 1px #f1efef solid;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li:hover {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li:hover,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li:hover {
   border: none;
 }
 body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
 body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li a,
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li a img {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li a img,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li a,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li a img {
   width: 97px !important;
   height: 97px !important;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav {
   width: 100%;
   max-width: 290px;
   height: 26px;
   /* overflow: hidden; */
   position: absolute;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a {
   margin: -100px 0 0;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a:before {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a:before,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a:before {
   height: 26px;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-prev {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-prev,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-prev {
   position: relative;
   float: left;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-next {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-next,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav li.flex-nav-next {
   position: relative;
   float: right;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-next:before {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-next:before,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-next:before {
   background-position: 0 -20px;
   margin: 20px 0 10px 0;
 }
-body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-prev:before {
+body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-prev:before,
+body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-direction-nav a.flex-prev:before {
   background-position: 0 -46px;
 }
 
-body.catalog-category-view .quick-links {
+body.catalog-category-view .quick-links,
+body.catalogsearch-result-index .quick-links {
   width: 100%;
   position: absolute;
   margin: auto;
@@ -3289,15 +3316,18 @@ body.catalog-category-view .quick-links {
   display: none;
   opacity: 0;
 }
-body.catalog-category-view .quick-links div {
+body.catalog-category-view .quick-links div,
+body.catalogsearch-result-index .quick-links div {
   float: left;
   width: 60px;
-  margin-right: 12px;
+  margin-right: 11px;
 }
-body.catalog-category-view .quick-links div a {
+body.catalog-category-view .quick-links div a,
+body.catalogsearch-result-index .quick-links div a {
   color: #FFF;
 }
-body.catalog-category-view li.visible .quick-links {
+body.catalog-category-view li.visible .quick-links,
+body.catalogsearch-result-index li.visible .quick-links {
   display: inherit;
 }
 
@@ -3661,7 +3691,7 @@ a.skip-link {
 #custommenu .menu div.menu0 a:after {
   content: '';
   display: block;
-  margin: -17px auto auto 15px;
+  margin: -24px auto auto 15px;
   width: 32px;
   height: 32px;
   background: url(../images/spirit-sprite.png);
@@ -3888,7 +3918,7 @@ a.skip-link {
   }
   #header-search form {
     width: 100%;
-    max-width: 462px;
+    max-width: 340px;
   }
   #header-search form .input-box,
   #header-search form select {
@@ -5493,6 +5523,7 @@ body.catalog-product-view .block-viewed div.slider-item-content .product-name {
   right: 0;
 }
 .product-image-gallery ul.img-direction-nav a {
+  cursor: pointer;
   top: auto;
   left: 30%;
   visibility: hidden;

@@ -184,10 +184,15 @@ div.main-header{
   margin-bottom:20px;
   
   h3{
-    color:#FFF;
     display: table-cell;
     text-align:center;
     vertical-align:middle;
+    a{
+      color:#FFF;
+      &:hover{
+        text-decoration:none;
+      }
+    }
   }
 }
 
