@@ -76,13 +76,13 @@
                 <!-- Add stylesheets with media queries for use by modern browsers -->
                 <action method="addItem"><type>skin_css</type><name>css/styles.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                 <action method="addItem"><type>skin_css</type><name>css/marketplace.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/marketplace.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                  
 
                 <!-- Sets viewport meta tag using text block -->
-                <block type="core/text" name="head.viewport">
+                <!-- <block type="core/text" name="head.viewport">
                     <action method="setText"><text><![CDATA[<meta name="viewport" content="initial-scale=1.0, width=device-width" />]]>&#10;</text></action>
-                </block>
+                </block> -->
             </block>
 
             <block type="core/text_list" name="after_body_start" as="after_body_start" translate="label">
@@ -245,4 +245,5 @@
             <action method="setLayoutCode"><name>three_columns</name></action>
         </reference>
     </page_three_columns>
+    
 </layout>

@@ -146,6 +146,7 @@ div.block2 .pickoftheweek h4{
 div.block2 .pickoftheweek img,
 div.block2 .pickoftheweek .product-name{
         margin:auto;
+        max-width: 160px;
     }
 
 div.block2 .highlights h4{

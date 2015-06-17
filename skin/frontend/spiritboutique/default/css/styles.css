@@ -3146,6 +3146,7 @@ form .form-instructions {
 html,
 body {
   height: 100%;
+  min-width: 960px;
 }
 
 div.page {
@@ -3205,7 +3206,12 @@ div.social ul.social li.blog a {
 body.catalog-category-view #fancybox-wrap,
 body.catalogsearch-result-index #fancybox-wrap {
   width: 716px !important;
-  height: 500px !important;
+  min-height: 500px !important;
+  height: auto !important;
+}
+body.catalog-category-view #fancybox-wrap .product-collateral,
+body.catalogsearch-result-index #fancybox-wrap .product-collateral {
+  display: none;
 }
 body.catalog-category-view #fancybox-wrap #fancybox-content,
 body.catalogsearch-result-index #fancybox-wrap #fancybox-content {
@@ -3245,6 +3251,7 @@ body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider
   min-height: inherit;
   width: 327px;
   margin-left: -5px;
+  float: left;
 }
 body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
 body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li {
@@ -3329,6 +3336,109 @@ body.catalogsearch-result-index .quick-links div a {
 body.catalog-category-view li.visible .quick-links,
 body.catalogsearch-result-index li.visible .quick-links {
   display: inherit;
+}
+
+body.one-column-catalog ul.products-grid,
+body.two-column-catalog ul.products-grid {
+  max-width: 765px;
+  margin: auto;
+}
+body.one-column-catalog ul.products-grid li,
+body.two-column-catalog ul.products-grid li {
+  list-style: none;
+  float: left;
+  clear: none;
+  width: 210px;
+  margin: 0 10px 10px 10px;
+}
+body.one-column-catalog ul.products-grid li .quick-links,
+body.two-column-catalog ul.products-grid li .quick-links {
+  height: auto !important;
+}
+body.one-column-catalog ul.products-grid li .quick-links .quick-link,
+body.two-column-catalog ul.products-grid li .quick-links .quick-link {
+  width: 60px !important;
+  font-size: 12px;
+  font-style: normal;
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+  margin-right: 0;
+}
+body.one-column-catalog ul.products-grid li .product-info,
+body.two-column-catalog ul.products-grid li .product-info {
+  min-height: 20px !important;
+  font-style: normal;
+}
+body.one-column-catalog ul.products-grid li .product-info .product-name,
+body.two-column-catalog ul.products-grid li .product-info .product-name {
+  text-transform: none;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-align: left;
+  float: left;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  max-width: 130px;
+  font-style: normal;
+}
+
+body.cms-spirit-picks div.categories-block ul.categories li {
+  list-style: none;
+  float: left;
+  position: relative;
+  margin-left: 0;
+  padding: 10px;
+}
+body.cms-spirit-picks div.categories-block ul.categories li p {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  margin-top: -50px;
+  width: 100%;
+  padding: 5px;
+}
+body.cms-spirit-picks div.categories-block ul.categories li p span {
+  color: #000;
+  text-transform: uppercase;
+  font-style: normal;
+  margin: auto;
+  text-shadow: 1px 1px 3px #FFF;
+}
+
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller {
+  list-style: none;
+  width: 100%;
+  min-height: 90px;
+  margin-bottom: 10px;
+}
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller span {
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+}
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller .seller-data {
+  max-height: 80px;
+  float: left;
+  width: 600px;
+}
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller a {
+  float: left;
+}
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller a img {
+  max-width: 80px;
+  height: auto;
+  width: 100%;
+}
+body.cms-our-boutiques div.sellers ul.sellers-list li.seller a.text {
+  margin-left: 10px;
+}
+
+body.cms-gift-ideas h4 {
+  border-bottom: 1px solid #f9f9f9;
+  border-top: 1px solid #f9f9f9;
+  padding: 10px;
+  font-family: "Old Standard TT", serif;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 /* ============================================ *
@@ -3930,6 +4040,11 @@ a.skip-link {
     max-width: 230px;
     margin-left: 10px;
     font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+    font-size: 12px;
+  }
+  #header-search form select option {
+    font-size: 12px;
+    max-width: 139px;
   }
   #header-search img {
     float: left;
@@ -6179,6 +6294,7 @@ body.catalog-product-view .block-viewed div.slider-item-content .product-name {
 
 .product-options dd .input-text {
   width: 98%;
+  margin-bottom: 20px;
 }
 
 .product-options dd .input-box {

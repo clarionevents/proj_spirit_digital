@@ -1,0 +1,23 @@
+<?php 
+$category = Mage::getModel('catalog/category')->load(243);
+$subcategories = $category->getChildrenCategories();
+
+?>
+
+<?php foreach ($subcategories as $item): ?>
+	<div class="categories-block">
+		<ul class="categories">
+			<li>
+				<a href="<?php echo $item->getUrl()?>">
+					<?php
+						$thumbnail=Mage::getModel('catalog/category')->load($item->getId())->getImageUrl();
+					 ?>
+					<img src="<?php echo $thumbnail ?>" />
+					<p><span class="title"><?php echo $item->getName() ?></span></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+<?php endforeach;?>
+

@@ -30,6 +30,7 @@
 html,
 body {
     height: 100%;
+    min-width: 960px;
 }
 
 div.page{
@@ -96,16 +97,18 @@ div.social{
 }
   
 }
-
 body.catalog-category-view,
 body.catalogsearch-result-index{
   #fancybox-wrap{
-    
+    .product-collateral{
+      display:none;
+    }
     #fancybox-content{
       position:static;
     }
     width:716px !important;
-    height:500px !important;
+    min-height:500px !important;
+    height:auto !important;
     .product-image-gallery,
     .product-img-box .product-image img{
         max-width: 327px;
@@ -131,6 +134,7 @@ body.catalogsearch-result-index{
           min-height:inherit;
           width:327px;
           margin-left: -5px;
+          float:left;
           li{
               margin-right: 20px;
               border: none;
@@ -183,7 +187,6 @@ body.catalogsearch-result-index{
     
   }
 }
-
 body.catalog-category-view,
 body.catalogsearch-result-index{
   
@@ -208,5 +211,120 @@ body.catalogsearch-result-index{
   }
   li.visible .quick-links{
     display:inherit;
+  }
+}
+
+body.one-column-catalog,
+body.two-column-catalog{
+  ul.products-grid{
+      max-width: 765px;
+      margin: auto;
+      li{
+        list-style:none;
+        float: left;
+        clear: none;
+        width: 210px;
+        margin: 0 10px 10px 10px;
+        .quick-links{
+          height:auto !important;
+          .quick-link{
+            width:60px !important;
+            font-size:12px;
+            font-style:normal;
+            font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+            margin-right:0;
+          }
+        }
+        .product-info{
+          min-height:20px !important;
+          font-style:normal;
+          .product-name{
+              text-transform: none;
+              margin-bottom: 5px;
+              font-size: 12px;
+              text-align: left;
+              float: left;
+              font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+              max-width: 130px;
+              font-style:normal;
+          }
+        }
+      }
+  }
+}
+
+body.cms-spirit-picks{
+  div.categories-block{
+    ul.categories{
+      li{
+        list-style: none;
+        float: left;
+        position:relative;
+        margin-left:0;
+        padding:10px;
+        p{
+          text-align: center;
+          background: rgba(255,255,255,0.5);
+          position: absolute;
+          margin-top: -50px;
+          width: 100%;
+          padding: 5px;
+          span{
+              color: #000;
+              text-transform: uppercase;
+              font-style: normal;
+              margin: auto;
+              text-shadow: 1px 1px 3px #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.cms-our-boutiques{
+  div.sellers{
+    ul.sellers-list{
+      li.seller{
+        list-style:none;
+        width: 100%;
+        min-height: 90px;
+        margin-bottom: 10px;
+        span{
+            font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+            font-size:12px;
+            font-style: normal;
+            line-height: normal;
+        }
+        .seller-data{
+            max-height: 80px;
+            float: left;
+            width: 600px;
+        }
+        a{
+          float:left;
+          img{
+            max-width:80px;
+            height:auto;
+            width:100%;
+          }
+        }
+        a.text{
+          margin-left:10px;
+          // margin-top: 60px;
+        }
+      }
+    }
+  }
+}
+
+body.cms-gift-ideas{
+  h4{
+    border-bottom: 1px solid #f9f9f9;
+  border-top: 1px solid #f9f9f9;
+  padding: 10px;
+  font-family: "Old Standard TT", serif;
+  font-size: 18px;
+  font-weight: normal;
   }
 }

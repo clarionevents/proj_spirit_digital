@@ -202,6 +202,9 @@ div.main-header h3 a:hover {
   position: relative;
   margin: 5px 0;
 }
+.widget a {
+  color: #636363;
+}
 .widget h3 {
   background: rgba(255, 255, 255, 0.75);
   padding: 8px 0;

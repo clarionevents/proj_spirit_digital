@@ -273,7 +273,7 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
      * Order success action
      */
     public function successAction()
-    {
+    {	
         $session = $this->getOnepage()->getCheckout();
         if (!$session->getLastSuccessQuoteId()) {
             $this->_redirect('checkout/cart');

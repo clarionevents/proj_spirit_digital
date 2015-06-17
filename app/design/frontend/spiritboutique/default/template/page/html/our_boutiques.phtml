@@ -1,0 +1,39 @@
+<?php 
+	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection();
+?>
+
+<div class="sellers">
+	<ul class="sellers-list">
+		<?php foreach($_sellers as $seller): ?>
+			<?php
+				$customer = Mage::getModel('customer/customer')->load($seller->getMageuserid()); 
+				$logo = Mage::getModel('customer/customer')->load($seller->getMageuserid()); 
+				if($logo == NULL || $logo == '' || $logo){
+					$logo ="noimage.png";
+				}
+			?>
+			<li class="seller">
+				<a href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
+					<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'avatar/' . $logo ?>"/>
+				</a>
+				<div class="seller-data">
+					<a class="text" href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
+						<span class="name"><?php echo $customer->getName() ?></span>
+					</a>
+					<?php 
+					
+						$customerdata =  json_decode($seller->getcompdesi());
+						
+					
+					?>
+					<?php if ($customerdata->{'description'} != ''):?>
+					<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($customerdata->{'description'}, 1, 150) . "..."; ?></span>
+					<?php else: ?>
+					<a class="text" href="mailto:<?php echo  $customer->getemail()?>">Contact the seller</a>
+					<?php  endif;?>
+				</div>
+				
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</div>
