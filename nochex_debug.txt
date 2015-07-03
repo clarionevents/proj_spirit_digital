@@ -468,3 +468,55 @@
 )
 ... 
  Time and Date: 07/03/2015 02:39:47 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - Description Field: Order created for: 100000087. \n XML Collection Data: <items><item><id>102</id><model>HVS</model><description>Havana Bracelets</description><qty>1</qty><price>15.0000</price><merchant_id>example2@example.com</merchant_id></item><item><id>103</id><model>HEARTSBLKGREY</model><description>Pure Cashmere Hearts Sweater Black + Greys</description><qty>1</qty><price>175.0000</price><merchant_id>Jessica@orwellausten.com</merchant_id></item><item><id>104</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>example2@example.com</merchant_id><price>0</price></merchant><merchant><merchant_id>Jessica@orwellausten.com</merchant_id><price>8.5</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - Amount: 243.49. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000087
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 243.49
+    [postage] => 
+    [description] => Order created for: 100000087
+    [item_collection] => <items><item><id>102</id><model>HVS</model><description>Havana Bracelets</description><qty>1</qty><price>15.0000</price><merchant_id>example2@example.com</merchant_id></item><item><id>103</id><model>HEARTSBLKGREY</model><description>Pure Cashmere Hearts Sweater Black + Greys</description><qty>1</qty><price>175.0000</price><merchant_id>Jessica@orwellausten.com</merchant_id></item><item><id>104</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>example2@example.com</merchant_id><price>0</price></merchant><merchant><merchant_id>Jessica@orwellausten.com</merchant_id><price>8.5</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000087
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 243.49
+    [postage] => 
+    [description] => Order created for: 100000087
+    [item_collection] => <items><item><id>102</id><model>HVS</model><description>Havana Bracelets</description><qty>1</qty><price>15.0000</price><merchant_id>example2@example.com</merchant_id></item><item><id>103</id><model>HEARTSBLKGREY</model><description>Pure Cashmere Hearts Sweater Black + Greys</description><qty>1</qty><price>175.0000</price><merchant_id>Jessica@orwellausten.com</merchant_id></item><item><id>104</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>example2@example.com</merchant_id><price>0</price></merchant><merchant><merchant_id>Jessica@orwellausten.com</merchant_id><price>8.5</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 04:32:44 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
