@@ -1,157 +1,470 @@
 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - Description Field: Order created for: 100000044. \n XML Collection Data: <items><item><id>48</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>49</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - Billing Address: dfsaf. Shipping Address: dfsaf... 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - Amount: 16.1. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - All Fields: Array
+ Time and Date: 06/24/2015 06:18:27 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - Description Field: Order created for: 100000076. \n XML Collection Data: <items><item><id>87</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>6</qty><price>18.275</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - Billing Address: sdfafasdf. Shipping Address: sdfafasdf... 
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - Amount: 119.15. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => giovanni.capuano@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000044
-    [billing_fullname] => dfsadf dfsafa
+    [order_id] => 100000076
+    [billing_fullname] => asdfasdf sdfdasf
     [customer_phone_number] => 0123456789
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => dfsaf
-    [billing_city] => dfasfas
-    [billing_postcode] => dsfasfd
-    [delivery_fullname] => dfsadf dfsafa
-    [delivery_address] => dfsaf
-    [delivery_city] => dfasfas
-    [delivery_postcode] => dsfasfd
-    [amount] => 16.1
+    [email_address] => sfdasdf@sdfaf.com
+    [billing_address] => sdfafasdf
+    [billing_city] => sdfafsa
+    [billing_postcode] => dsfasf
+    [delivery_fullname] => asdfasdf sdfdasf
+    [delivery_address] => sdfafasdf
+    [delivery_city] => sdfafsa
+    [delivery_postcode] => dsfasf
+    [amount] => 119.15
     [postage] => 
-    [description] => Order created for: 100000044
-    [item_collection] => <items><item><id>48</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>49</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>
+    [description] => Order created for: 100000076
+    [item_collection] => <items><item><id>87</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>6</qty><price>18.275</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant></delivery></items>
 )
 ... 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - All Fields: Array
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => giovanni.capuano@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000044
-    [billing_fullname] => dfsadf dfsafa
+    [order_id] => 100000076
+    [billing_fullname] => asdfasdf sdfdasf
     [customer_phone_number] => 0123456789
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => dfsaf
-    [billing_city] => dfasfas
-    [billing_postcode] => dsfasfd
-    [delivery_fullname] => dfsadf dfsafa
-    [delivery_address] => dfsaf
-    [delivery_city] => dfasfas
-    [delivery_postcode] => dsfasfd
-    [amount] => 16.1
+    [email_address] => sfdasdf@sdfaf.com
+    [billing_address] => sdfafasdf
+    [billing_city] => sdfafsa
+    [billing_postcode] => dsfasf
+    [delivery_fullname] => asdfasdf sdfdasf
+    [delivery_address] => sdfafasdf
+    [delivery_city] => sdfafsa
+    [delivery_postcode] => dsfasf
+    [amount] => 119.15
     [postage] => 
-    [description] => Order created for: 100000044
-    [item_collection] => <items><item><id>48</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>49</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>
+    [description] => Order created for: 100000076
+    [item_collection] => <items><item><id>87</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>6</qty><price>18.275</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 06/17/2015 12:55:34 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - Description Field: Order created for: 100000045. \n XML Collection Data: <items><item><id>50</id><model>MRMRS</model><description>Vintage Apple Crate Mr and Mrs Signs</description><qty>1</qty><price>12.50</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>51</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - Billing Address: fasdfasdf. Shipping Address: fasdfasdf... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - Amount: 28.25. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - All Fields: Array
+ Time and Date: 06/24/2015 06:20:13 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - Description Field: Order created for: 100000078. \n XML Collection Data: <items><item><id>89</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - Amount: 31. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000045
-    [billing_fullname] => fasfdsaf dfsafdasf
-    [customer_phone_number] => 0132456789
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => fasdfasdf
-    [billing_city] => sdafasf
-    [billing_postcode] => dfsadfaf
-    [delivery_fullname] => fasfdsaf dfsafdasf
-    [delivery_address] => fasdfasdf
-    [delivery_city] => sdafasf
-    [delivery_postcode] => dfsadfaf
-    [amount] => 28.25
+    [order_id] => 100000078
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
     [postage] => 
-    [description] => Order created for: 100000045
-    [item_collection] => <items><item><id>50</id><model>MRMRS</model><description>Vintage Apple Crate Mr and Mrs Signs</description><qty>1</qty><price>12.50</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>51</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant></delivery></items>
+    [description] => Order created for: 100000078
+    [item_collection] => <items><item><id>89</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>
 )
 ... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - All Fields: Array
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000045
-    [billing_fullname] => fasfdsaf dfsafdasf
-    [customer_phone_number] => 0132456789
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => fasdfasdf
-    [billing_city] => sdafasf
-    [billing_postcode] => dfsadfaf
-    [delivery_fullname] => fasfdsaf dfsafdasf
-    [delivery_address] => fasdfasdf
-    [delivery_city] => sdafasf
-    [delivery_postcode] => dfsadfaf
-    [amount] => 28.25
+    [order_id] => 100000078
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
     [postage] => 
-    [description] => Order created for: 100000045
-    [item_collection] => <items><item><id>50</id><model>MRMRS</model><description>Vintage Apple Crate Mr and Mrs Signs</description><qty>1</qty><price>12.50</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>51</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price> 9.5</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant></delivery></items>
+    [description] => Order created for: 100000078
+    [item_collection] => <items><item><id>89</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 06/17/2015 01:15:01 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - Description Field: Order created for: 100000046. \n XML Collection Data: <items><item><id>52</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>53</id><model>ACCHA001</model><description>Dhurrie Bags</description><qty>1</qty><price>95.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><item><id>54</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>info@acchadesigns.com</merchant_id><price> 8</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - Billing Address: sdfsdfa. Shipping Address: sdfsdfa... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - Amount: 119.1. Postage: . Postage Field On (1) / Off (0) - 0... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - All Fields: Array
+ Time and Date: 07/03/2015 01:51:05 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - Description Field: Order created for: 100000080. \n XML Collection Data: <items><item><id>91</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - Amount: 31. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000046
-    [billing_fullname] => sdfadfas fsdafsaf
-    [customer_phone_number] => 0123456798
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => sdfsdfa
-    [billing_city] => fdsadf
-    [billing_postcode] => sdf
-    [delivery_fullname] => sdfadfas fsdafsaf
-    [delivery_address] => sdfsdfa
-    [delivery_city] => fdsadf
-    [delivery_postcode] => sdf
-    [amount] => 119.1
+    [order_id] => 100000080
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
     [postage] => 
-    [description] => Order created for: 100000046
-    [item_collection] => <items><item><id>52</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>53</id><model>ACCHA001</model><description>Dhurrie Bags</description><qty>1</qty><price>95.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><item><id>54</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>info@acchadesigns.com</merchant_id><price> 8</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>
+    [description] => Order created for: 100000080
+    [item_collection] => <items><item><id>91</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>
 )
 ... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - All Fields: Array
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - All Fields: Array
 (
-    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [merchant_id] => cratesales@vintageapplecrates.com
     [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
     [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
     [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
-    [order_id] => 100000046
-    [billing_fullname] => sdfadfas fsdafsaf
-    [customer_phone_number] => 0123456798
-    [email_address] => gianni.cpn@gmail.com
-    [billing_address] => sdfsdfa
-    [billing_city] => fdsadf
-    [billing_postcode] => sdf
-    [delivery_fullname] => sdfadfas fsdafsaf
-    [delivery_address] => sdfsdfa
-    [delivery_city] => fdsadf
-    [delivery_postcode] => sdf
-    [amount] => 119.1
+    [order_id] => 100000080
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
     [postage] => 
-    [description] => Order created for: 100000046
-    [item_collection] => <items><item><id>52</id><model>12</model><description>Lights</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><item><id>53</id><model>ACCHA001</model><description>Dhurrie Bags</description><qty>1</qty><price>95.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><item><id>54</id><model>1234</model><description>Umbrella</description><qty>1</qty><price>5.00</price><merchant_id>giovanni.capuano@clarionevents.com</merchant_id></item><delivery><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price> 1.25</price></merchant><merchant><merchant_id>info@acchadesigns.com</merchant_id><price> 8</price></merchant><merchant><merchant_id>giovanni.capuano@clarionevents.com</merchant_id><price>4.85</price></merchant></delivery></items>
+    [description] => Order created for: 100000080
+    [item_collection] => <items><item><id>91</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id></merchant></delivery></items>
     [test_transaction] => 100
     [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
 )
 ... 
- Time and Date: 06/17/2015 02:32:15 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:07:07 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - Description Field: Order created for: 100000081. \n XML Collection Data: <items><item><id>92</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>9.5</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - Amount: 31. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000081
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
+    [postage] => 
+    [description] => Order created for: 100000081
+    [item_collection] => <items><item><id>92</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>9.5</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000081
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 31
+    [postage] => 
+    [description] => Order created for: 100000081
+    [item_collection] => <items><item><id>92</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>1</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>9.5</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:19:30 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - Description Field: Order created for: 100000082. \n XML Collection Data: <items><item><id>93</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - Amount: 106. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000082
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 106
+    [postage] => 
+    [description] => Order created for: 100000082
+    [item_collection] => <items><item><id>93</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000082
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 106
+    [postage] => 
+    [description] => Order created for: 100000082
+    [item_collection] => <items><item><id>93</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:24:24 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - Description Field: Order created for: 100000083. \n XML Collection Data: <items><item><id>94</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>95</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - Amount: 99.99. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => enquiries@ladedaliving.co.uk
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000083
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 99.99
+    [postage] => 
+    [description] => Order created for: 100000083
+    [item_collection] => <items><item><id>94</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>95</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => enquiries@ladedaliving.co.uk
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000083
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 99.99
+    [postage] => 
+    [description] => Order created for: 100000083
+    [item_collection] => <items><item><id>94</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>95</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:28:48 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - Description Field: Order created for: 100000084. \n XML Collection Data: <items><item><id>96</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>97</id><model>B210</model><description>Two Tone Square Opal Bracelet</description><qty>1</qty><price>95.0000</price><merchant_id>David@lavanjewellery.co.uk</merchant_id></item><item><id>98</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>3</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>David@lavanjewellery.co.uk</merchant_id><price>0</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - Amount: 278.99. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => enquiries@ladedaliving.co.uk
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000084
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 278.99
+    [postage] => 
+    [description] => Order created for: 100000084
+    [item_collection] => <items><item><id>96</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>97</id><model>B210</model><description>Two Tone Square Opal Bracelet</description><qty>1</qty><price>95.0000</price><merchant_id>David@lavanjewellery.co.uk</merchant_id></item><item><id>98</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>3</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>David@lavanjewellery.co.uk</merchant_id><price>0</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => enquiries@ladedaliving.co.uk
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000084
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 278.99
+    [postage] => 
+    [description] => Order created for: 100000084
+    [item_collection] => <items><item><id>96</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><item><id>97</id><model>B210</model><description>Two Tone Square Opal Bracelet</description><qty>1</qty><price>95.0000</price><merchant_id>David@lavanjewellery.co.uk</merchant_id></item><item><id>98</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>3</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant><merchant><merchant_id>David@lavanjewellery.co.uk</merchant_id><price>0</price></merchant><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:32:58 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - Description Field: Order created for: 100000085. \n XML Collection Data: <items><item><id>99</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><item><id>100</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - Amount: 99.99. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000085
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 99.99
+    [postage] => 
+    [description] => Order created for: 100000085
+    [item_collection] => <items><item><id>99</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><item><id>100</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => Christofer.Anderson@clarionevents.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000085
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 99.99
+    [postage] => 
+    [description] => Order created for: 100000085
+    [item_collection] => <items><item><id>99</id><model>SET</model><description>Baby, Mummy And Daddy Silver Plated Vintage Spoon Set</description><qty>1</qty><price>42.0000</price><merchant_id>enquiries@ladedaliving.co.uk</merchant_id></item><item><id>100</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>2</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>enquiries@ladedaliving.co.uk</merchant_id><price>2.99</price></merchant><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>12</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:36:58 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - Description Field: Order created for: 100000086. \n XML Collection Data: <items><item><id>101</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - Billing Address: 79 Christchurch Avenue, London. Shipping Address: 79 Christchurch Avenue, London... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - Amount: 106. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000086
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 106
+    [postage] => 
+    [description] => Order created for: 100000086
+    [item_collection] => <items><item><id>101</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => cratesales@vintageapplecrates.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000086
+    [billing_fullname] => Robert Rockatansky
+    [customer_phone_number] => 02346789256
+    [email_address] => giovanni.capuano@clarionevents.com
+    [billing_address] => 79 Christchurch Avenue, London
+    [billing_city] => London
+    [billing_postcode] => UK
+    [delivery_fullname] => Robert Rockatansky
+    [delivery_address] => 79 Christchurch Avenue, London
+    [delivery_city] => London
+    [delivery_postcode] => UK
+    [amount] => 106
+    [postage] => 
+    [description] => Order created for: 100000086
+    [item_collection] => <items><item><id>101</id><model>cratefitlid</model><description>Vintage Apple Crate with Fitted Lid</description><qty>4</qty><price>21.5000</price><merchant_id>cratesales@vintageapplecrates.com</merchant_id></item><delivery><merchant><merchant_id>cratesales@vintageapplecrates.com</merchant_id><price>20</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 07/03/2015 02:39:47 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 

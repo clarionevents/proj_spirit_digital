@@ -36,5 +36,6 @@
                 <button type="submit" class="button"><span><span><?php echo $this->__('Login') ?></span></span></button>
             </div>
         </div>
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
     </form>
 </div>

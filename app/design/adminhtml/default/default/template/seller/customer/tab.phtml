@@ -1,0 +1,31 @@
+<?php
+/**
+ * Custom tab template
+ */
+ 
+ $customerid=Mage::registry('current_customer')->getId();
+ $collection = Mage::getModel('clarion_seller/shippingprices')->getCollection()
+															  ->addFilter('mageuserid', $customerid)
+															  ->setPageSize(1);
+															  
+ $shipping_type;
+ $shipping_file;
+ foreach($collection as $item){
+ 	$shipping_type = $item->getType();
+	$shipping_file = $item->getShippingcsv();
+ }				  
+?>
+<div class="input-field">
+	<label for="shipping_type">Shipping type</label>
+	<select name="shipping_type" id="shipping_type" value="<?php echo $shipping_type ?>">
+		<option value="weight">weight</option>
+  		<option value="price">price</option>
+  		<option value="number">number</option>
+	</select>
+</div>
+
+<div class="input-field">
+	<label for="shipping_csv">Shipping csv</label>
+	<input type="text" class="input-text" name="shipping_csv" id="shipping_csv" value="<?php echo $shipping_file ?>"/>
+</div>
+

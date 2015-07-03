@@ -255,3 +255,34 @@ body.marketplace-seller-collection{
      font-size:12px;
    }
  }
+.wk_imagedelete {
+  font-weight: 900;
+  position: absolute;
+  cursor:pointer;
+  top: -10px;
+  right: -10px;
+  background: url(../images/icon-close.png);
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  }
+  
+  .image_set .setimage{
+    padding:5px; 
+    float:left;
+    border: 1px #EEEEEE solid;
+    position: relative;
+    margin: 20px 10px;
+    img{
+      margin:auto;
+      with:auto;
+    }
+    }
+    
+    button.adship{
+      float: left; 
+      clear: both;
+    }
+    button.addcusop{
+      margin-top:10px;
+    }

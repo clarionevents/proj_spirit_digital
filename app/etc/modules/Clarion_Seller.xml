@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <config>
 	<modules>
-		<Clarion_Customer>
+		<Clarion_Seller>
 			<active>true</active>
 			<codePool>local</codePool>
-		</Clarion_Customer>
+			<depends>
+                <Mage_Shipping />
+            </depends>
+		</Clarion_Seller>
 	</modules>
 </config>
