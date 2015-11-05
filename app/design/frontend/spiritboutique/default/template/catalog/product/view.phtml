@@ -75,7 +75,13 @@
                 <div class="product-name">
                 	
                     <span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
-                    <span class="seller-name">by <a href="/marketplace/seller/profile/<?php echo $_seller_url['profileurl'] ?>"><?php echo  $_seller->getName()  ?></a></span>
+                    <span class="seller-name">by <a href="/marketplace/seller/profile/<?php echo $_seller_url['profileurl'] ?>">
+                    	<?php if(!strcmp($_seller->getLastname(),".")){?>
+							<span class="name"><?php echo $_seller->getName() ?></span>
+						<?php }else{?>
+							<span class="name"><?php echo $_seller->getFirstname() ?></span>
+						<?php }?>
+					</a></span>
                 </div>
 
                 <div class="price-info">
@@ -85,7 +91,7 @@
                 </div>
 
                 <div class="extra-info">
-                    <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                    <!-- <?php echo $this->getReviewsSummaryHtml($_product, 'default', false)?> -->
                     <?php echo $this->getChildHtml('product_type_availability'); ?>
                 </div>
 

@@ -915,7 +915,7 @@ $j(document).ready(function () {
         }
 
         //Toggle on tab (dt) click.
-        dts.on('click', function (e) {
+        dts.click(function (e) {
             //They clicked the current dt to close it. Restore the wrapper to unclicked state.
             if (jQuery(this).hasClass('current') && wrapper.hasClass('accordion-open')) {
                 wrapper.removeClass('accordion-open');

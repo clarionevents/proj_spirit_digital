@@ -1,0 +1,455 @@
+<?php 			
+	$helper=Mage::helper('customoption');
+	$pricetype=array('fixed'=>$helper->__('Fixed'),'percent'=>$helper->__('Percent'));
+	$isrequired=array('0'=>$helper->__('No'),'1'=>$helper->__('YES'));?>
+<li>	
+	<label><?php echo $helper->__('Custom Option'); ?> :</label>
+	<div class="input-box wk_customoptionwidth">			
+		<div id="coption">		
+			<div id="othercustomoption">	
+			<?php
+			$baseCurrencyCode = Mage::app()->getStore()->getBaseCurrencyCode();
+			$currentCurrencyCode = Mage::app()->getStore()->getCurrentCurrencyCode();
+			$magentoProductModel = Mage::getModel('catalog/product')->load($this->getRequest()->getParam('id'));	
+			$option = $magentoProductModel->getProductOptionsCollection(); 	
+			$i=1;				
+			if((count($option))>0) {
+				$count=0;
+				foreach ($option as $opt) {
+					$fieldtype=array(
+						'drop_down'=>$helper->__('Drop Down'),
+						'radio'=>$helper->__('Radio Buttons'),
+						'checkbox'=>$helper->__('Checkbox'),
+						'multiple'=>$helper->__('Multiple Select'),
+						'field'=>$helper->__('Field'),
+						'area'=>$helper->__('Area'),
+						'file'=>$helper->__('File'),
+						'date'=>$helper->__('Date'),
+						'date_time'=>$helper->__('Date & Time'),
+						'time'=>$helper->__('Time'),
+					);?>	
+					<div class="customoption">		
+						<div class="head">	
+							<!-- <span class="label"><?php echo $helper->__('Title'); ?></span>
+							<span class="label"><?php echo $helper->__('Input Type'); ?></span>
+							<span class="label"><?php echo $helper->__('Is Required'); ?></span>
+							<span class="label"><?php echo $helper->__('Sort Order'); ?></span> -->
+							<button class="button deletecusopt" type="button" title=" <?php echo $helper->__('Delete Option'); ?>" data-option-id="<?php echo $opt['option_id']; ?>"><span><span><span><?php echo $helper->__('Delete Option'); ?></span></span></span></button>
+						</div>
+						<input name="removeoptions[]" value="<?php echo $opt['option_id']; ?>" type="hidden" />
+						<span class="label"><?php echo $helper->__('Title'); ?></span>
+						<input type="text" value="<?php echo $opt['title']; ?>" name="options[<?php echo $count; ?>][title]"  />
+						<span class="label"><?php echo $helper->__('Input Type'); ?></span>
+						<select name="options[<?php echo $count; ?>][type]" disabled>						
+							<option value="drop_down">	
+								<?php echo $fieldtype[$opt['type']]; ?>	
+							</option>						
+						</select>						
+						<input class="customoption_type" type="hidden" name="options[<?php echo $count; ?>][type]" value="<?php echo $opt['type']; ?>"  data_option_index="<?php echo $count;?>"/>		
+						<input type="hidden" name="options[<?php echo $count; ?>][option_id]" value="<?php echo $opt->getId(); ?>" />
+						<input type="hidden" class="customoptindex" name="options[<?php echo $count; ?>][customoptindex]" value="<?php echo $count; ?>" />
+						<span class="label"><?php echo $helper->__('Is Required'); ?></span>
+						<select name="options[<?php echo $count; ?>][is_require]" >				
+							<option value="1" <?php echo $isrequired[$opt['is_require']]=="Yes"? "selected":""; ?> ><?php echo $helper->__('Yes') ?></option>
+							<option value="0" <?php echo $isrequired[$opt['is_require']]=="No"? "selected":""; ?> ><?php echo $helper->__('No') ?></option>							
+						</select>			
+						<span class="label"><?php echo $helper->__('Sort Order'); ?></span>			
+						<input id="" class="widthinput" type="text" name="options[<?php echo $count; ?>][sort_order]" value="<?php echo $opt['sort_order'];?>"/>			
+						<?php				
+						$select=array('drop_down','radio','checkbox','multiple');
+						if(in_array($opt['type'],$select)){
+							$currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+							$currencylabel =  " (". Mage::app()->getLocale()
+														->currency($currency_code)->getSymbol().")"; ?>							
+							<div class="customoption">		
+								<div class="head">		
+									<span class="label"><?php echo $helper->__('Title'); ?></span>
+									<span class="label">								
+										<?php echo $helper->__('Price'); ?><b><?php echo $currencylabel;?></b>
+									</span>									
+									<span class="label"><?php echo $helper->__('Price Type'); ?></span>
+									<span class="label"><?php echo $helper->__('SKU'); ?></span>
+									<span class="label"><?php echo $helper->__('Sort Order'); ?></span>
+								</div>
+								<?php 
+								$j=0;	
+								$values = $opt->getValues();
+								foreach($values as $v){
+									// $baseCurrencyCode = Mage::app()->getStore()->getBaseCurrencyCode();
+									// $currentCurrencyCode = Mage::app()->getStore()->getCurrentCurrencyCode();
+									// $price = Mage::helper('directory')->currencyConvert($v['price'],$baseCurrencyCode, $currentCurrencyCode); 
+									if($v['price_type'] == 'fixed')		
+										$price = Mage::helper('directory')->currencyConvert($v['price'], $baseCurrencyCode, $currentCurrencyCode);
+									else
+										$price = $v['price'];
+									?>
+									<div id="" class="wk_row">		
+										<input type="text" value="<?php echo $v['title'];  ?>" name="selectoptions[<?php echo $count; ?>][<?php echo $j;?>][title]"  />
+										<input type="text" value="<?php echo number_format($price, 2, '.', ''); ?>" name="selectoptions[<?php echo $count; ?>][<?php echo $j;?>][price]" />							
+										<select name="selectoptions[<?php echo $count; ?>][<?php echo $j;?>][price_type]">
+											<option value="fixed" <?php echo ($v['price_type']=="fixed")? "selected":""; ?> ><?php echo $helper->__('Fixed') ?></option>
+											<option value="percent" <?php echo ($v['price_type']=="percent")? "selected":""; ?> ><?php echo $helper->__('Percent') ?></option>									
+										</select>
+										<input type="text" value="<?php echo $v['sku'];  ?>" name="selectoptions[<?php echo $count; ?>][<?php echo $j;?>][sku]" />
+										<input type="text" value="<?php echo $v['sort_order'];  ?>" name="selectoptions[<?php echo $count; ?>][<?php echo $j;?>][sort_order]" />
+										<button class="button removeOption delete" type="button" title=" Delete Option ">	
+											<span><span><span>X</span></span></span>	
+										</button>
+									</div>
+									<?php $j++; 
+								} ?>
+								<button title="Add Option" type="button" class="button addOption">	
+									<span><span><span><?php echo $helper->__('Add Option');?></span></span></span>	
+								</button>
+							</div> <?php
+						}elseif(in_array($opt['type'],array('field','area','date','date_time','time'))){
+							$display="style=display:none;";
+							if($opt['type']=="area"||$opt['type']=="field"){
+								$display="";
+							} 
+							if($opt['price_type'] == 'fixed')		
+								$price = Mage::helper('directory')->currencyConvert($opt['price'], $baseCurrencyCode, $currentCurrencyCode);
+							else
+								$price = $opt['price'];
+							?>
+							<div class="customoption">		
+								<div class="head">		
+									<span class="label">	
+										<?php echo $helper->__('Price'); ?><b><?php echo $currencylabel;?></b>
+									</span>						
+									<span class="label"><?php echo $helper->__('Price Type'); ?></span>
+									<span class="label"><?php echo $helper->__('SKU'); ?></span>
+									<span class="label" <?php echo $display ?> ><?php echo $helper->__('Max Characters'); ?></span>
+								</div>	
+								<div class="wk_row">
+									<input value="<?php echo number_format($price, 2, '.', '');?>" type="text" name="options[<?php echo $count; ?>][price]" />
+									<select name="options[<?php echo $count; ?>][price_type]">
+										<option value="fixed" <?php echo $pricetype[$opt['price_type']]=="Fixed"? "selected":""; ?> ><?php echo $helper->__('Fixed') ?></option>
+										<option value="percent" <?php echo $pricetype[$opt['price_type']]=="Percent"? "selected":""; ?> ><?php echo $helper->__('Percent') ?></option>
+									</select>		
+									<input value="<?php echo $opt['sku'];?>" type="text" name="options[<?php echo $count; ?>][sku]" />		
+									<input value="<?php echo $opt['max_characters'];?>" type="text" <?php echo $display ?> name="options[<?php echo $count; ?>][max_characters]" />
+								</div>	
+							</div>	<?php	
+						}elseif($opt['type']=="file"){ 
+							if($opt['price_type'] == 'fixed')		
+								$price = Mage::helper('directory')->currencyConvert($opt['price'], $baseCurrencyCode, $currentCurrencyCode);
+							else
+								$price = $opt['price'];
+							?>
+							<div class="customoption">		
+								<div class="head">		
+									<span class="label">	
+										<?php echo $helper->__('Price'); ?><b><?php echo $currencylabel;?></b>
+									</span>						
+									<span class="label"><?php echo $helper->__('Price Type'); ?></span>
+									<span class="label"><?php echo $helper->__('SKU'); ?></span>
+									<span class="label"><?php echo $helper->__('Allowed File Extensions'); ?></span>
+									<span class="label"><?php echo $helper->__('Maximum Image Size'); ?></span>
+								</div>	
+								<div class="wk_row">	
+									<input value="<?php echo number_format($price, 2, '.', '');?>" type="text" name="options[<?php echo $count; ?>][price]" />
+									<select name="options[<?php echo $count; ?>][price_type]" >
+										<option value="fixed" <?php echo ($opt['price_type']=="fixed")? "selected":""; ?> ><?php echo $helper->__('Fixed') ?></option>
+										<option value="percent" <?php echo ($opt['price_type']=="percent")? "selected":""; ?> ><?php echo $helper->__('Percent') ?></option>
+									</select>		
+									<input value="<?php echo $opt['sku'];?>" type="text" name="options[<?php echo $count; ?>][sku]" />		
+									<input value="<?php echo $opt['file_extension'];?>" type="text" name="options[<?php echo $count; ?>][file_extension]" />
+									<span class="file_size">
+										<input value="<?php echo $opt['image_size_x'];?>" type="text" name="options[<?php echo $count; ?>][image_size_x]" />
+										<input value="<?php echo $opt['image_size_y'];?>" type="text" name="options[<?php echo $count; ?>][image_size_y]" />
+									<span>
+								</div>	
+							</div> <?php
+						} ?>				
+					</div>
+					<?php 
+					$i++;
+					$count++;
+				}	
+			} ?>			
+			</div>		
+		</div>			
+		<input type="hidden" name="customcount" value="" id="customcount" />	
+		<input type="hidden" name="customcountallid" value="" id="customcountallid" />	
+		<div class="wk_clear"></div>
+		<button class="button addcusop" type="button" title="Add New Option" id="add_new_defined_option">	
+			<span><span><span><?php echo $helper->__('Add New Option') ?></span></span></span>	
+		</button>
+	</div>
+</li>
+<script>
+ $wk_jq=jQuery.noConflict();
+ (function($wk_jq){
+	var ct=parseInt($wk_jq('.customoptindex:last').val())+1;
+	if(isNaN(ct)){ct=0;}
+	$wk_jq('.addcusop').click(function(){
+		var deletebutton=$wk_jq('#add_new_defined_option').clone();
+		deletebutton.removeAttr('id')
+				    .removeClass('addcusop')
+				    .addClass('removeCustomOption')
+				    .find('span span span').text('<?php echo $helper->__('Delete Option')?>');
+		var inputtype=$wk_jq('<select/>',{'name':'options['+ct+'][type]'})
+								.attr('data_option_index',ct)
+								.addClass('required-entry customoption_type')
+								.append($wk_jq('<option/>',{'value':''}).text('- - - -'))
+								.append($wk_jq('<optgroup/>',{'label':'Text'})
+									.append($wk_jq('<option/>')
+												.attr('value','field')
+											    .text("<?php echo $helper->__('Field') ?>"))
+								    .append($wk_jq('<option/>')
+												.attr('value',"area")
+											    .text("<?php echo $helper->__('Area') ?>")))
+								.append($wk_jq('<optgroup/>',{'label':'File'})
+									.append($wk_jq('<option/>')
+												.attr('value','file')
+												.text("<?php echo $helper->__('File') ?>")))
+								.append($wk_jq('<optgroup/>',{'label':'Select'})
+									.append($wk_jq('<option/>')
+												.attr('value',"drop_down")
+												.text("<?php echo $helper->__('Drop Down') ?>"))
+									.append($wk_jq('<option/>')
+												.attr('value',"radio")
+												.text("<?php echo $helper->__('Radio Buttons') ?>"))
+									.append($wk_jq('<option/>')
+												.attr('value',"checkbox")
+												.text("<?php echo $helper->__('Checkbox') ?>"))
+									.append($wk_jq('<option/>')
+												.attr('value',"multiple")
+												.text("<?php echo $helper->__('Multi Select') ?>")))
+								.append($wk_jq('<optgroup/>',{'label':'Date'})
+									.append($wk_jq('<option/>')
+												.attr('value',"date")
+												.text("<?php echo $helper->__('date') ?>"))
+									.append($wk_jq('<option/>')
+												.attr('value',"date_time")
+												.text("<?php echo $helper->__('Date & Time') ?>"))
+									.append($wk_jq('<option/>')
+												.attr('value',"time")
+												.text("<?php echo $helper->__('Time') ?>")));
+		var isrequired=$wk_jq('<select/>',
+							{'name':'options['+ct+'][is_require]'})
+							.append($wk_jq('<option/>').attr('value',"1").text("<?php echo $helper->__(' Yes ') ?>"))
+							.append($wk_jq('<option/>').attr('value',"0").text("<?php echo $helper->__(' No ') ?>"));
+														
+		var customoption=$wk_jq('<div/>')
+							.addClass('customoption')
+							// .append($wk_jq('<div/>')
+									// .addClass('head')
+									// .append($wk_jq('<span/>')
+												// .addClass('label')
+												// .text('<?php echo $helper->__(' Title ')?>')
+												// .append($wk_jq('<em/>').text('*')))
+									// .append($wk_jq('<span/>')
+												// .addClass('label')
+												// .text('<?php echo $helper->__(' Input Type ')?>')
+												// .append($wk_jq('<em/>').text('*')))
+									// .append($wk_jq('<span/>')
+												// .addClass('label')
+												// .text('<?php echo $helper->__(' Is Required ')?>'))
+									// .append($wk_jq('<span/>')
+												// .addClass('label')
+												// .text('<?php echo $helper->__(' Short Order ')?>'))
+									// .append(deletebutton)
+									// )
+							.append($wk_jq('<span/>')
+												.addClass('label')
+												.text('<?php echo $helper->__(' Title ')?>')
+												.append($wk_jq('<em/>').text('*')))
+							.append($wk_jq('<input/>',{'type':'text','name':'options['+ct+'][title]'})
+										.addClass('required-entry'))
+							.append($wk_jq('<span/>')
+												.addClass('label')
+												.text('<?php echo $helper->__(' Input Type ')?>')
+												.append($wk_jq('<em/>').text('*')))
+							.append(inputtype)
+							.append($wk_jq('<span/>')
+												.addClass('label')
+												.text('<?php echo $helper->__(' Is Required ')?>'))
+							.append(isrequired)
+							.append($wk_jq('<span/>')
+												.addClass('label')
+												.text('<?php echo $helper->__(' Sort Order ')?>'))
+							.append($wk_jq('<input/>',{'type':'text','name':'options['+ct+'][sort_order]'}))
+							.append($wk_jq('<input/>',{'type':'hidden','name':'options['+ct+'][customoptindex]','value':ct}));
+							
+			$wk_jq('#othercustomoption').append(customoption);
+			ct++;										
+										  
+	});
+	
+	$wk_jq('#othercustomoption').delegate('.customoption_type','change',function(){
+		var text=['field','area','date','date_time','time'];
+		var select=['drop_down','radio','checkbox','multiple'];
+		var thisobj=$wk_jq(this);
+		var optindex=thisobj.attr('data_option_index');
+		var pricetype=$wk_jq('<select/>',{'name':'options['+optindex+'][price_type]'})
+							.addClass('required-entry')
+							.append($wk_jq('<option/>',{'value':'fixed'})
+										.text('<?php echo $helper->__(' Fixed ')?>'))
+							.append($wk_jq('<option/>',{'value':'percent'})
+									.text('<?php echo $helper->__(' Percent ')?>'));
+		if($wk_jq.inArray(thisobj.val(),text)>=0){
+			var optionvalue=$wk_jq('<div/>')
+				.addClass('customoption')
+				.append($wk_jq('<div/>')
+						.addClass('head')
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price Type ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' SKU ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Max Characters ')?>'))
+						)
+				.append($wk_jq('<div/>',{'class':'wk_row'})
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][price]'})
+										.addClass('validate-number'))
+				.append(pricetype)
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][sku]'}))
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][max_characters]'})));
+			if(thisobj.val()=='date'||thisobj.val()=='date_time'||thisobj.val()=='time'){
+				optionvalue.find('.label:last').remove();
+				optionvalue.find('input:last').remove();
+			}
+			thisobj.parents('.customoption').find('.customoption').remove();
+			thisobj.parents('.customoption').append(optionvalue);
+		}else if($wk_jq.inArray(thisobj.val(),select)>=0){
+			var deletebutton=$wk_jq('#add_new_defined_option').clone();
+				deletebutton.removeAttr('id')
+							.removeClass('addcusop')
+							.attr('title','<?php echo $helper->__(' Delete Option ') ?>')
+							.removeClass('removeCustomOption')
+							.addClass('removeOption')
+							.addClass('delete')
+							.find('span span span').text('<?php echo $helper->__(' X ')?>');
+			var addoptbutton=$wk_jq('#add_new_defined_option').clone();
+				addoptbutton.removeAttr('id')
+							.removeClass('addcusop')
+							.attr('title','<?php echo $helper->__(' Add Option ') ?>')
+							.removeClass('removeCustomOption')
+							.addClass('addOption')
+							.find('span span span').text('<?php echo $helper->__(' Add Option ')?>');
+			var optionvalue=$wk_jq('<div/>')
+				.addClass('customoption')
+				.append($wk_jq('<div/>')
+						.addClass('head')
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Title ')?>')
+									.append($wk_jq('<em/>').text('*')))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price Type ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' SKU ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Short Order ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__('')?>'))
+						)
+				.append(addoptbutton);
+			thisobj.parents('.customoption').find('.customoption').remove();
+			thisobj.parents('.customoption').append(optionvalue);
+			thisobj.parents('.customoption').find('.addOption').trigger('click');
+		}else if(thisobj.val()=='file'){
+			var optionvalue=$wk_jq('<div/>')
+				.addClass('customoption')
+				.append($wk_jq('<div/>')
+						.addClass('head')
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Price Type ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' SKU ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Allowed File Extensions ')?>'))
+						.append($wk_jq('<span/>')
+									.addClass('label')
+									.text('<?php echo $helper->__(' Maximum Image Size ')?>'))
+						)
+				.append($wk_jq('<div/>',{'class':'wk_row'})
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][price]'})
+										.addClass('validate-number'))
+				.append(pricetype)
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][sku]'}))
+				.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][file_extension]'}))
+				.append($wk_jq('<span/>',{'class':'file_size'})
+						.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][image_size_x]'}))
+						.append($wk_jq('<input/>',{'type':'text','name':'options['+optindex+'][image_size_y]'}))
+					));
+			thisobj.parents('.customoption').find('.customoption').remove();
+			thisobj.parents('.customoption').append(optionvalue);
+		}	
+	});
+	$wk_jq('#othercustomoption').delegate('.removeCustomOption','click',function(){
+				$wk_jq(this).parents('.customoption').remove();
+	});
+	$wk_jq('#othercustomoption').delegate('.removeOption','click',function(){
+				$wk_jq(this).parents('.wk_row').remove();
+	});
+	$wk_jq('#othercustomoption').delegate('.addOption','click',function(){
+		var selectoptindx=$wk_jq(this).parent('.customoption').parents('.customoption').find('.customoption_type').attr('data_option_index');
+		var deletebutton=$wk_jq('#add_new_defined_option').clone();
+				deletebutton.removeAttr('id')
+							.removeClass('addcusop')
+							.attr('title','<?php echo $helper->__(' Delete Option ') ?>')
+							.removeClass('removeCustomOption')
+							.addClass('removeOption')
+							.addClass('delete')
+							.find('span span span').text('<?php echo $helper->__('X')?>');
+		var optindex=0;
+		var tempdata=$wk_jq(this).parent('.customoption').find('.wk_row:last input:first').attr('name');
+		if(tempdata!=undefined){
+			optindex=parseFloat(tempdata.split('[')[2].split(']')[0])+1;	
+		}
+		var pricetype=$wk_jq('<select/>',{'name':'selectoptions['+selectoptindx+']['+optindex+'][price_type]'})
+							.addClass('required-entry')
+							.append($wk_jq('<option/>',{'value':'fixed'})
+										.text('<?php echo $helper->__(' Fixed ')?>'))
+							.append($wk_jq('<option/>',{'value':'percent'})
+									.text('<?php echo $helper->__(' Percent ')?>'));					
+		var $wk_row=$wk_jq('<div/>',{'class':'wk_row'})
+							.append($wk_jq('<input/>',{'type':'text','name':'selectoptions['+selectoptindx+']['+optindex+'][title]'})
+													.addClass('required-entry'))
+							.append($wk_jq('<input/>',{'type':'text','name':'selectoptions['+selectoptindx+']['+optindex+'][price]'})
+													.addClass('validate-number'))
+							.append(pricetype)
+							.append($wk_jq('<input/>',{'type':'text','name':'selectoptions['+selectoptindx+']['+optindex+'][sku]'}))
+							.append($wk_jq('<input/>',{'type':'text','name':'selectoptions['+selectoptindx+']['+optindex+'][short_order]'}));
+		if($wk_jq(this).parent('.customoption').find('.wk_row').length > 0){
+			$wk_row.append(deletebutton);
+		}
+		$wk_jq(this).before($wk_row);
+	});
+	$wk_jq('.deletecusopt').click(function(){
+		var thisobj=$wk_jq(this);
+		if(confirm('<?php echo $helper->__(' Sure Want To Delete Custom Option ')?>')){
+		$wk_jq.ajax({
+				url:"<?php echo $this->getUrl('customoption/customoption/deletecustom'); ?>",
+				data:{id:thisobj.attr('data-option-id')},
+				type:'post',
+				dataType:'html',
+				success:function(d){
+					thisobj.parents('.customoption').remove();
+				}	
+			});
+		}
+	});
+})($wk_jq);</script>

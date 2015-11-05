@@ -1,0 +1,198 @@
+<?php 
+	$partner = Mage::getModel('marketplace/userprofile')->isPartner(Mage::getSingleton('customer/session')->getCustomerId()); 
+	$magentoCurrentUrl = Mage::helper('core/url')->getCurrentUrl(); 
+	$helper=Mage::helper('marketplace');
+	$allow_pro_type=Mage::getStoreConfig('marketplace/marketplace_options/allow_for_seller');
+?>	<div class="block block-account">	
+		<div class="block-title">	
+			<strong><span><?php echo $helper->__('Market Place') ?></span></strong>
+		</div>		
+		<div class="block-content">		
+			<ul class="wk_cont_ul">		
+				<?php if($partner){ ?>	
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'customer/account/edit')? "class=current":"";?>>
+						<?php if(strpos($magentoCurrentUrl,'customer/account/edit')){ ?>
+							<strong><?php echo $helper->__('Account information') ?></strong>
+						<?php }
+						else{ ?>
+							<a href="<?php echo $this->getUrl('customer/account/edit'); ?>"><?php echo $helper->__('Account information') ?></a>
+						<?php } ?>					
+					</li>
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'customer/address')? "class=current":"";?>>
+						<?php if(strpos($magentoCurrentUrl,'customer/address')){ ?>
+							<strong><?php echo $helper->__('Address Book') ?></strong>
+						<?php }
+						else{ ?>
+							<a href="<?php echo $this->getUrl('customer/address'); ?>"><?php echo $helper->__('Address Book') ?></a>
+						<?php } ?>					
+					</li>
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'marketplace/marketplaceaccount/editprofile')? "class=current":"";?>>		
+					<?php if(strpos($magentoCurrentUrl,'marketplace/marketplaceaccount/editprofile')){ ?>	
+						<strong><?php echo $helper->__('Seller Profile') ?></strong>		
+						<?php }			
+						else{ ?>	
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/editprofile'); ?>">
+								<?php echo $helper->__('Seller Profile') ?>
+							</a>				
+					<?php } ?>		
+					</li>
+					<?php 
+					if(strpos($allow_pro_type,'configurable') !== false){ ?>
+						<li  <?php echo strpos($magentoCurrentUrl,'newattribute')? "class=current":"";?>>		
+						<?php if(strpos($magentoCurrentUrl,'newattribute')){ ?>					
+							<strong><?php echo $helper->__('Create Attribute') ?></strong>	
+							<?php }		
+							else{ ?>		
+								<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/newattribute'); ?>">
+									<?php echo $helper->__('Create Attribute') ?></a>			
+							<?php } ?>				
+						</li>
+						<?php
+					}
+					// $productstype=array('simpleproduct','configurableproduct','downloadableproduct','virtualproduct');
+					// foreach($productstype as $protype){
+						// if(strpos($magentoCurrentUrl,$protype)){
+							// $class="class='current wk_cont_ul_li'";
+							// break;
+						// }else{
+							// $class="class='wk_cont_ul_li'";
+						// }
+					// }
+					?>
+					<li  <?php echo (strpos($magentoCurrentUrl,'marketplaceaccount/new') && strpos($magentoCurrentUrl,'marketplaceaccount/newattribute')===false)? "class=current":"";?>>			
+					<?php if(strpos($magentoCurrentUrl,'marketplaceaccount/new') && strpos($magentoCurrentUrl,'marketplaceaccount/newattribute')===false){ ?>		
+						<strong><?php echo $helper->__('New Products') ?></strong>	
+						<?php }					
+						else{ ?>					
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/new'); ?>">
+								<?php echo $helper->__('New Products') ?>
+							</a>						
+						<?php } ?>			
+					</li>
+						<!--ul>
+							<?php
+							if(strpos($allow_pro_type,'configurable') !== false){ ?>
+								<li <?php echo strpos($magentoCurrentUrl,'configurableproduct')? "class=current":"";?>>	
+								<?php if(strpos($magentoCurrentUrl,'configurableproduct')){ ?>			
+										<strong><?php echo $helper->__('Configurable') ?></strong>			
+								<?php }					
+									else{ ?>				
+										<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/configurableproduct'); ?>">
+										<?php echo $helper->__('Configurable') ?>
+									</a>
+								<?php } ?>
+								</li>
+							<?php 
+							}
+							if(strpos($allow_pro_type,'downloadable') !== false){ ?>					
+								<li <?php echo strpos($magentoCurrentUrl,'downloadableproduct')? "class=current":"";?>>		
+									<?php if(strpos($magentoCurrentUrl,'downloadableproduct')){ ?>		
+										<strong><?php echo $helper->__('Downloadable') ?></strong>				
+									<?php }						
+									else{ ?>				
+										<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/downloadableproduct'); ?>">
+											<?php echo $helper->__('Downloadable') ?>
+										</a>						
+									<?php } ?>
+								</li>
+							<?php 
+							}
+							if(strpos($allow_pro_type,'simple') !== false){ ?>
+								<li <?php echo strpos($magentoCurrentUrl,'simpleproduct')? "class=current":"";?>>	
+									<?php if(strpos($magentoCurrentUrl,'simpleproduct')){ ?>	
+										<strong><?php echo $helper->__('Simple') ?></strong>	
+									<?php }				
+									else{ ?>					
+										<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/simpleproduct'); ?>">
+											<?php echo $helper->__('Simple') ?>
+										</a>					
+									<?php } ?>				
+								</li>
+							<?php 
+							}
+							if(strpos($allow_pro_type,'virtual') !== false){ ?>
+								<li <?php echo strpos($magentoCurrentUrl,'virtualproduct')? "class=current":"";?>>	
+									<?php if(strpos($magentoCurrentUrl,'virtualproduct')){ ?>		
+										<strong><?php echo $helper->__('Virtual') ?></strong>			
+									<?php }			
+									else{ ?>			
+										<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/virtualproduct'); ?>">
+											<?php echo $helper->__('Virtual') ?>
+										</a>
+									<?php } ?>
+								</li>
+							<?php 
+							}?>
+						</ul-->
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'myproductslist')? "class=current":"";?>>			
+					<?php if(strpos($magentoCurrentUrl,'myproductslist')){ ?>		
+						<strong><?php echo $helper->__('My Products List') ?></strong>	
+						<?php }					
+						else{ ?>					
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/myproductslist'); ?>">
+								<?php echo $helper->__('My Products List') ?>
+							</a>						
+						<?php } ?>			
+					</li>
+								
+					<li  <?php echo strpos($magentoCurrentUrl,'mydashboard')? "class=current":"";?>>	
+						<?php if(strpos($magentoCurrentUrl,'mydashboard')){ ?>		
+						<strong><?php echo $helper->__('My Dashboard') ?></strong>				
+						<?php }					
+						else{ ?>		
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/mydashboard'); ?>">
+								<?php echo $helper->__('My Dashboard') ?>
+							</a>					
+						<?php } ?>					
+					</li>	
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'mytransaction')? "class=current":"";?>>
+						<?php if(strpos($magentoCurrentUrl,'mytransaction')){ ?>
+							<strong><?php echo $helper->__('My Transaction List') ?></strong>
+						<?php }
+						else{ ?>
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/mytransaction'); ?>"><?php echo $helper->__('My Transaction List') ?></a>
+						<?php } ?>					
+					</li>
+					
+					<?php echo $this->getChildHtml();?>				
+					<li class="last <?php echo strpos($magentoCurrentUrl,'myorderhistory')? "current":"";?>">		
+						<?php if(strpos($magentoCurrentUrl,'myorderhistory')){ ?>	
+							<strong><?php echo $helper->__('My Order History') ?></strong>	
+						<?php }		
+						else{ ?>		
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/myorderhistory'); ?>">
+								<?php echo $helper->__('My Order History') ?>
+							</a>						
+						<?php } ?>	
+					</li>	
+					
+					<li  <?php echo strpos($magentoCurrentUrl,'newsletter/manage')? "class=current":"";?>>
+						<?php if(strpos($magentoCurrentUrl,'newsletter/manage')){ ?>
+							<strong><?php echo $helper->__('Newsletter Subscription') ?></strong>
+						<?php }
+						else{ ?>
+							<a href="<?php echo $this->getUrl('newsletter/manage'); ?>"><?php echo $helper->__('Newsletter Subscription') ?></a>
+						<?php } ?>					
+					</li>
+					
+					<?php }		
+					else{ ?>	
+					<li class="last <?php echo strpos($magentoCurrentUrl,'marketplace/marketplaceaccount/becomepartner')? "current":"";?>">
+						<?php if(strpos($magentoCurrentUrl,'marketplace/marketplaceaccount/becomepartner')){ ?>	
+							<strong><?php echo $helper->__('Become Partner') ?></strong>	
+						<?php }			
+						else{ ?>	
+							<a href="<?php echo $this->getUrl('marketplace/marketplaceaccount/becomepartner'); ?>">
+								<?php echo $helper->__('Become Partner') ?>
+							</a>					
+						<?php } ?>		
+					</li>		
+				<?php } ?>	
+			</ul>	
+		</div>	
+	</div>

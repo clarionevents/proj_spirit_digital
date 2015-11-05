@@ -1,0 +1,77 @@
+<?php
+$temp=explode('/profile/',Mage::helper('core/url')->getCurrentUrl());
+$helper =Mage::helper('marketplace');
+if($temp[1]!=''){
+	$partner=$this->getProfileDetail();
+?>	
+<style>.main{background-image:none;background-color:<?php echo $partner->getbackgroundth();?>;}</style>
+<h1>
+	<?php 	
+	$_seller = Mage::getModel('customer/customer')->load($partner->getId());
+	echo $_seller->getName().$helper->__('\'s profile page');
+	
+	// if($partner->getshoptitle()!='')
+			// echo $partner->getshoptitle().$helper->__('\'s profile page');
+		// else
+			// echo $partner->getprofileurl().$helper->__('\'s profile page'); ?>
+</h1>
+<?php } else{ 
+	echo $helper->__('Invalid profile'); } 
+
+	$partnerInfo = json_decode($partner->getcompdesi());
+	$about = $partnerInfo->{'description'};
+	$delivery = $partnerInfo->{'delivery'};
+	$returns = $partnerInfo->{'returns'};
+	
+?>
+<div class="wk-profile">	
+	<div class="wk_mp_detail">		
+		<span class="row">			
+			<span class="label"><?php echo $helper->__('About');?></span>
+			<span class="data"><?php echo $about;?></span>		
+		</span>		
+		<span class="row">			
+			<span class="label"><?php echo $helper->__('Delivery');?></span>
+			<span class="data"><?php echo $delivery;?></span>		
+		</span>	
+		<span class="row">			
+			<span class="label"><?php echo $helper->__('Returns');?></span>
+			<span class="data"><?php echo $returns;?></span>		
+		</span>	
+		<span class="row">			
+			<span class="label"><?php echo $helper->__('Facebook');?></span>			
+			<span class="data">
+				<a href="<?php echo $partner->getfacebookid() ?>" target="_blank"><?php echo $partner->getfacebookid();?></a>
+			</span>		
+		</span>		
+		<span class="row">			
+			<span class="label"><?php echo $helper->__('Twitter');?></span>			
+			<span class="data">
+				<a href="<?php echo $partner->gettwitterid() ?>" target="_blank"><?php echo $partner->gettwitterid();?></a>
+			</span>		
+		</span>	
+	</div>	
+	<div class="shop">		
+		<div class="label">			
+			<?php echo $helper->__('Shop')?>			
+			<a href="<?php echo $this->getUrl('marketplace/seller/collection').$partner->getprofileurl();?>"><?php echo $helper->__('See more..')?></a>		
+		</div>		
+		<?php 	
+			$partnerproducts = Mage::getModel('marketplace/product')
+										->getCollection()					
+										->addFieldToFilter('userid', array('eq' =>$partner->getmageuserid()))				
+										->addFieldToFilter('status', array('neq' => 2))					
+										->setOrder('mageproductid')
+										->setPageSize(20)
+										->setCurPage(1);			
+			foreach($partnerproducts as $product){ 		
+				$product=Mage::getModel('catalog/product')->load($product->getMageproductid());
+				$stockItem = Mage::getModel('cataloginventory/stock_item');
+				$stockItem->loadByProduct($product->getId());
+				if($stockItem->getData('is_in_stock') == 1 && $product->getStatus() == 1){?>
+					<a href="<?php echo $product->getProductUrl();?>"><img src="<?php echo $product->getImageUrl();?>" title="<?php echo $product->getName(); ?>" alt="<?php echo $product->getName(); ?>"></img></a>
+		<?php 	}
+			} ?>	
+	</div>	
+	<div class="wk_clear"></div>
+</div>

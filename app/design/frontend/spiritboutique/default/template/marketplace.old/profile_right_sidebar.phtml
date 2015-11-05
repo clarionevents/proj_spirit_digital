@@ -1,0 +1,147 @@
+<?php  
+	$feeds=$this->getFeed();
+	$partner=$this->getProfileDetail();
+	$helper = Mage::helper('marketplace');
+	$userid=$partner['mageuserid'];
+	$customer=Mage::getModel('customer/customer')->load($userid);
+	$locsearch=$partner->getcomplocality()==''? Mage::getModel('directory/country')
+				->load($partner->getcountrypic())->getName():$partner->getcomplocality();
+	$countryflag=$this->getSkinUrl('marketplace/images/country/countryflags/')
+				.strtolower($partner->getcountrypic()==""?"xx":
+				$partner->getcountrypic()).".png";
+	$baseurl=$this->getUrl('marketplace/seller');
+				
+?>
+<div id="patner-info" class="block block-social-menu">  
+	<div class="block-title">    
+		<strong>
+			<span><?php echo $helper->__('Store FootPrint') ?> </span>
+		</strong>  
+	</div>  
+	<div id="info" class="block-content">    
+		<div class="details">		
+			<div class="seller section first">			
+				<div class="content">				
+					<p class="storename">
+						<a class="store-name" href="<?php echo $baseurl."profile/".$partner->getProfileurl();?>">
+							<?php if($partner->getShoptitle()!='')
+									echo $partner->getShoptitle();
+								  else
+									echo $partner->getProfileurl(); ?>
+						</a>
+					</p>
+					<h4 class="full-view">
+						<a href="<?php echo  $baseurl."collection/".$partner->getProfileurl() ?>">
+							<?php echo $helper->__('View Full Collection') ?>
+						</a>
+					</h4>			
+				</div>		
+			</div>   
+			<div class="wefrom section">     
+				<h4><?php echo $helper->__('We\'re from') ?></h4>		
+				
+				<a title="<?php echo $helper->__('View Map') ?>" target="_blank" href="<?php echo  $baseurl."location/".$partner->getProfileurl()."?q=".$locsearch?>">
+					<img class="piccountry" title="<?php echo $helper->__('View Map') ?>View Map" src="<?php echo$countryflag;  ?>" />
+				</a>		
+				<a class="cont-name" title="<?php echo $helper->__('Search') ?>" href="<?php echo  $baseurl."location/".$partner->getProfileurl()."?q=".$locsearch?>" target="_blank">
+					<span><?php echo $locsearch; ?></span>
+				</a> 	
+			</div>  
+		</div>  
+		
+		<div class="connect section">   
+			<h4><?php echo $helper->__('Connect with Us') ?></h4> 
+			<div class="content">    
+				<ul>      
+					<li class="askque button">			
+						<span class="icon icon-msg-small "></span>	
+						<!-- <a href="mailto:<?php echo $customer->getemail()?>"> -->
+							<?php echo $helper->__('Send us a message') ?>
+						<!-- </a>		 -->
+					</li>       
+					<li>			
+						<span class="icon icon-fb-small"></span>			
+						<a target="_blank" href="http://www.facebook.com/<?php echo $partner->getfacebookid()?>">
+							<?php echo $helper->__('Find us on Facebook') ?>
+						</a>		
+					</li>      
+					<li>			
+						<span class="icon icon-tw-small"></span>		
+						<a target="_blank" href="http://twitter.com/<?php echo $partner->gettwitterid() ?>">
+							<?php echo $helper->__('Follow us on Twitter') ?>
+						</a>		
+					</li>	  
+				</ul>    
+			</div>    
+		</div>  
+	</div>
+ </div>
+ <div id="ask_data"> 
+		<div class="modal_header">
+			<h3><?php echo $helper->__('Ask Question to Admin') ?>..</h3>
+			<span  class="wk_close" >x</span>
+			<span  class="clear" ></span>
+		</div>
+		<form id="ask_form" method="post" >
+			<span class="label">
+				<?php echo $helper->__('Subject') ?> :
+			</span>
+			<input type="text" name="subject" class="querysubject"/>
+			<span class="label"> 
+				<?php echo $helper->__('Ask') ?> :
+			</span>
+			<textarea  name="ask" class="queryquestion"></textarea>
+			<textarea style="display: none;"  name="selleremail" class=""><?php echo $customer->getemail() ?></textarea>
+			<input type="hidden" name="seller-id" value="<?php echo Mage::getSingleton('customer/session')->getCustomerId();?>"/>
+			<div class="modal_footer">
+				<span class="error"></span>
+				<input type="reset" value="<?php echo $helper->__('Reset') ?>" id="resetbtn"/>
+				<input type="button" value="<?php echo $helper->__('Ask') ?>" id="askbtn"/>
+				<span class="clear"></span>
+			</div>
+		</form>
+	</div>
+	
+<script class="code" type="text/javascript" language="javascript">
+var $wk_jq= jQuery.noConflict();
+(function($wk_jq){
+	$wk_jq(function(){ 
+	$wk_jq('.wrapper').append($wk_jq('#ask_data'));
+		$wk_jq('.askque').click(function(){
+				$wk_jq('#ask_form input,#ask_form textarea').removeClass('error_border');
+				$wk_jq('.page').css('opacity','0.4');
+				$wk_jq('#ask_data').show();
+			});
+			$wk_jq('.wk_close').click(function(){
+				$wk_jq('.page').css('opacity','1');
+				$wk_jq('#resetbtn').trigger('click');
+				$wk_jq('#ask_data').hide();
+			});
+			$wk_jq('#askbtn').click(function(){
+					var f=0;
+					$wk_jq('#ask_form input,#ask_form textarea').each(function(){
+						if($wk_jq(this).val()==''){
+							$wk_jq(this).addClass('error_border');
+							f++;
+						}
+					});
+					if(f>0){
+						$wk_jq('#ask_form .error').text("<?php echo $helper->__(' Fill all the fields ') ?>").slideDown('slow').delay(2000).slideUp('slow');
+					}else{	
+						$wk_jq('#ask_data').addClass('mail_procss');
+						$wk_jq.ajax({
+							url:'<?php echo Mage::getBaseUrl();?>/clarion/webkul/clarionaccount/askquestiontoseller',
+							data:$wk_jq('#ask_form').serialize(),
+							type:'post',
+							dataType:'json',
+							success:function(d){
+								$wk_jq('#ask_data').removeClass('mail_procss')
+								alert("<?php echo $helper->__(' Mail Send ') ?>");
+								$wk_jq('.wk_close,#resetbtn').trigger('click'); 
+							}
+						});
+				}	
+			});	
+		});
+})($wk_jq);
+</script>

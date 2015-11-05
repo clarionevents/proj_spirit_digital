@@ -1,46 +1,62 @@
- <script type="text/javascript">
+<script type="text/javascript">
 	if (typeof jQuery == 'undefined'){
-		document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+		document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
 	}
- </script>
- <?php $partnerId=Mage::getSingleton('customer/session')->getCustomerId(); 
- $helper=Mage::helper('marketplace');
+</script>
+<?php $partnerId=Mage::getSingleton('customer/session')->getCustomerId(); 
+$helper=Mage::helper('marketplace');
 $collection=Mage::getModel('marketplace/userprofile')->getCollection(); 
 $collection->addFieldToFilter('mageuserid',array('eq'=>$partnerId)); ?>
 <div>
 	<?php if(count($collection)){ ?>
 		<div class="fieldset">
-			<h4 class="legend"><?php echo  $helper->__('Become Partner') ?></h4>
-				<div class="wk_emptymsg"><?php echo  $helper->__('waiting for approval from admin') ?></div>
+			<h4 class="legend"><?php echo  $helper->__('Seller Request Panel') ?></h4>
+				<div class="wk_emptymsg"><?php echo  $helper->__('Waiting for approval from admin') ?></div>
 		</div>
 	<?php }
 	else { ?>
 		<form action="<?php echo $this->getUrl('marketplace/marketplaceaccount/becomepartner') ?>" enctype="multipart/form-data" method="post" id="form-customer-product-partner">
 			<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
-			<div class="fieldset">
-				<h4 class="legend"><?php echo  $helper->__('Become Partner') ?></h4>
-				<ul class="form-list">
-					<li>
-						<label><?php echo  $helper->__('Shop URL') ?></label>
-						<div class="input-box shop">
-						<input type="text" class="required-entry wk_input_width" name="profileurl" id="profileurl" placeholder="Enter Shop URL"/>
-						<div id="wk_load">
-							<img src="<?php echo $this->getSkinUrl('marketplace/images/ajax-loader-tr.gif'); ?>" height="16px" width="16px"/>
-						</div>
-						</div>
-					</li>
-					<li class="control">
-						<input type="checkbox" class="required-entry" name="partnertype" id="partnertype" value="0"/>
-						<label><?php echo  $helper->__('Is Partner') ?></label>
-					</li>
-				</ul>
-			</div>
-			<div class="buttons-set">
-				<button type="submit" title="Save" class="button pay">
+			<div class="page-title">
+				<h1 style="float:left;"><?php echo  $helper->__('Seller Request Panel') ?></h1>
+				<button type="reset" class="button wk_mp_btn">
+					<span><span><?php echo $helper->__('Cancel') ?></span></span>
+				</button>
+				<button type="submit" title="Save" class="button pay wk_mp_btn">
 					<span>
-						<span><?php echo  $helper->__('Save Partner') ?></span>
+						<span><?php echo  $helper->__('Save') ?></span>
 					</span>
 				</button>
+			</div>
+			<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+			<div class="wk_mp_design">
+				<div class="block block-account">	
+					<div class="block-title">	
+						<strong><span><h4><?php echo $helper->__('Seller Request Panel') ?></h4></span></strong>
+					</div>
+				</div>
+				<div class="fieldset wk_mp_fieldset">
+					<ul class="form-list">
+						<li>
+							<label><?php echo  $helper->__('Shop URL') ?></label>
+							<?php
+							if($helper->getProfileHintStatus() && Mage::getStoreConfig('marketplace/marketplace_profile/shopurl_seller',Mage::app()->getStore())){?>
+								<img src="<?php echo $this->getSkinUrl('marketplace/images/quest.png'); ?>" class='questimg' title="<?php echo Mage::getStoreConfig('marketplace/marketplace_profile/shopurl_seller',Mage::app()->getStore()) ?>"/>
+							<?php
+							} ?>
+							<div class="input-box shop">
+							<input type="text" class="required-entry wk_input_width" name="profileurl" id="profileurl" placeholder="<?php echo $helper->__("Please enter shop URL")?>"/>
+							<div id="wk_load" style="display: none;">
+								<img src="<?php echo $this->getSkinUrl('marketplace/images/ajax-loader-tr.gif'); ?>" height="16px" width="16px"/>
+							</div>
+							</div>
+						</li>
+						<li class="control">
+							<input type="checkbox" class="required-entry" name="partnertype" id="partnertype" value="0"/>
+							<label><?php echo  $helper->__('Do you want to become seller / vendor ?') ?></label>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</form>
 	<?php } ?>
@@ -67,10 +83,10 @@ var newCustomerProductForm = new VarienForm('form-customer-product-partner', tru
 						$wk_jq('#wk_load').hide();
 						if(data==0){
 							$wk_jq(".button").removeAttr("disabled");
-							$wk_jq('.shop').append($wk_jq('<div/>').addClass('available success-msg').text('available'));
+							$wk_jq('.shop').append($wk_jq('<div/>').addClass('available success-msg').text('<?php echo $helper->__("available")?>'));
 						}else{
 							$wk_jq(".button").attr("disabled","disabled");
-							$wk_jq('.shop').append($wk_jq('<div/>').addClass('unavailable error-msg').text('unavailable'));
+							$wk_jq('.shop').append($wk_jq('<div/>').addClass('unavailable error-msg').text('<?php echo $helper->__("unavailable")?>'));
 						}
 					}
 				});

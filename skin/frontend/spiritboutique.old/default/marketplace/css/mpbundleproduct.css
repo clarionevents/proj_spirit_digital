@@ -1,0 +1,31 @@
+.form-list .input-box{width:auto!important;}
+.input-box select{width:100px;}
+.wk_row_view{height:auto;padding: 5px 0 5px 5px;}
+.fixed_price{visibility: hidden;}
+.wk_row_view > label > input[type=checkbox]:checked{opacity:0.5;}
+.mp_bundle_radio{width:50px!important;}
+.head .name{width:160px!important;text-align:left!important;}
+.wk_row_view .name{width:140px!important;text-align:left!important;}
+.wk_row_view .checkbox{width:15px!important;}
+.wk_row_view .checkbox .options_pro_id{width:15px!important;}
+.head .price,.wk_row_view .price{width:50px!important;}
+.head .price,.wk_row_view .price input{width:45px!important;}
+.wk_row_view .quantity{width:75px!important;}
+.wk_row_view .quantity input{width:45px!important;}
+.head .pricetype,.wk_row_view .pricetype{width:80px!important;}
+.head .pricetype,.wk_row_view .pricetype select{width:75px!important;}
+.head .defined_qty{width:110px!important;}
+.wk_row_view .defined_qty{width:105px!important;}
+.wk_row_view .defined_qty .select{width:75px!important;}
+.mp_bundle_width{width:150px!important;}
+.mp_bundle_width select{width:140px!important;}
+.mp_bundle_width input{width:auto!important;}
+.mp_bundle_category{width:260px!important;}
+.mp_bundefault_position{width:50px!important;}
+.clear{clear:both;}
+.mpbundle_display{display:none;}
+
+.mainbundl{border-bottom:2px solid #ccc; margin-top: 18px;}
+.appendd{border-bottom:2px solid #ccc; margin-top: 18px;}
+.removopt{float:right;}
+.removeoption{float:right;}

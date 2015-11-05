@@ -31,6 +31,22 @@ $mq-fixed-value: 1024;
 
 // ----------------------------------------------
 */
+body.customer-account .page-title h1 {
+  width: 100%;
+  clear: both;
+}
+body.customer-account .wk_mp_design .block-title {
+  float: left;
+  clear: both;
+}
+body.customer-account .wk_mp_fieldset .wk_sales, body.customer-account .wk_mp_fieldset .grid {
+  float: left;
+  clear: both;
+}
+body.customer-account .wk_mp_btn {
+  float: left;
+  margin: 20px 5px;
+}
 body.customer-account label {
   float: left;
   clear: both;
@@ -147,11 +163,27 @@ body.customer-account.marketplace-marketplaceaccount-editprofile .form-list .pro
   float: left;
   min-width: auto;
 }
+body.customer-account.marketplace-marketplaceaccount-editprofile .country_img_prev {
+  margin-right: -50px;
+  margin-top: -30px;
+  float: right;
+  vertical-align: middle;
+  width: 30px;
+  margin-left: 0;
+}
 body.customer-account.marketplace-marketplaceaccount-editprofile #form-payment-validate div.input-box {
   width: 100%;
 }
 body.customer-account.marketplace-marketplaceaccount-editprofile div.input-box textarea {
   width: 100%;
+}
+body.customer-account.marketplace-marketplaceaccount-editprofile .profile {
+  float: left;
+  clear: both;
+  margin-top: 10px;
+}
+body.customer-account.marketplace-marketplaceaccount-editprofile .profile .wk_profile_links {
+  margin: 10px 0;
 }
 body.customer-account.marketplace-marketplaceaccount-editprofile .buttons-set {
   margin: 100px 0 0;
@@ -193,9 +225,11 @@ body.marketplace-seller-collection ul.products-grid li:nth-child(3n+1) {
   clear: none;
 }
 body.marketplace-seller-collection ul.products-grid li {
-  max-width: 20%;
   margin-right: 10px;
   float: left;
+}
+body.marketplace-seller-collection ul.products-grid li .product-image {
+  margin-bottom: 0;
 }
 body.marketplace-seller-collection ul.products-grid li .actions {
   position: relative;
@@ -203,6 +237,9 @@ body.marketplace-seller-collection ul.products-grid li .actions {
 body.marketplace-seller-collection ul.products-grid li .actions li {
   float: none;
   max-width: 100%;
+}
+body.marketplace-seller-collection .wk_mp_profile_container .section {
+  padding: 10px;
 }
 
 div.country-profile .country_img_prev {
@@ -223,35 +260,130 @@ body.marketplace-seller-collection .price-box .price, body.marketplace-seller-co
   font-size: 12px;
 }
 
-.wk_imagedelete {
-  font-weight: 900;
-  position: absolute;
-  cursor: pointer;
-  top: -10px;
-  right: -10px;
-  background: url(../images/icon-close.png);
-  background-size: 20px;
-  width: 20px;
-  height: 20px;
-}
-
-.image_set .setimage {
-  padding: 5px;
-  float: left;
-  border: 1px #EEEEEE solid;
-  position: relative;
-  margin: 20px 10px;
-}
-.image_set .setimage img {
-  margin: auto;
-  with: auto;
-}
-
-button.adship {
+body.marketplace-order-view .order-actions {
   float: left;
   clear: both;
+  width: 100%;
+}
+body.marketplace-order-view .order-actions a {
+  float: left;
+  padding: 0 5px 0 0;
+}
+body.marketplace-order-view .order-actions .wk_mp_btn {
+  clear: none;
+}
+body.marketplace-order-view div#wk_mp_print_order > div {
+  float: left;
+  clear: both;
+  margin-top: 20px;
+}
+body.marketplace-order-view .order-info, body.marketplace-order-view .order-date {
+  float: left;
 }
 
-button.addcusop {
+#ask_data {
+  background-clip: padding-box;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  display: none;
+  left: 50%;
+  margin: -250px 0 0 -280px;
+  outline: medium none;
+  position: fixed;
+  top: 50%;
+  width: 530px;
+  z-index: 1050;
+}
+#ask_data .modal_header {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #EEEEEE;
+  border-radius: 4px 4px 0 0;
+  padding: 9px 15px;
+}
+#ask_data .modal_footer {
+  background-color: #F5F5F5;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid #DDDDDD;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+  margin-bottom: 0;
   margin-top: 10px;
+  padding-bottom: 50px;
+  text-align: right;
+}
+#ask_data #ask_form {
+  display: inline-block;
+  margin-top: 20px;
+  width: 100%;
+}
+#ask_data input {
+  width: 315px;
+  display: block;
+  margin: 20px 0px;
+}
+#ask_data textarea {
+  height: 75px;
+  width: 315px;
+  margin: 0 30px;
+}
+#ask_data #askbtn, #ask_data #resetbtn {
+  float: right;
+  height: 30px;
+  margin: 10px 23px 0 0;
+  width: 80px;
+}
+#ask_data .wk_close {
+  color: #000000;
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  opacity: 0.2;
+  text-shadow: 0 1px 0 #FFFFFF;
+  margin-top: -20px;
+}
+#ask_data label {
+  padding: 10px;
+  float: left;
+}
+
+body.marketplace-seller-profile .col3-layout .col-wrapper {
+  width: 100%;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .store-name {
+  padding: 0px 0 20px 0;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .product-collateral {
+  width: 100%;
+  min-height: auto;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .product-collateral .toggle-tabs {
+  border-bottom: 1px solid #CCCCCC !important;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .product-collateral .toggle-tabs li {
+  border-bottom: none;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .product-collateral dl dd {
+  min-height: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .flexslider .name {
+  max-width: 140px;
+  float: left;
+  padding: 0 0 0 10px;
+  color: #646464;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper .flexslider .price {
+  float: right;
+  padding: 5px;
+  font-size: 16px;
+  color: #646464;
+}
+body.marketplace-seller-profile .col3-layout .col-wrapper #info .section {
+  padding: 5px 5px 10px;
 }

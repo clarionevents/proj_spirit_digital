@@ -1,0 +1,63 @@
+/**
+ *
+ * @category    design
+ * @package     spiritboutique
+ * @author      Giovanni Capuano <giovanni.capuano@clarionevents.com>
+ */
+/*! component/seller-profile.css Clarion Events all rights reserved */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+
+
+body.customer-account  label{
+    float:left;
+    clear: both;
+}
+
+body.customer-account  div.input-box{
+    float:left;
+    clear:both;
+}
+
+body.customer-account.marketplace-marketplaceaccount-editprofile .color_pick{
+     margin-left: auto; 
+    margin-top: -5px;
+}
+
+
+body.customer-account.marketplace-marketplaceaccount-editprofile .country_img_prev{
+     margin-left: auto; 
+     margin-top: auto; 
+}
+
+
+body.customer-account.marketplace-marketplaceaccount-editprofile a.btn_primary:hover{
+    text-decoration: none;
+    color:#FFF;
+}
+
+body.customer-account.marketplace-marketplaceaccount-editprofile  .form-list .profile{
+    margin: 10px 0;
+}
+
+body.customer-account.marketplace-marketplaceaccount-editprofile .profile .input-box .compdesi{
+    float:left;
+    min-width:auto;
+}
+
+
+body.customer-account.marketplace-marketplaceaccount-editprofile #form-payment-validate div.input-box{
+    width:100%;
+}
+
+body.customer-account.marketplace-marketplaceaccount-editprofile div.input-box textarea{
+    width:100%;
+}
+
+body.customer-account.marketplace-marketplaceaccount-editprofile .buttons-set{
+    margin: 100px 0 0;
+}

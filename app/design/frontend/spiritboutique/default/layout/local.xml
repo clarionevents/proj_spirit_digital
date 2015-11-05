@@ -100,6 +100,12 @@
 			<block type="core/template" name="mayalsolike" template="catalog/product/view/mayalsolike.phtml"/> -->
 			<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed_slider.phtml"/>
 		</reference>
+		
+		<reference name="product.info.tabs">
+        <action method="unsetChild">
+            <child>product_additional_data</child>
+        </action>
+    </reference>
  	</catalog_product_view>
  	<catalogsearch_result_index translate="label">
  		<reference name="head">

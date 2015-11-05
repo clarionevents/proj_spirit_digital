@@ -45,4 +45,13 @@
             <?php echo $this->renderTotals(); ?>
         </tbody>
     </table>
+    <?php
+    		// $appliedRuleIds = Mage::getSingleton('checkout/session')->getQuote()->getAppliedRuleIds();
+			// $appliedRuleIds = explode(',', $appliedRuleIds);
+			// $oRule = Mage::getModel('salesrule/rule')->load($appliedRuleIds);
+			// $discountItems = '';
+			// $dataRule = $oRule->getData();
+			// print_r(intval($dataRule['coupon_type']));
+    
+     ?>
 <?php endif; ?>

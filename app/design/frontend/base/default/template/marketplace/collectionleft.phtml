@@ -1,24 +1,62 @@
 <?php
 $partner=$this->getProfileDetail();
-$logo=$partner->getlogopic()==''?"noimage.png":$partner->getlogopic();
 $helper=Mage::helper('marketplace');
-$logo=Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'avatar/'.$logo;
+$seller_id=$partner['mageuserid'];
+$seller=Mage::getModel('customer/customer')->load($seller_id);
+$shoptitle = $partner->getShoptitle();
+if(!$shoptitle){
+	$shoptitle = $seller->getName();
+}
+$locsearch=$partner->getcomplocality()==''? Mage::getModel('directory/country')
+			->load($partner->getcountrypic())->getName():$partner->getcomplocality();
+$countryflag=$this->getSkinUrl('marketplace/images/country/countryflags/').strtoupper($partner->getcountrypic()==""?"XX":$partner->getcountrypic()).".png";
+$countryName = '';
+if($partner->getcountrypic()){
+	$countryModel = Mage::getModel('directory/country')->loadByCode($partner->getcountrypic());
+	$countryName = ",".$countryModel->getName();
+}
 ?>
-<div class="block block-list block-collection">
-	<div class="block-title">
-		<strong><span><?php echo $helper->__('View Collection') ?> :</span> </strong>
-	</div>
-	<div class="block-content">
-		<?php echo $this->getChildHtml();?>
-		<a href="<?php echo  Mage::getUrl('marketplace/seller/collection').$partner->getprofileurl(); ?>" title="<?php echo $helper->__('Visit Complete Collection')?>" id="siteconnect"><?php echo $helper->__('View Collection')?></a>
-		<span class="profile-view">
-		<a href="<?php echo  Mage::getUrl('marketplace/seller/profile').$partner->getprofileurl() ?>" title="<?php echo $helper->__('Visit Profile')?>" id="profileconnect"><?php echo $helper->__('View Profile')?></a>
-		<span class="collection-hover-div">
-			<a href="<?php echo Mage::getUrl('marketplace/seller/profile').$partner->getprofileurl();?>">
-				<img class="hover-bannerpicrs" src="<?php echo $logo;?>"/>
+<div class="wk_mp_design">
+	<div class="wk_mp_design_inner wk_mp_design_inner_last" style="margin-top:10px;">
+		<div class="wk_mp_profile_container storename">
+			<div class="store-name">
+				<?php echo $helper->__("Seller's Information") ?>
+			</div>
+			<div id="info" class="block-content">
+				<div class="wk_seller">	
+					<div class="section">
+						<div class="storename">
+							<a class="store-name" href="<?php echo $helper->getRewriteUrl('marketplace/seller/profile/'.$partner['profileurl']);?>">
+								<?php echo $shoptitle; ?>
+							</a>
+						</div>
+						<div class="wefrom">
+							<span class="wk_storeloc_icon wk_icon"></span>
+							<a class="cont-name" title="<?php echo $helper->__('Search') ?>" href="<?php echo  $helper->getRewriteUrl('marketplace/seller/location/'.$partner['profileurl'])."?loc=".$locsearch?>" target="_blank">
+								<span><?php echo $locsearch.$countryName; ?></span>
+								<img class="piccountry" title="<?php echo $helper->__('View Map') ?>" src="<?php echo $countryflag;  ?>" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a href="<?php echo $helper->getRewriteUrl('marketplace/seller/profile/'.$partner['profileurl']); ?>">
+				<button class="button" title="<?php echo $helper->__("View Seller's Profile") ?>">
+					<span>
+						<span>
+							<?php echo $helper->__('View Profile'); ?>
+						</span>
+					</span>
+				</button>
 			</a>
-			<?php echo $partner->getcompdesi(); ?>
-		</span>
-		</span>
+			<?php echo $this->getChildHtml();?>	
+			<div style="margin-top:5px;">
+				<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $locsearch.$countryName;?>&amp;output=embed"></iframe>
+				<br />
+				<small>
+					<a href="https://maps.google.com/maps?q=<?php echo $locsearch.$countryName;?>"><?php echo Mage::helper('marketplace')->__('View Location on Map') ?></a>
+				</small>
+			</div>
+		</div>
 	</div>
 </div>

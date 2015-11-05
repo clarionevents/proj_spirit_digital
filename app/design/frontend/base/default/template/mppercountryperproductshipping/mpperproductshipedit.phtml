@@ -1,0 +1,256 @@
+<script type="text/javascript">
+var $wk_jq=jQuery.noConflict();
+	if (typeof $wk_jq == 'undefined'){
+		document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script> 
+<?php
+	$isPartner= Mage::getModel('marketplace/userprofile')->isPartner();
+	$helper=Mage::helper('marketplace');
+	$customerid=Mage::getSingleton('customer/session')->getCustomerId();
+	if($isPartner==1){
+		$rightseller=Mage::getModel('marketplace/userprofile')->isRightSeller($this->getRequest()->getParam('id'));
+		if($rightseller){
+			$urlid=$this->getRequest()->getParam('id');
+			$loadpro =Mage::getModel('catalog/product')->load($urlid)->getMpShippingCountryCharge();
+    
+ 	?>
+	<li>
+		<div class="input-box">
+			<input type="hidden" value="" id="mp_shipping_country_charge" name="mp_shipping_country_charge"/>
+		</div>
+	</li>
+	<li class="shipping-area">
+	      
+		<label><?php echo Mage::Helper('mppercountryperproductshipping')->__('Shipping Cost') ?><b><?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); echo  " (". Mage::app()->getLocale()->currency( $currency_code )->getSymbol().")"; ?></b>:</label>
+		<br>
+		<br>
+	  	<div class='firstone'> <?php echo $helper->__('Ship to') ?> </div>
+		    	
+      	<div  class='firstone'> <?php echo $helper->__('Cost') ?> </div>		   
+	  	<?php if($loadpro==''){ ?>	
+		    <?php if(Mage::getStoreConfig('carriers/mppercountryperproductshipping/allowspecific')){
+		            $shippingcountries = Mage::getStoreConfig('carriers/mppercountryperproductshipping/specificcountry');
+            $arrcountry= explode(',',$shippingcountries); ?>
+             <select id='usi' class='clones'>
+								<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+							<?php foreach($arrcountry as $country){
+                              $country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+						    ?>
+								<option value="<?php echo  $country; ?>"><?php echo $country_name; ?></option>
+							 <?php 
+						       }
+						 ?>
+		    </select>
+            <div class='shipbody' id='first'>
+		       	<div class='firstone'>
+		       		<div class="input-box">
+						<select name="ship[0][]">
+							<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+						  	<?php foreach($arrcountry as $country){
+	                      		$country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+					      		?>
+						   		<option value="<?php echo  $country; ?>"><?php echo $country_name; ?></option>
+						 	<?php  } ?>
+						</select>
+					</div>
+				</div>
+			    <div class='firstone'>       
+			    	<div class="input-box">
+	                   <input type='text' name='ship[0][]'/>
+			    	</div>	
+			    </div>
+		  	</div>
+		  	<div> 
+		  		<button type='button' class='button adship' id='1'>
+			  		<span>
+			  			<span>Add Option</span>
+			  		</span>
+		  		</button>
+		  	</div>  
+		<?php  } else{ ?>
+            <select id='usi' class='clones'>
+				<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+				<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+					<option <?php 
+					if($country['value']!=''){?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+				 <?php 
+			       }
+				  } ?>
+		    </select>
+			<div class='shipbody'>
+				<div class='firstone'>
+				 	<div class="input-box">
+					 	<select name="ship[0][]">
+							<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+							<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+								<option <?php 
+									if($country['value']!=''){
+									echo ($partner['countrypic']==$country['value']?"selected='selected'":""); ?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+					 		<?php   }
+					  		} ?>
+						</select>
+					</div>
+				</div>
+				<div class='firstone'>       
+			    	<div class="input-box">
+	                  <input type='text' name='ship[0][]'/>
+			    	</div>	
+				</div>
+			</div>
+			<div id='first'></div>
+			<div> 
+				<button type='button' class='button adship' id='1' >
+					<span>
+						<span>Add Option</span>
+					</span>
+				</button>
+			</div> 
+		 <?php  }
+           } else{
+           	 	if(Mage::getStoreConfig('carriers/mppercountryperproductshipping/allowspecific')){
+		            $shippingcountries = Mage::getStoreConfig('carriers/mppercountryperproductshipping/specificcountry');
+                  	$arrcountry= explode(',',$shippingcountries); ?>
+          			<select id='usi' class='clones'>
+						<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+						<?php foreach($arrcountry as $country){
+                          $country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+					    ?>
+							<option value="<?php echo  $country; ?>"><?php echo $country_name; ?></option>
+						<?php } ?>
+		      		</select>
+		    	<?php
+                  	$totalcounries = explode('/',$loadpro);
+                    $i=0;
+					foreach($totalcounries as $pric){
+					  $sepratecountry= explode(',',$pric); 
+                       $idship='row'.$i;
+					 ?>
+                      	<div class='shipbody' id='<?php echo $idship; ?>'>
+			                <div class='firstone'><div class="input-box">
+								<select name="ship[<?php echo $i; ?>][]">
+									<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+									<?php foreach($arrcountry as $country){
+	                                 $country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+									 ?>
+										<option <?php 
+										if($country!=''){
+										echo ($sepratecountry[0]==$country?"selected='selected'":""); ?>value="<?php echo $country;?>"><?php echo $country_name;?></option>
+									 <?php 
+								       }
+									  } ?>
+								</select>
+						    </div>
+						</div>
+
+					 	<div class='firstone'>       
+					    	<div class="input-box">
+			                  	<input type='text' name='ship[<?php echo $i; ?>][]' value='<?php echo $sepratecountry[1] ?>'/>
+			                  	<button type="button" class="button deletebut" ids="<?php echo $i; ?>"><span><span>Delete Option</span></span></button>
+					    	</div>	
+					    </div>
+					</div>
+				<?php  $i++;
+		      } ?>
+		        <div id='first'></div>
+                <div> 
+                	<button type='button' class='button adship' id='<?php echo $i; ?>' >
+                		<span>
+                			<span>Add Option</span>
+                		</span>
+                	</button>
+                </div>
+
+            <?php } else{ ?>
+                <select id='usi' class='clones'>
+					<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+					<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+						<option <?php 
+						if($country['value']!=''){?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+					 <?php 
+				       }
+					  } ?>
+		         </select>
+		         <?php 
+                    $totalcounries = explode('/',$loadpro);
+                    $i=0;
+					foreach($totalcounries as $pric){
+					  	$sepratecountry= explode(',',$pric); 
+                       	$idship='row'.$i;
+					 	?>
+                      	<div class='shipbody' id='<?php echo $idship; ?>'>
+			                <div class='firstone'>
+			                	<div class="input-box">
+									<select name="ship[<?php echo $i; ?>][]">
+										<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+										<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+											<option <?php 
+											if($country['value']!=''){
+										echo ($sepratecountry[0]==$country['value']?"selected='selected'":""); ?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+									 	<?php  }
+									  } ?>
+									</select>
+						    	</div>
+							</div>
+
+							<div class='firstone'>       
+						    	<div class="input-box">
+				                  	<input type='text' name='ship[<?php echo $i; ?>][]' value='<?php echo $sepratecountry[1] ?>'/>
+				                  	<button type="button" class="button deletebut" ids="<?php echo $i; ?>"><span><span>Delete Option</span></span></button>
+						    	</div>	
+							</div>
+						</div>
+				<?php  $i++;
+		      		} ?>
+		        <div id='first'></div>
+                <div> 
+                	<button type='button' class='button adship' id='<?php echo $i; ?>' >
+                		<span><span>Add Option</span></span>
+                	</button>
+                </div>
+		<?php }
+
+        }    ?>
+	</li>
+
+	<script>
+		jQuery=jQuery.noConflict(); 
+		(function(jQuery){
+			jQuery(function(){
+	      	// jQuery('#save_butn').click(function(e){
+					// var values = jQuery(".shipbody input,.shipbody select").map(function(){return jQuery(this).val();}).get();
+					// values=values.toString();
+					// var array = values.split(',');
+					// var finalString = "";
+					// var count = 0;
+					// for (var i = 0; i < array.length; i++) {
+						// if(count % 2 == 0)
+							// finalString = finalString + array[i].toString() + ",";
+						// else
+							// finalString = finalString + array[i].toString() + "/";
+						// count++;
+					// };
+					// jQuery('#mp_shipping_country_charge').val(finalString);
+				// });
+	        jQuery(document).on('click','.adship',function(){
+	         	id = jQuery(this).attr('id');
+	            var divs = jQuery('#usi').clone().attr('name','ship['+id+'][]').removeClass('clones');
+	     
+	            jQuery('#first').after('<div class="shipbody" id="row'+id+'"><div class="firstone"><div class="input-box" id="ship'+id+'"></div></div><div class="firstone"><div class="input-box"><input type="text" name="ship['+id+'][]"/><button type="button" class="button deletebut" ids='+id+'><span><span>Delete Option</span></span></button></div></div></div>');
+	            jQuery('#ship'+id).append(divs);
+	            jQuery(this).attr('id',parseInt(id)+1);
+	        });
+
+	        jQuery(document).on('click','.deletebut',function(){ 
+	            var delid = jQuery(this).attr('ids');
+	            jQuery('#row'+delid).remove();
+	        });
+		});
+	   })(jQuery);
+   </script>
+  	<?php } else{
+		echo $helper->__("<h2 class='wk_new_msg'>YOU ARE NOT AUTHORIZE TO EDIT THIS PRODUCT..</h2>");
+	}
+} else {
+	echo $helper->__("<h2 class='wk_new_msg'>FOR BECOME SELLER CONTACT TO ADMIN..</h2>");
+}?>

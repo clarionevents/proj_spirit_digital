@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <marketplace_account_simpleproduct>
+         <reference name="head">
+            <action method="addCss">
+                <stylesheet>marketplace/css/print.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="marketplace_addproduct">
+            <block type="core/template" name="mppercountryperproductshipping" template="mppercountryperproductshipping/mpperproductshipnew.phtml" />
+        </reference>
+    </marketplace_account_simpleproduct>
+    <marketplace_account_simpleproductedit>
+         <reference name="head">
+            <!-- <action method="addCss">
+                <stylesheet>marketplace/css/print.css</stylesheet>
+            </action> -->
+        </reference>
+        <reference name="marketplace_editproducts">
+             <block type="core/template" name="mppercountryperproductshipping" template="mppercountryperproductshipping/mpperproductshipedit.phtml" />
+        </reference>
+    </marketplace_account_simpleproductedit>
+    <marketplace_account_configurableproduct>
+         <!-- <reference name="head">
+            <action method="addCss">
+                <stylesheet>marketplace/css/print.css</stylesheet>
+            </action>
+        </reference> -->
+        <reference name="marketplace_addproduct">
+             <block type="core/template" name="mppercountryperproductshipping" template="mppercountryperproductshipping/mpperproductshipnew.phtml" />
+        </reference>
+    </marketplace_account_configurableproduct>
+    <marketplace_account_configurableproductedit>
+         <reference name="head">
+            <action method="addCss">
+                <stylesheet>marketplace/css/print.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="marketplace_editproducts">
+             <block type="core/template" name="mppercountryperproductshipping" template="mppercountryperproductshipping/mpperproductshipnew.phtml" />
+        </reference>
+    </marketplace_account_configurableproductedit>
+</layout> 

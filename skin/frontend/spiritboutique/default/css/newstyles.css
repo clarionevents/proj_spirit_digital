@@ -1,0 +1,115 @@
+/*newstyles.css*/
+
+/*header-section*/
+#header-search form select {
+  border: 1px solid #c0c0c0;
+  padding-left:4px;
+}
+
+::i-block-chrome,#header-search form select {
+  line-height: 2.9;
+}/* Safari only override */
+
+/*not-found-product-msg*/
+.note-msg {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #cccccc;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px 5px;
+  color: #000000;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 40px;
+  text-align: center;
+}
+
+/*catalog-category-view*/
+body.catalog-category-view .quick-links, body.catalogsearch-result-index .quick-links {
+  height: 45px;
+  padding: 5px 0;
+}
+.cms-home div.flexslider ul.slides li {
+  margin: 0 15px;
+}
+
+/* catalog-product-view*/
+.catalog-product-view .product-view div.product-slider .flex-direction-nav a.flex-prev {
+  margin-left: 14px;
+}
+div.flexslider ul.slides li div.slider-item-content {
+  height: 42px;
+}
+body.catalog-product-view .flex-direction-nav a, .product-image-gallery ul.img-direction-nav a,.product-view div.product-slider .flex-direction-nav a {
+  font-size: 0;
+  visibility: visible;
+}
+.catalog-product-view .product-img-box div.more-views .thumb-link > img {
+  min-height: 146px;
+  min-height: 146px;
+}
+
+/* Create an Account */
+.scaffold-form .form-list .input-box {
+    float: none;
+}
+
+/* tagId */
+.sidebar .mini-products-list .product-details .product-name {
+    padding-top: 0;
+}
+.block-poll #poll-answers .poll_vote, .validate-one-required-by-name, .gift-messages .checkbox {
+    top: 2px;
+}
+
+/* How to Apply */
+.catherine-thake {
+    padding-right: 44px;
+}
+.apple-phone {
+    padding-left: 27px;
+}
+
+/* Account Information */
+body.customer-account .form-list > li label {
+    padding-top: 5px;
+}
+
+/*footer-section*/
+.footer .block-subscribe .actions .button::after {
+  margin-top: -1px;
+}
+.footer .block-subscribe .actions .button {
+  background: #cfcfcf none repeat scroll 0 0;
+  border-radius: 0 3px 3px 0;
+  margin-left: 0;
+}
+div.social ul.social li a:hover {
+    text-decoration: none;
+}
+
+
+
+/*title*/
+.block-title h2, .block-title h3, .block-title strong {
+  font-size: 16px;
+}
+
+/*left-sidebar*/
+.col-left, .col-right, .col-main {
+  padding: 0 15px 10px 0;
+}
+
+/*cms-page-view*/
+.cms-spirit-heritage .std img {
+  margin-right: 5px;
+  float:left;
+}
+
+
+body.catalog-category-view .quick-links div:nth-child(2){
+    float: right;
+}

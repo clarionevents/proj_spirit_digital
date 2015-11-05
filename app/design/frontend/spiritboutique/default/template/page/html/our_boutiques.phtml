@@ -1,5 +1,6 @@
 <?php 
 	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection();
+	// print_r(count($_sellers));
 ?>
 
 <div class="sellers">
@@ -7,8 +8,8 @@
 		<?php foreach($_sellers as $seller): ?>
 			<?php
 				$customer = Mage::getModel('customer/customer')->load($seller->getMageuserid()); 
-				$logo = Mage::getModel('customer/customer')->load($seller->getMageuserid()); 
-				if($logo == NULL || $logo == '' || $logo){
+				$logo = $seller->getlogopic(); 
+				if($logo == NULL || $logo == '' || !$logo){
 					$logo ="noimage.png";
 				}
 			?>
@@ -18,7 +19,11 @@
 				</a>
 				<div class="seller-data">
 					<a class="text" href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
-						<span class="name"><?php echo $customer->getName() ?></span>
+						<?php if(!strcmp($customer->getLastname(),".")){?>
+							<span class="name"><?php echo $customer->getName() ?></span>
+						<?php }else{?>
+							<span class="name"><?php echo $customer->getFirstname() ?></span>
+						<?php }?>
 					</a>
 					<?php 
 					
@@ -27,7 +32,8 @@
 					
 					?>
 					<?php if ($customerdata->{'description'} != ''):?>
-					<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($customerdata->{'description'}, 1, 150) . "..."; ?></span>
+						<?php $html_s = strip_tags($customerdata->{'description'}) ?>
+					<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($html_s, 0, 150) . "..."; ?></span>
 					<?php else: ?>
 					<a class="text" href="mailto:<?php echo  $customer->getemail()?>">Contact the seller</a>
 					<?php  endif;?>

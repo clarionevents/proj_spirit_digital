@@ -1,0 +1,124 @@
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined'){
+		document.write(unescape("%3Cscript src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script> 
+<?php 
+	$helper = Mage::helper('marketplace');
+	$shipcharges=Mage::getModel('catalog/product')->load($this->getRequest()->getParam('id'))->getMpShippingCharge();
+?>
+<li>
+	<div class="input-box">
+		<input type="hidden" value="" id="mp_shipping_country_charge" name="mp_shipping_country_charge"/>
+	</div>
+</li>
+<li>
+	<label><?php echo Mage::Helper('mppercountryperproductshipping')->__('Shipping Cost') ?><b><?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); echo  " (". Mage::app()->getLocale()->currency( $currency_code )->getSymbol().")"; ?></b>:</label>
+<br>
+<div class='firstone'> <?php echo $helper->__('Ship to') ?> </div>
+<div  class='firstone'> <?php echo $helper->__('Cost') ?> </div>	
+    <?php 
+    	if(Mage::getStoreConfig('carriers/mppercountryperproductshipping/allowspecific')){
+            $shippingcountries = Mage::getStoreConfig('carriers/mppercountryperproductshipping/specificcountry');
+            $arrcountry= explode(',',$shippingcountries); ?>
+             <select id='usi' class='clones'>
+				<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+					<?php foreach($arrcountry as $country){
+                        $country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+					    ?>
+						<option value="<?php echo  $country; ?>"><?php echo $country_name; ?></option>
+					<?php } ?>
+		    </select>
+            <div class='shipbody' id='first'>
+		       	<div class='firstone'>
+		       		<div class="input-box">
+						<select name="ship[0][]">
+						 	<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+						  	<?php foreach($arrcountry as $country){
+                          		$country_name=Mage::app()->getLocale()->getCountryTranslation($country);
+					      		?>
+						   		<option value="<?php echo  $country; ?>"><?php echo $country_name; ?></option>
+						 	<?php } ?>
+						</select>
+					</div>
+				</div>
+		        <div class='firstone'>       
+		    		<div class="input-box">
+                   		<input type='text' name='ship[0][]'/>
+		    	  	</div>	
+		    	</div>
+		  	</div>
+		  	<div> 
+		  		<button type='button' class='button adship' id='1' >
+		  			<span>
+		  				<span>Add Option</span>
+		  			</span>
+		  		</button>
+		  	</div>  
+    <?php } else{ ?>
+        <select id='usi' class='clones'>
+			<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+			<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+				<option <?php 
+				if($country['value']!=''){?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+			 <?php 
+		       }
+			 } ?>
+		</select>
+		<div class='shipbody' id='first'>
+			<div class='firstone'><div class="input-box">
+				<select name="ship[0][]">
+					<option value="" selected="selected" disabled="disabled"><?php echo $helper->__('Select Country')?></option>
+					<?php foreach(Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true) as $country){?>
+						<option <?php 
+							if($country['value']!=''){
+								echo ($partner['countrypic']==$country['value']?"selected='selected'":""); ?>value="<?php echo $country['value']; ?>"><?php echo $country['label'];?></option>
+							 <?php 
+						       }
+							  } ?>
+				</select>
+			</div>
+		</div>
+		<div class='firstone'>       
+	    	<div class="input-box">
+              <input type='text' name='ship[0][]'/>
+	    	</div>	
+		</div>
+	</div>
+<div> <button type='button' class='button adship' id='1' ><span><span>Add Option</span></span></button></div>  	
+<?php } ?>
+</li>
+<script>
+	$wk_jq=jQuery.noConflict(); 
+	(function($wk_jq){
+		$wk_jq(function(){
+			$wk_jq('#save_butn').click(function(e){
+				var values = $wk_jq(".shipbody input,.shipbody select").map(function(){return $wk_jq(this).val();}).get();
+				values=values.toString();
+				var array = values.split(',');
+				var finalString = "";
+				var count = 0;
+				for (var i = 0; i < array.length; i++) {
+					if(count % 2 == 0)
+						finalString = finalString + array[i].toString() + ",";
+					else
+						finalString = finalString + array[i].toString() + "/";
+					count++;
+				};
+				$wk_jq('#mp_shipping_country_charge').val(finalString);
+			});
+         	$wk_jq(document).on('click','.adship',function(){
+	         	id = $wk_jq(this).attr('id');
+	            var divs = $wk_jq('#usi').clone().attr('name','ship['+id+'][]').removeClass('clones');
+	            $wk_jq('#first').after('<div class="shipbody" id="row'+id+'"><div class="firstone"><div class="input-box" id="ship'+id+'"></div></div><div class="firstone"><div class="input-box"><input type="text" name="ship['+id+'][]"/><button type="button" class="button deletebut" ids='+id+'><span><span>Delete Option</span></span></button></div></div></div>');
+	            $wk_jq('#ship'+id).append(divs);
+	            $wk_jq(this).attr('id',parseInt(id)+1);
+         	});
+
+         	$wk_jq(document).on('click','.deletebut',function(){ 
+	            var delid = $wk_jq(this).attr('ids');
+	            $wk_jq('#row'+delid).remove();
+         	});
+		});
+    })($wk_jq);
+</script>

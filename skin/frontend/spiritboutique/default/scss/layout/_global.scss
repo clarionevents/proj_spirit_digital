@@ -30,7 +30,6 @@
 html,
 body {
     height: 100%;
-    min-width: 960px;
 }
 
 div.page{
@@ -134,7 +133,6 @@ body.catalogsearch-result-index{
           min-height:inherit;
           width:327px;
           margin-left: -5px;
-          float:left;
           li{
               margin-right: 20px;
               border: none;
@@ -289,18 +287,6 @@ body.cms-our-boutiques{
         list-style:none;
         width: 100%;
         min-height: 90px;
-        margin-bottom: 10px;
-        span{
-            font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
-            font-size:12px;
-            font-style: normal;
-            line-height: normal;
-        }
-        .seller-data{
-            max-height: 80px;
-            float: left;
-            width: 600px;
-        }
         a{
           float:left;
           img{
@@ -311,7 +297,7 @@ body.cms-our-boutiques{
         }
         a.text{
           margin-left:10px;
-          // margin-top: 60px;
+          margin-top: 60px;
         }
       }
     }

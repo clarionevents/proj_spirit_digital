@@ -1,0 +1,179 @@
+<?php 
+	$isPartner= Mage::getModel('marketplace/userprofile')->isPartner(); 
+	$helper= Mage::helper('marketplace');
+	if($isPartner==1){
+		?>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined'){
+    document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<div class="page-title">
+	<h1 style="float:left;"><?php echo $helper->__('My Product List') ?></h1>
+	<div class="product search" style="float:right;">
+		<form action="<?php echo $this->getUrl('marketplace/marketplaceaccount/myproductslist');?>" method="post">
+			<input type="text" class="input-text" name="s" placeholder='Search by product name'  />
+			<button style="float:none;" id="save_butn" type="submit" title="Continue" class="button">
+				<span><span><?php echo  $helper->__('Search')?></span></span>
+			</button>
+		</form>
+	</div>
+</div>
+<?php if(count($this->getCollection())==0){ ?>
+	<div class="fieldset">
+		<h2 class="legend"><?php echo $helper->__('Product List') ?></h2>
+		<div class="wk_emptymsg">
+			<?php echo $helper->__('No Product Available') ?>
+		</div>
+	</div>
+<?php } 
+else{ ?>
+
+<div>	
+	<div class="fieldset">
+		<h2 class="legend"><?php echo $helper->__('Product List') ?></h2>
+		<?php echo $this->getPagerHtml(); ?>
+		<div class="wk_content">
+			<div class="head">			
+				<span class="label name">
+					<?php echo $helper->__('Product Name')?>
+				</span>
+				<span class="label">
+					<?php echo $helper->__('Image')?>
+				</span>
+				<span class="label price">
+					<?php echo $helper->__('Price')?>
+				</span>							
+				<span class="label pro_status">
+					<?php echo $helper->__('Status')?>
+				</span>
+				<span class="label qty">
+					<?php echo $helper->__('Qty. Confirmed')?>
+				</span>
+				<span class="label qty">
+					<?php echo $helper->__('Qty. Pending')?>
+				</span>
+				<span class="label qty">
+					<?php echo $helper->__('Qty. Sold')?>
+				</span>
+				<span class="label">
+					<?php echo $helper->__('Earn Amount')?>
+				</span>
+				<span class="label">
+					<?php echo $helper->__('Action')?>
+				</span>
+			</div>
+			<div class="wk_clear"></div>				
+			<div class="wk_seller_product">
+				<?php 
+				foreach($this->getCollection() as $products){  
+					$productMediaConfig = Mage::getModel('catalog/product_media_config');
+					$salesdetail=Mage::getModel('marketplace/saleslist')->getSalesdetail($products->getEntityId());
+				?>
+					<div class="wk_row_view">
+						<input type="hidden" class="hidden_id" value="<?php echo $products->getEntityId(); ?>" />
+						<span class="label name" title="<?php echo $products->getName(); ?>">
+						<?php 
+							$productname=strlen($products->getName())>7?substr($products->getName(),0,7)."..":$products->getName();
+							echo $productname;
+						?>
+						</span>
+						<span class="label">
+							<img src="<?php echo Mage::helper('catalog/image')->init($products,'thumbnail');?>" class="image" />
+						</span>
+						<span class="label">
+							<?php echo Mage::helper('core')->currency($products->getPrice(), true, false);?>
+						</span>
+						<?php if($products->getStatus()==2) {	?> 			
+								<span class="label pro_status">
+									<?php echo $helper->__('Pending')?>
+								</span>
+								<span class="label qty">
+									<?php echo $helper->__('Pending')?>
+								</span>
+								<span class="label qty">
+									<?php echo $helper->__('Pending')?>
+								</span>
+								<span class="label qty">
+									<?php echo $helper->__('Pending')?>
+								</span>
+								<span class="label price">
+									<?php echo $helper->__('Pending')?>
+								</span>
+							
+						<?php }
+						else{ 
+							$id=$products->getId();
+							$productsolddetail=Mage::getModel('marketplace/saleslist')->getProductSalesDetailById($id);
+							$qtycom=0;
+							$com=0;
+							foreach($productsolddetail as $key){
+								$qtycom+=$key['magequantity'];
+								$com+=$key['actualparterprocost'];
+							}	?>
+							<span class="label pro_status">
+								<?php echo $helper->__('Approved')?>
+							</span>
+							<span class="label qty"><?php echo $salesdetail['quantitysoldconfirmed']; ?></span>
+							<span class="label qty"><?php echo $salesdetail['quantitysoldpending'];	?></span>
+							<span class="label qty">
+								<?php echo $salesdetail['quantitysold']; ?>
+							</span>
+							<span class="label price">
+								<?php echo Mage::helper('core')->currency($salesdetail['amountearned'], true, false); ?>
+							</span>
+						<?php } 
+						//echo $products->getId();
+						//echo Mage::getModel('catalog/product')->load($products->getId())->getTypeId();
+						?>
+						<span class="label">
+								<img src="<?php echo $this->getSkinUrl('marketplace/images/edit.gif'); ?>" data-type="<?php echo $products->getTypeId(); ?>" alt="<?php echo $helper->__('Edit')?>" title="<?php echo $helper->__('Edit')?>" class="mp_edit"/> || 
+								<img src="<?php echo $this->getSkinUrl('marketplace/images/delete.gif'); ?>" alt="<?php echo $helper->__('Delete')?>" title="<?php echo $helper->__('Delete')?>" class="mp_delete"/>
+						</span>	
+					</div>
+					<div class="wk_clear"></div>
+				<?php } ?>
+			</div>
+		</div>	
+		<?php echo $this->getPagerHtml(); ?>		
+	</div>	
+	<div class="buttons-set">
+		<p class="back-link">
+			<a href="javascript:;" onclick="javascript: window.history.back();" class="left">&laquo; <?php echo $helper->__('Back') ?></a>
+		</p>
+	</div>
+</div>
+<script> 
+var $wk_jq=jQuery.noConflict();
+(function($wk_jq){
+	$wk_jq('body').delegate('.mp_edit','click',function(){
+		var id=$wk_jq(this).parents('.wk_row_view').find('.hidden_id').val();	
+		var dicision=confirm('Sure Want To Edit Magento Product');
+		if(dicision==true){			
+			var $type_id=$wk_jq(this).attr('data-type');				
+			if($type_id=='simple')
+				window.location = "<?php echo $this->getUrl('marketplace/marketplaceaccount/editapprovedsimple/') ?>".concat("id/",id);	
+			if($type_id=='downloadable')
+				window.location = "<?php echo $this->getUrl('marketplace/marketplaceaccount/editapproveddownloadable/') ?>".concat("id/",id);			
+			if($type_id=='virtual')
+				window.location = "<?php echo $this->getUrl('marketplace/marketplaceaccount/editapprovedvirtual/') ?>".concat("id/",id);		
+			if($type_id=='configurable')
+				window.location = "<?php echo $this->getUrl('marketplace/marketplaceaccount/editapprovedconfigurable/') ?>".concat("id/",id);
+				<?php
+				 echo $this->getChildHtml('mpgrouped_productslist');
+				echo $this->getChildHtml('mpbundle_productslist');
+				?>
+		}
+	});
+	$wk_jq('.mp_delete').click(function(){
+		var id=$wk_jq(this).parents('.wk_row_view').find('.hidden_id').val();
+		var dicision=confirm('<?php echo $helper->__(' Sure Want To Delete Magento Product ')?>');
+		if(dicision==true)
+			window.location = "<?php echo $this->getUrl('marketplace/marketplaceaccount/delete/') ?>".concat("id/",id);
+	});
+})($wk_jq);
+</script>
+<?php }
+}else{
+	echo $helper->__("<h2 class='wk_new_msg'>FOR BECOME SELLER CONTACT TO ADMIN..</h2>");
+}?>

@@ -1,59 +1,88 @@
 <?php
-$temp=explode('/profile/',Mage::helper('core/url')->getCurrentUrl());
+$partner=$this->getProfileDetail();
 $helper =Mage::helper('marketplace');
-if($temp[1]!=''){
-	$partner=$this->getProfileDetail();
-?>	
-<style>.main{background-image:none;background-color:<?php echo $partner->getbackgroundth();?>;}</style>
-<h1>
-	<?php 	if($partner->getshoptitle()!='')
-			echo $partner->getshoptitle().$helper->__('\'s profile page');
-		else
-			echo $partner->getprofileurl().$helper->__('\'s profile page'); ?>
-</h1>
-<?php } else{ 
-	echo $helper->__('Invalid profile'); } 
+$seller_id=$partner['mageuserid'];
+$seller=Mage::getModel('customer/customer')->load($seller_id);
+$shoptitle = $partner->getShoptitle();
+if(!$shoptitle){
+	$shoptitle = $seller->getName();
+}
 ?>
-<div class="wk-profile">	
-	<div class="wk_mp_detail">		
-		<span class="row">			
-			<span class="label"><?php echo $helper->__('About');?></span>
-			<span class="data"><?php echo $partner->getcompdesi();?></span>		
-		</span>		
-		<span class="row">			
-			<span class="label"><?php echo $helper->__('Facebook');?></span>			
-			<span class="data">
-				<a href="<?php echo "http://www.facebook.com/".$partner->getfacebookid() ?>"><?php echo "http://www.facebook.com/".$partner->getfacebookid();?></a>
-			</span>		
-		</span>		
-		<span class="row">			
-			<span class="label"><?php echo $helper->__('Twitter');?></span>			
-			<span class="data">
-				<a href="<?php echo "http://twitter.com/".$partner->gettwitterid() ?>"><?php echo "http://twitter.com/".$partner->gettwitterid();?></a>
-			</span>		
-		</span>	
-	</div>	
-	<div class="shop">		
-		<div class="label">			
-			<?php echo $helper->__('Shop')?>			
-			<a href="<?php echo $this->getUrl('marketplace/seller/collection').$partner->getprofileurl();?>"><?php echo $helper->__('See more..')?></a>		
-		</div>		
-		<?php 	
-			$partnerproducts = Mage::getModel('marketplace/product')
-										->getCollection()					
-										->addFieldToFilter('userid', array('eq' =>$partner->getmageuserid()))				
-										->addFieldToFilter('status', array('neq' => 2))					
-										->setOrder('mageproductid')
-										->setPageSize(20)
-										->setCurPage(1);			
-			foreach($partnerproducts as $product){ 		
-				$product=Mage::getModel('catalog/product')->load($product->getMageproductid());
-				$stockItem = Mage::getModel('cataloginventory/stock_item');
-				$stockItem->loadByProduct($product->getId());
-				if($stockItem->getData('is_in_stock') == 1 && $product->getStatus() == 1){?>
-					<a href="<?php echo $product->getProductUrl();?>"><img src="<?php echo $product->getImageUrl();?>" title="<?php echo $product->getName(); ?>" alt="<?php echo $product->getName(); ?>"></img></a>
-		<?php 	}
-			} ?>	
-	</div>	
-	<div class="wk_clear"></div>
-</div>
+<?php
+if(Mage::getStoreConfig('marketplace/seller_profile/activecolorpicker',Mage::app()->getStore())){?>	
+	<style>
+	.main{background-image:none;background-color:<?php echo $partner->getBackgroundth();?>;}
+	</style>
+<?php
+} ?>
+<div class="wk_mp_design">
+	<div class="wk_mp_design_inner wk_mp_design_inner_last">
+		<div class="wk_mp_profile_container storename">
+			<div class="store-name">
+				<?php echo $helper->__("About %s",$shoptitle) ?>
+			</div>
+		</div>
+		<span class="data"><?php echo $partner->getCompdesi();?></span>
+		<div class="wk_mp_profile_container storename" style="display: inline-block;">
+			<div class="store-name">
+				<?php echo $helper->__("On the Social Web") ?>
+			</div>
+			<?php 
+			if($partner->getInstagramActive()){ ?>			
+				<a href="//instagram.com/<?php echo $partner->getInstagramId();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_instagram" title="<?php echo $helper->__('Check in Instagram')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getPinterestActive()){ ?>
+				<a href="//www.pinterest.com/jokestuffs/<?php echo $partner->getPinterestId();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_pinterest" title="<?php echo $helper->__('Check in Pinterest')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getFbActive()){ ?>
+				<a href="//facebook.com/<?php echo $partner->getFacebookid();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_fb" title="<?php echo $helper->__('Check in Facebook')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getTwActive()){ ?>
+				<a href="//twitter.com/<?php echo $partner->getTwitterid();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_tw" title="<?php echo $helper->__('Check in Twitter')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getGplusActive()){ ?>
+				<a href="//plus.google.com/<?php echo $partner->getGplusId();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_gplus" title="<?php echo $helper->__('Check in Google+')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getVimeoActive()){ ?>
+				<a href="//vimeo.com/<?php echo $partner->getVimeoId();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_vimeo" title="<?php echo $helper->__('Check in Vimeo')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getYoutubeActive()){ ?>
+				<a href="//www.youtube.com/user/<?php echo $partner->getYoutubeId();?>" target="blank">
+					<span class="wk_social_icon wk_icon wk_social_icon_utube" title="<?php echo $helper->__('Check in Youtube')?>"></span>
+				</a>
+			<?php 
+			} ?>
+			<?php 
+			if($partner->getMoleskineActive()){ ?>
+			<a href="//moleskine.com/<?php echo $partner->getMoleskineId();?>" target="blank">
+				<span class="wk_social_icon wk_icon wk_social_icon_moleskin" title="<?php echo $helper->__('Check in Moleskine')?>"></span>
+			</a>
+			<?php 
+			} ?>
+		</div>
+	</div>
+</div>	

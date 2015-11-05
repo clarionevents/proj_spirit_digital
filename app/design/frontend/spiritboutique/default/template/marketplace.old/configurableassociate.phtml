@@ -1,0 +1,277 @@
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined'){
+		document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+<?php
+	$wholedata=$this->getRequest()->getParams(); 
+	$configproducts = Mage::getModel('catalog/product') ->load($wholedata['id']);
+	$customerId = Mage::getSingleton('customer/session')->getCustomer()->getId();
+	$procollection = Mage::getResourceModel('marketplace/product_collection');
+	$helper=Mage::helper('marketplace');
+	$procollection->getSelect()->where('userid ='.$customerId);
+	$isPartner= Mage::getModel('marketplace/userprofile')->isPartner();
+	$allow_pro_type=Mage::getStoreConfig('marketplace/marketplace_options/allow_for_seller');
+	if($isPartner==1 && strpos($allow_pro_type,'configurable') !== false){
+	?>
+<link href="<?php echo $this->getSkinUrl('marketplace/css/style.css'); ?>" rel="stylesheet" type="text/css" />	
+<div class="page-title">
+	<h1 class="icon-head head-catalog-product-attribute"><?php echo $configproducts->getName(); ?></h1>
+</div>
+<form action="<?php echo $this->getUrl('marketplace/marketplaceaccount/quickcreate') ?>" method="post" id="form-quickcreate">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+	<div class="fieldset">
+		<input type="hidden" class="len" name="userid" id="userid" value="<?php echo Mage::getSingleton('customer/session')->getCustomer()->getId();?>" title="id" class="" />
+		<input type="hidden" class="len" name="mainid" id="productid" value="<?php echo $wholedata['id']; ?>" title="id" class="" />
+		<input type="hidden" class="len" name="attr" id="attr" value="<?php echo $wholedata['attr']; ?>" title="id" class="" />
+		<h4 class="legend"><?php echo $helper->__('Quick create') ?></h4>
+		<ul  class="form-list" id="wk_bodymain">
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Name') ?></label>
+				<!-- <span class="required starimp"></span>: -->
+				<div class="input-box"><input type="text" name="Name" class="myinput-text required-entry widthinput"></div>
+			</li>
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Sku') ?></label>
+				<!-- <span class="required starimp"></span>: -->
+				<div class="input-box">
+					<input type="text" name="Sku" id="sku" class="myinput-text required-entry widthinput">
+					<div id="skuavail" >
+								<span class="success-msg skuavailable"><?php echo $helper->__('SKU Available') ?></span>
+							</div>
+							<div id="skunotavail" >
+								<span class="error-msg skunotavailable"><?php echo $helper->__('SKU Already Exist') ?></span>
+							</div>
+				</div>
+			</li>
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Weight') ?></label>
+				<!-- <span class="required starimp"</span>: -->
+				<div class="input-box"><input type="text" name="weight" class="myinput-text required-entry widthinput"></div>
+			</li>
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Status') ?></label>
+				<!-- <span class="required starimp"></span>: -->
+				<div class="input-box">
+					<select id="simple_product_status" class="myinput-text required-entry widthinput" name="status">
+						<option selected="selected" value=""><?php echo $helper->__('-- Please Select --') ?></option>
+						<option value="1"><?php echo $helper->__('Enabled') ?></option>
+						<option value="2"><?php echo $helper->__('Disabled') ?></option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Visibility') ?></label>
+				<!-- <span class="required starimp"></span>: -->
+				<div class="input-box">
+					<select id="simple_product_visibility" class="myinput-text required-entry widthinput" name="visibility">
+						<option selected="selected" value=""><?php echo $helper->__('-- Please Select --') ?></option>
+						<option value="1"><?php echo $helper->__('Not Visible Individually') ?></option>
+						<option value="2"><?php echo $helper->__('Catalog') ?></option>
+						<option value="3"><?php echo $helper->__('Search') ?></option>
+						<option value="4"><?php echo $helper->__('Catalog, Search') ?></option>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label class="rightgap required"><?php echo $helper->__('Qty') ?></label>
+				<!-- <span class="required starimp"></span>: -->
+				<div class="input-box"><input type="text" name="Qty"></div>
+			</li>
+		<?php
+			
+			$configattr = Mage::getModel('catalog/product_type_configurable')->getConfigurableAttributesAsArray($configproducts);
+		
+			foreach($configattr as $attribute) { ?>
+			<li>
+				<label class="rightgap wk_imagevalidate"><?php echo $attribute['frontend_label']; ?>:</label>
+				<!-- <span class="required starimp"></span> -->
+				<div class="input-box supperattr">
+					<select class="myinput-text required-entry widthinput custattr" id="<?php echo $attribute['id']; ?>"  name="<?php echo $attribute['attribute_code'];?>">
+					<?php  $attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product',$attribute['attribute_code']);
+					     $attribute1 = Mage::getModel('catalog/resource_eav_attribute')->load($attributeId);
+					     $attributeOptions = $attribute1->getSource()->getAllOptions();
+						  foreach($attributeOptions as $each){  ?>
+						  <option value="<?php echo $each["value"]; ?>" ><?php echo $each["label"]; ?>
+						  </option>
+						<?php } ?>
+					</select>
+					<div style="display:none;">
+						<label class="required"><?php echo $helper->__('Price') ?><b><?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); echo  " (". Mage::app()->getLocale()->currency( $currency_code )->getSymbol().")"; ?></b>:</label>
+						<?php 
+						  foreach($attributeOptions as $each){ 
+						  	foreach ($attribute['values'] as $value) {
+						  		if($each['value']==$value['value_index'] && $value['pricing_value']!=''){
+						  	 		?><span class="<?php echo $value['value_index'] ?>" style="display:none;" id="<?php echo $value['value_index'] ?>" type="text"><b>+<?php echo Mage::helper('core')->currency($value['pricing_value'], true, false); ?></b></span><?php
+						  	 	} } ?>
+						<?php } ?>
+					</div>
+				</div>
+			</li>
+			<?php } 	?>
+		</ul>
+	</div>
+	<div class="buttons-set">
+		<p class="required">* <?php echo $helper->__('Required Fields') ?></p>
+		<button class="button quickcreate" onclick="return false();" title="Save" type="submit" id="save_butn" style="float:none;">
+			<span><span><?php echo $helper->__('Quick Create') ?></span></span>
+		</button>
+		<p class="back-link">
+			<a href="javascript:;" onclick="javascript: window.history.back();" class="left">&laquo; <?php echo $helper->__('Back') ?></a>
+		</p>
+	</div>
+</form>	
+<br>
+<br>
+
+<div class="page-title">
+	<h1><?php echo $helper->__('Associates Product') ?></h1>
+</div>
+<form action="<?php echo $this->getUrl('marketplace/marketplaceaccount/assignassociate') ?>" method="post" id="form-associate">
+	<div class="fieldset " id="associate_product">
+		<input type="hidden" class="len" name="mainid" id="productid" value="<?php echo $wholedata['id']; ?>" title="id" class="" />
+		<h4 class="legend"><?php echo $helper->__('Associates Product') ?></h4>
+		<table class="tablepostion">
+			<tr>
+				<th></th>
+				<th><b><?php echo $helper->__('ID') ?></b></th>
+				<th><b><?php echo $helper->__('Name') ?></b></th>
+				<th><b><?php echo $helper->__('Attrib. Set Name') ?></b></th>
+				<th><b><?php echo $helper->__('Sku') ?></b></th>
+				<th><b><?php echo $helper->__('Price') ?></b></th>
+				<?php
+				foreach($configattr as $attribute) { ?>
+					 <?php if(isset($attribute['attribute_code'] ) == 1){ ?>
+				<th class="tdpadfirst">
+					<b class="rightgap"><?php echo $attribute['frontend_label']; ?></b>
+				</th>
+				<?php }} ?>
+			</tr>	
+			
+			<?php 
+					$childIds = Mage::getModel('catalog/product_type_configurable')->getChildrenIds($wholedata['id']);
+					foreach($childIds[0] as $key=>$val)
+					{
+					   $products = Mage::getModel('catalog/product') ->load($key);
+					?>	
+					<tr class="attrvalues">
+						<td><input type="checkbox"  checked class="assopro" name="asso_pro[<?php echo $products->getId(); ?>]" /></td>
+						<td><label><?php echo $products->getId(); ?></label></td>
+						<td><label ><?php echo $products->getName(); ?></label></td>
+						<td><label><?php echo Mage::getModel('eav/entity_attribute_set')->load($products->getAttributeSetId())->getAttributeSetName(); ?></label></td>
+						<td><label><?php echo $products->getSku(); ?></label></td>
+						<td><label><?php echo Mage::helper('core')->currency($products->getPrice(), true, false); ?></label></td>
+						<?php
+						foreach($configattr as $attribute) { ?>
+							 <?php if(isset($attribute['attribute_code'] ) == 1){ ?>
+						<td class="tdpadfirst">
+							<label class="rightgap" attrcode="<?php echo $products->getData($attribute['frontend_label']);?>">
+							<?php 
+							$pro= Mage::getModel('catalog/product');
+							$attr = $pro->getResource()->getAttribute($attribute['attribute_code']);
+						    echo $val_id = $attr->getSource()->getOptionText($products->getData($attribute['attribute_code'])); ?>
+						    </label>
+						</td>
+						<?php }} ?>
+						<td>
+							<input type="hidden" class="attrcombination"/>
+						</td>
+					</tr>	
+			<?php } ?>
+		</table>		
+	</div>
+	<div class="buttons-set">
+		<p class="required">* <?php echo $helper->__('Required Fields') ?></p>
+		<button class="button quickcreate" onclick="return false();" title="Save" type="submit" id="save_butn" style="float:none;">
+			<span><span><?php echo $helper->__('Save Associates Products') ?></span></span>
+		</button>
+		<p class="back-link">
+			<a href="javascript:;" onclick="javascript: window.history.back();" class="left">&laquo; <?php echo $helper->__('Back') ?></a>
+		</p>
+	</div>
+</form>
+<script> 
+jQuery.noConflict();
+(function(jQuery){
+	jQuery('input#sku').change(function(){
+		var len=jQuery('input#sku').val();
+		var len2=len.length;
+		if(len2==0){
+			alert("SKU can't be left empty");
+			jQuery('div#skuavail').css('display','none');
+			jQuery('div#skunotavail').css('display','none');
+		}
+		else{
+			jQuery.ajax({
+				url: "<?php echo Mage::getUrl('marketplace/marketplaceaccount/verifysku');?>",
+				type: "POST",
+				data: {sku:jQuery('input#sku').val()},
+				dataType: 'html',
+				success:function($data){
+					$data=JSON.parse($data);
+					if($data.avl==1){
+						jQuery('div#skuavail').css('display','block');
+						jQuery('div#skunotavail').css('display','none');
+					}
+					else{
+						jQuery('div#skunotavail').css('display','block');
+						jQuery('div#skuavail').css('display','none');
+						jQuery("input#sku").attr('value','');
+					}
+				}
+			});
+		}
+	});
+	
+	
+	jQuery('.myinput-text').change(function(){
+	 var validt = jQuery(this).val();
+	 var regex = /(<([^>]+)>)/ig;
+     var mainvald = validt .replace(regex, "");
+     jQuery(this).val(mainvald);	
+    })
+	
+	
+})(jQuery);
+</script>	
+<script>
+	$wk_jq=jQuery.noConflict();
+	(function($wk_jq){
+		$wk_jq(function(){
+			var newCustomerProductForm1 = new VarienForm('form-quickcreate', true);
+			$wk_jq(".custattr").change(function(){
+				var selectedval = $wk_jq(this).val();
+				$wk_jq(this).next().show();
+				$wk_jq(this).next().find('span').hide()
+				$wk_jq(this).next().find('input').remove()
+				$wk_jq(this).next().find('#'+selectedval).show();
+				if($wk_jq(this).next().find('#'+selectedval).length == 0) {
+					$wk_jq(this).next().append($wk_jq("<input class='"+selectedval+"' name='"+$wk_jq(this).attr('name')+"|price|"+$wk_jq(this).attr('id')+"|"+selectedval+"' type='text'>"));
+				}
+			});
+			
+			$wk_jq("#save_butn").click(function(event){
+				var price=0;
+				$wk_jq(".supperattr").each(function(){
+					if($wk_jq(this).find("."+$wk_jq(this).find('select').val()).val()==""){
+						price = price + parseFloat($wk_jq(this).find("."+$wk_jq(this).find('select').val()).find("b").text().split("+")[1]);
+					} else{
+						price = price + parseFloat($wk_jq(this).find("."+$wk_jq(this).find('select').val()).val());
+					}
+				});
+				$wk_jq("#form-quickcreate").find(".fieldset").find(".finalprice").remove();
+				$wk_jq("#form-quickcreate").find(".fieldset").prepend("<input class='finalprice' name='price' value='"+price+"' type='hidden'>")
+				if($wk_jq(".supperattr").find("input").length==0){
+					alert('This Combination of attributes already exists');
+					event.preventDefault();
+				}
+			});
+		});
+	})($wk_jq);
+	
+	jQuery("body").delegate('.nicEdit-main',"blur",function(){
+		var x = jQuery(this).text()
+		jQuery(this).parent().parent().children('textarea').text(x);		
+	});
+</script>
+<?php } ?>

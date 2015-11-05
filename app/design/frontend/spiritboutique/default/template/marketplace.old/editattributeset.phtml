@@ -1,0 +1,68 @@
+
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<?php 
+$customerid=Mage::getSingleton('customer/session')->getCustomerId();
+$isPartner= Mage::getModel('marketplace/userprofile')->isPartner();
+$allow_pro_type=Mage::getStoreConfig('marketplace/marketplace_options/allow_for_seller');
+if($isPartner==1 && strpos($allow_pro_type,'configurable') !== false){?>
+<span style="background:#D4D4D4;"><b>Edit Set Name</b></span>
+<br>
+<?php $id = $this->getRequest()->getParam('id');
+$attributeSetModel = Mage::getModel('eav/entity_attribute_set');
+$attributeSetId    = $id; // or $_product->getAttributeSetId(); if you are using product model
+$attributeSetModel->load($attributeSetId); ?>
+<label>Name</label>&nbsp;&nbsp;:&nbsp;&nbsp; <input type="text" name="attributename" value="<?php echo $attributeSetModel->getAttributeSetName();?>" />
+<br>
+<br>
+<h3>Groups:</h3>
+<br>
+<br>
+<?php 
+$grp = '';
+$product = Mage::getModel('catalog/product')->getCollection()->getFirstItem();
+foreach($product->getAttributes() as $att)
+{
+    $group_id   = $att->getData('attribute_group_id');
+    //Mage_Eav_Model_Entity_Attribute_Group
+    $group = Mage::getModel('eav/entity_attribute_group')->load($group_id);  
+	$group_name = $group->getData('attribute_group_name');
+	//echo $key = array_search($group_name, $grp);
+	if (!in_array($group_name, $grp)) 
+	$grp[] = $group_name;
+}
+?>
+
+<div style="float:left;">
+<hr>
+<?php 
+for($i=1;$i<count($grp);$i++){ ?>
+<span class="drop" id="<?php echo $grp[$i]; ?>"><label><?php echo $grp[$i]; ?></label></span><br>
+<hr>
+<?php }?>
+</div>
+<div style="float:right;cursor:pointer;">
+	<?php
+$collection = Mage::getResourceModel('catalog/product_attribute_collection')
+            ->addVisibleFilter();
+$collection->getSelect()->where('is_user_defined=1');
+	foreach($collection as $attribute){
+		if($attribute['frontend_input'] == 'select' || $attribute['frontend_input'] == 'multiselect') { ?>
+			<span class="drag" id="<?php echo $attribute['frontend_label']; ?>"><?php echo $attribute['frontend_label']; ?></span><br>
+	<?php } } ?>
+</div>
+<?php }else{
+	echo "<h2 style='color:#ff0000;font-weight:600'>FOR BECOME SELLER CONTACT TO ADMIN..</h2>";
+}?>
+ <script>
+  jQuery(document).ready(function() {
+    jQuery( ".drag" ).draggable();
+  });
+  jQuery( ".drop" ).droppable({
+     drop: function( event, ui ) {
+	  var id = jQuery(ui.draggable).attr("");  
+        jQuery(this).append(jQuery("<input/>").attr({type:'text',name:}));
+      }
+    });
+  </script>
