@@ -20,7 +20,7 @@
  *
  * @category    Mage
  * @package     Mage_Checkout
- * @copyright  Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @copyright  Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -808,8 +808,7 @@ class Mage_Checkout_Model_Type_Onepage
             /**
              * we only want to send to customer about new order when there is no redirect to third party
              */
-            // if (!$redirectUrl && $order->getCanSendNewEmailFlag()) {
-            if(!$redirectUrl) {	
+            if (!$redirectUrl && $order->getCanSendNewEmailFlag()) {
                 try {
                     $order->queueNewOrderEmail();
                 } catch (Exception $e) {
