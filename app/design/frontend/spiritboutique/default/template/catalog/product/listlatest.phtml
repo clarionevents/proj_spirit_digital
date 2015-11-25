@@ -34,7 +34,8 @@
 ?>
 <?php
     $_productCollection= Mage::getResourceModel('catalog/product_collection')
-							->addAttributeToSort('created_at', 'desc');	
+							->addAttributeToSort('created_at', 'desc')
+                                                        ->addAttributeToFilter('status', array('eq' => 1));	
 							
 	$_productCollection->getSelect()->limit(100);
     $_helper = $this->helper('catalog/output');

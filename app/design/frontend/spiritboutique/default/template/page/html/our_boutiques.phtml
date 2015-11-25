@@ -1,6 +1,7 @@
 <?php 
-	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection();
-	// print_r(count($_sellers));
+	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection()
+														 ->setOrder('profileurl', 'asc');
+	// print_r($_sellers);
 ?>
 
 <div class="sellers">
@@ -19,7 +20,7 @@
 				</a>
 				<div class="seller-data">
 					<a class="text" href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
-						<?php if(!strcmp($customer->getLastname(),".")){?>
+						<?php if((String)$customer->getLastname() !=="."){?>
 							<span class="name"><?php echo $customer->getName() ?></span>
 						<?php }else{?>
 							<span class="name"><?php echo $customer->getFirstname() ?></span>
