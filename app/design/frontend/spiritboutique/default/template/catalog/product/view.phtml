@@ -50,6 +50,31 @@
 		$sellerInfo =Mage::getModel('marketplace/userprofile')->getPartnerProfileById($_sellerid);
 		$sellerInfoJson = json_decode($sellerInfo['compdesi']);
 		// $prodInfo = json_decode($prodInfo['compdesi']);
+		
+		$free_delivery = FALSE;
+				
+		$shipping_collection = Mage::getModel('clarion_seller/shippingprices')->getCollection()
+												 ->addFilter('mageuserid', $_sellerid)
+												 ->setOrder('greater', 'ASC')
+												 ->setOrder('weight', 'ASC')
+												 ->setOrder('numberofitems', 'ASC')
+												 ->setOrder('price', 'ASC');
+		
+		if(count($shipping_collection) == 1){
+			foreach($shipping_collection as $item){
+			
+			if($item->getType()  === "price"){
+				
+					if($item->getGreater() == 1){
+						if($item->getPrice() == 0){
+							if($item->getCost() == 0){
+								$free_delivery = TRUE;
+							}
+						}
+					}
+				}
+			}
+		}	 
 		?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -83,7 +108,13 @@
 						<?php }?>
 					</a></span>
                 </div>
-
+				
+				<?php if($free_delivery): ?>
+					<div class="free-delivery-disclaimer">
+						<span>Free Delivery for this item</span>
+					</div>
+				<?php endif;?>
+				
                 <div class="price-info">
                     <?php echo $this->getPriceHtml($_product); ?>
                     <?php echo $this->getChildHtml('bundle_prices') ?>

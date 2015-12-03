@@ -2657,7 +2657,6 @@ form .form-instructions {
 html,
 body {
   height: 100%;
-  min-width: 960px;
 }
 
 div.page {
@@ -2762,7 +2761,6 @@ body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider
   min-height: inherit;
   width: 327px;
   margin-left: -5px;
-  float: left;
 }
 body.catalog-category-view #fancybox-wrap div.more-views div.product-slider .flex-viewport li,
 body.catalogsearch-result-index #fancybox-wrap div.more-views div.product-slider .flex-viewport li {
@@ -2914,33 +2912,26 @@ body.cms-spirit-picks div.categories-block ul.categories li p span {
   text-shadow: 1px 1px 3px #FFF;
 }
 
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller {
+div.sellers.list-page ul.sellers-list li.seller {
   list-style: none;
   width: 100%;
   min-height: 90px;
-  margin-bottom: 10px;
 }
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller span {
-  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
-  font-size: 12px;
-  font-style: normal;
-  line-height: normal;
-}
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller .seller-data {
-  max-height: 80px;
-  float: left;
-  width: 600px;
-}
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller a {
+div.sellers.list-page ul.sellers-list li.seller a {
   float: left;
 }
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller a img {
+div.sellers.list-page ul.sellers-list li.seller a img {
   max-width: 80px;
   height: auto;
   width: 100%;
 }
-body.cms-our-boutiques div.sellers ul.sellers-list li.seller a.text {
+div.sellers.list-page ul.sellers-list li.seller a.text {
   margin-left: 10px;
+}
+div.sellers.list-page ul.sellers-list li.seller .seller-data {
+  max-height: 80px;
+  float: left;
+  width: 600px;
 }
 
 body.cms-gift-ideas h4 {

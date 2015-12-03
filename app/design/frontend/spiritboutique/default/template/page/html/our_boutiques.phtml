@@ -4,7 +4,7 @@
 	// print_r($_sellers);
 ?>
 
-<div class="sellers">
+<div class="sellers list-page">
 	<ul class="sellers-list">
 		<?php foreach($_sellers as $seller): ?>
 			<?php
@@ -20,7 +20,7 @@
 				</a>
 				<div class="seller-data">
 					<a class="text" href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
-						<?php if((String)$customer->getLastname() !=="."){?>
+						<?php if(!(String)strpos($customer->getLastname() ,'.') ){?>
 							<span class="name"><?php echo $customer->getName() ?></span>
 						<?php }else{?>
 							<span class="name"><?php echo $customer->getFirstname() ?></span>

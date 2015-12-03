@@ -4315,3 +4315,55 @@
 )
 ... 
  Time and Date: 11/04/2015 02:46:49 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - Description Field: Order created for: 100000210. \n XML Collection Data: <items><item><id>246</id><model>ACCHA004</model><description>Chunky Rope Necklace</description><qty>1</qty><price>60.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><delivery><merchant><merchant_id>info@acchadesigns.com</merchant_id><price>3.5</price></merchant></delivery></items>.\n XML Data Collection On (1) / Off (0) - 1... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - Billing Address: ghhdf. Shipping Address: ghhdf... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - Amount: 63.5. Postage: . Postage Field On (1) / Off (0) - 0... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => info@acchadesigns.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000210
+    [billing_fullname] => Zinnia Shoes . 
+    [customer_phone_number] => hdfhdfh
+    [email_address] => customerservices@zinniashoes.co.uk
+    [billing_address] => ghhdf
+    [billing_city] => ghdf
+    [billing_postcode] => fgh
+    [delivery_fullname] => Zinnia Shoes . 
+    [delivery_address] => ghhdf
+    [delivery_city] => ghdf
+    [delivery_postcode] => fgh
+    [amount] => 63.5
+    [postage] => 
+    [description] => Order created for: 100000210
+    [item_collection] => <items><item><id>246</id><model>ACCHA004</model><description>Chunky Rope Necklace</description><qty>1</qty><price>60.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><delivery><merchant><merchant_id>info@acchadesigns.com</merchant_id><price>3.5</price></merchant></delivery></items>
+)
+... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - All Fields: Array
+(
+    [merchant_id] => info@acchadesigns.com
+    [success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+    [cancel_url] => http://dev.spirit-boutique.com/nochex/nochex/cancel/
+    [callback_url] => http://dev.spirit-boutique.com/nochex/nochex/apc/
+    [order_id] => 100000210
+    [billing_fullname] => Zinnia Shoes . 
+    [customer_phone_number] => hdfhdfh
+    [email_address] => customerservices@zinniashoes.co.uk
+    [billing_address] => ghhdf
+    [billing_city] => ghdf
+    [billing_postcode] => fgh
+    [delivery_fullname] => Zinnia Shoes . 
+    [delivery_address] => ghhdf
+    [delivery_city] => ghdf
+    [delivery_postcode] => fgh
+    [amount] => 63.5
+    [postage] => 
+    [description] => Order created for: 100000210
+    [item_collection] => <items><item><id>246</id><model>ACCHA004</model><description>Chunky Rope Necklace</description><qty>1</qty><price>60.00</price><merchant_id>info@acchadesigns.com</merchant_id></item><delivery><merchant><merchant_id>info@acchadesigns.com</merchant_id><price>3.5</price></merchant></delivery></items>
+    [test_transaction] => 100
+    [test_success_url] => http://dev.spirit-boutique.com/checkout/onepage/success/
+)
+... 
+ Time and Date: 11/26/2015 01:44:38 pm... Order Details: - Test Mode On (1) / Off (0):1, Hide Billing Mode On (1) / Off (0) - 0... 

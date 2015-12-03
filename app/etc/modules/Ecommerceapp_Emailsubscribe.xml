@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Ecommerce Approch Team
+ * @copyright Copyright (c) 2015 Ecommerce Approch (http://www.ecommerceapproach.com/)
+ * @package Ecommerceapp_Emailsubscribe
+ */
+ -->
+<config>
+	<modules>
+		<Ecommerceapp_Emailsubscribe>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Ecommerceapp_Emailsubscribe>
+	</modules>
+</config>

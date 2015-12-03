@@ -1,0 +1,75 @@
+<?php 
+	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection()
+														 ->setOrder('profileurl', 'asc');
+	// print_r($_sellers);
+	error_reporting(E_ALL);
+ini_set("display_errors", 1);
+?>
+
+<div class="sellers list-page">
+	<ul class="sellers-list">
+		<?php foreach($_sellers as $seller): ?>
+			<?php
+				$customer = Mage::getModel('customer/customer')->load($seller->getMageuserid()); 
+				
+				$free_delivery = FALSE;
+				
+				$shipping_collection = Mage::getModel('clarion_seller/shippingprices')->getCollection()
+														 ->addFilter('mageuserid', $seller->getMageuserid())
+														 ->setOrder('greater', 'ASC')
+														 ->setOrder('weight', 'ASC')
+														 ->setOrder('numberofitems', 'ASC')
+														 ->setOrder('price', 'ASC');
+				
+				if(count($shipping_collection) == 1){
+					foreach($shipping_collection as $item){
+					
+					if($item->getType()  === "price"){
+						
+							if($item->getGreater() == 1){
+								if($item->getPrice() == 0){
+									if($item->getCost() == 0){
+										$free_delivery = TRUE;
+									}
+								}
+							}
+						}
+					}
+				}	 
+				$logo = $seller->getlogopic(); 
+				if($logo == NULL || $logo == '' || !$logo){
+					$logo ="noimage.png";
+				}
+			?>
+			<?php if($free_delivery == TRUE): ?>
+				<li class="seller">
+					<a href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
+						<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'avatar/' . $logo ?>"/>
+					</a>
+					<div class="seller-data">
+						<a class="text" href="/marketplace/seller/profile/<?php echo $seller->getProfileurl() ?>">
+							<?php if((String)$customer->getLastname() !=="."){?>
+								<span class="name"><?php echo $customer->getName() ?></span>
+							<?php }else{?>
+								<span class="name"><?php echo $customer->getFirstname() ?></span>
+							<?php }?>
+						</a>
+						<?php 
+						
+							$customerdata =  json_decode($seller->getcompdesi());
+							
+						
+						?>
+						<?php if ($customerdata->{'description'} != ''):?>
+							<?php $html_s = strip_tags($customerdata->{'description'}) ?>
+						<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($html_s, 0, 150) . "..."; ?></span>
+						<?php else: ?>
+						<a class="text" href="mailto:<?php echo  $customer->getemail()?>">Contact the seller</a>
+						<?php  endif;?>
+					</div>
+					
+				</li>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</ul>
+</div>

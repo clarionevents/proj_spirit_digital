@@ -280,29 +280,33 @@ body.cms-spirit-picks{
   }
 }
 
-body.cms-our-boutiques{
-  div.sellers{
-    ul.sellers-list{
-      li.seller{
-        list-style:none;
-        width: 100%;
-        min-height: 90px;
-        a{
-          float:left;
-          img{
-            max-width:80px;
-            height:auto;
-            width:100%;
-          }
+
+div.sellers.list-page{
+  ul.sellers-list{
+    li.seller{
+      list-style:none;
+      width: 100%;
+      min-height: 90px;
+      a{
+        float:left;
+        img{
+          max-width:80px;
+          height:auto;
+          width:100%;
         }
-        a.text{
-          margin-left:10px;
-          margin-top: 60px;
-        }
+      }
+      a.text{
+        margin-left:10px;
+      }
+      .seller-data {
+          max-height: 80px;
+          float: left;
+          width: 600px;
       }
     }
   }
 }
+
 
 body.cms-gift-ideas{
   h4{
