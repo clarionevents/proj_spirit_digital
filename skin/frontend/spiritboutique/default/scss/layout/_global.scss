@@ -52,7 +52,7 @@ div.social{
    p{
      float:left;
      img{
-         margin: -20px 0 0 40px;
+         margin: -14px 0 0 0px;
      }
    }
   ul.social{
@@ -91,6 +91,14 @@ div.social{
        width: 32px;
        height: 32px;
    }
+   
+   li.instagram a{
+       background: url(../images/spirit-sprite.png);
+       background-position: 0 -192px;
+       width: 32px;
+       height: 32px;
+   }
+   
    
    
 }
@@ -316,5 +324,36 @@ body.cms-gift-ideas{
   font-family: "Old Standard TT", serif;
   font-size: 18px;
   font-weight: normal;
+  }
+}
+
+
+div.sellers.list-page {
+  ul.sellers-list li.seller {
+    list-style: none;
+    width: 100%;
+    min-height: 90px;
+    
+    a{
+      float: left;
+      img{
+        max-width: 80px;
+        height: auto;
+        width: 100%;
+      }
+      &.text{
+        margin-left: 10px;
+      }
+    }
+    .seller-data {
+      max-height: 80px;
+      float: left;
+      width: 600px;
+    }
+  }
+  ul.sellers-list li.seller > a{
+    width: 80px;
+    clear: both;
+    padding: 10px 0;
   }
 }

@@ -156,6 +156,9 @@
                 <block type="cms/block" name="footer_social_links">
                     <action method="setBlockId"><block_id>social_links</block_id></action>
                 </block>
+                <block type="cms/block" name="footer_email_subscribe">
+                    <action method="setBlockId"><block_id>email_subscribe</block_id></action>
+                </block>
             </block>
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">

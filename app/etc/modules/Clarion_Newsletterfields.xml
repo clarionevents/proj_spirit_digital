@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Clarion_Newsletterfields>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Clarion_Newsletterfields>
+  </modules>
+</config>

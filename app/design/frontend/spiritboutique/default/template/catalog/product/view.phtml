@@ -251,6 +251,8 @@
                          <div class="tab-content">
                          	<?php if($sellerInfoJson->{'description'}): ?>
                          		<?php print $sellerInfoJson->{'description'}  ?>
+                         	<?php elseif($sellerInfo['compdesi']): ?>
+                         		<?php print $sellerInfo['compdesi']  ?>
                          	<?php else: ?>
                          		<p>No info available, <a href="mailto:<?php echo $sellerInfo['email']?>">contact the seller</a>  to learn more</p>
                          	<?php endif ?>
@@ -261,6 +263,8 @@
                          <div class="tab-content">
                          	<?php if($sellerInfoJson->{'delivery'}): ?>
                          		<?php print $sellerInfoJson->{'delivery'}  ?>
+                         	<?php elseif($sellerInfo['shippingpolicy']): ?>
+                         		<?php print $sellerInfo['shippingpolicy']  ?>
                      		<?php else: ?>
                          		<p>No info available, <a href="mailto:<?php echo $sellerInfo['email']?>">contact the seller</a>  to learn more</p>
                          	<?php endif ?>
@@ -271,6 +275,8 @@
                          <div class="tab-content">
                          	<?php if($sellerInfoJson->{'returns'}): ?>
                          		<?php print $sellerInfoJson->{'returns'}  ?></div>
+                         	<?php elseif($sellerInfo['returnpolicy']): ?>
+                         		<?php print $sellerInfo['returnpolicy']  ?>
                      		<?php else: ?>
                          		<p>No info available, <a href="mailto:<?php echo $sellerInfo['email']?>">contact the seller</a>  to learn more</p>
                          	<?php endif ?>

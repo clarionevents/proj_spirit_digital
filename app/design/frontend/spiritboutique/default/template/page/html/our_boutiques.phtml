@@ -1,6 +1,6 @@
 <?php 
 	$_sellers = Mage::getModel('marketplace/userprofile')->getCollection()
-														 ->setOrder('profileurl', 'asc');
+														 ->setOrder('shoptitle', 'asc');
 	// print_r($_sellers);
 ?>
 
@@ -34,9 +34,11 @@
 					?>
 					<?php if ($customerdata->{'description'} != ''):?>
 						<?php $html_s = strip_tags($customerdata->{'description'}) ?>
-					<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($html_s, 0, 150) . "..."; ?></span>
-					<?php else: ?>
-					<a class="text" href="mailto:<?php echo  $customer->getemail()?>">Contact the seller</a>
+						<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($html_s, 0, 150) . "..."; ?></span>
+					<?php elseif($seller->getcompdesi()): ?>
+						<span style="float:left;   max-width: 800px;   padding-left: 10px;"><?php echo substr($seller->getcompdesi(), 0, 150) . "..."; ?></span>
+					<?php else :?>
+						<a class="text" href="mailto:<?php echo  $customer->getemail()?>">Contact the seller</a>
 					<?php  endif;?>
 				</div>
 				

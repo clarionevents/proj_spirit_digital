@@ -39,7 +39,8 @@
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
-        <div class="fieldset">
+    	<?php echo $this->getBlockHtml('formkey'); ?>
+        <div class="fieldset">hello
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
             <p class="form-instructions"><?php echo $this->__('Please enter the following information to create your account.') ?></p>
