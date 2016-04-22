@@ -336,6 +336,14 @@ body.customer-account {
             }
         }
     }
+    
+    .form-list > li{
+      label{
+        width: 100%;
+        float: left;
+        clear: both;
+      }
+    }
 }
 
 .form-list {

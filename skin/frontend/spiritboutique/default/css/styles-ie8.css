@@ -2976,6 +2976,24 @@ div.sellers.list-page ul.sellers-list li.seller > a {
   padding: 10px 0;
 }
 
+.customer-account-create h2.legend {
+  width: 100%;
+  float: left;
+}
+.customer-account-create .fieldset {
+  float: left;
+  clear: both;
+}
+.customer-account-create span.multiselect {
+  float: left;
+  clear: both;
+}
+
+i.fa {
+  font-size: 12pt;
+  padding: 0 5px;
+}
+
 /* ============================================ *
  * Header
  * ============================================ */
@@ -7116,6 +7134,11 @@ body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder li input {
 body.customer-account .sidebar .block-reorder ol#cart-sidebar-reorder p.product-name {
   display: inline;
   margin-bottom: 0;
+}
+body.customer-account .form-list > li label {
+  width: 100%;
+  float: left;
+  clear: both;
 }
 
 .form-list .customer-dob .dob-month,

@@ -22,7 +22,7 @@
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php /* Extensions placeholder */ ?>
     <?php echo $this->getChildHtml('customer.form.register.extra')?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
+    <form action="<?php echo $this->getPostActionUrl();?>" method="post" id="form-validate">
     	<?php echo $this->getBlockHtml('formkey'); ?>
         <div class="fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
@@ -38,8 +38,33 @@
                         <input type="text" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text validate-email required-entry" />
                     </div>
                 </li>
+                 <li>
+                    <label for="dpafirst"><?php echo $this->__('Please tick if you do not want Spirit Boutique contacting you regarding information & products by') ?>:</label><br>
+                     <i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_first" class="multi-info-newsletter fa fa-square-o" ></i><span>Post</span>
+                     <i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_first" class="multi-info-newsletter fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                        <input type="hidden"  name="dpa_first" id="dpa_first" class="input-text"  value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                    <label for="dpasecond"><?php echo $this->__('Please tick if you do not want us to contact you about products/services owned by Clarion Events that we feel maybe of interest to you by') ?>:</label><br>
+                    	<i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_second" class="multi-info-newsletter fa fa-square-o" ></i><span>Post</span>
+                     	<i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_second" class="multi-info-newsletter fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                     	<input type="hidden" name="dpa_second" id="dpa_second" class="input-text" value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                	<label for="dpa_third"><?php echo $this->__('Please tick this box if you wish to receive information from carefully selected third-party organisations by email, post and phone') ?>:</label><br>
+                	<select name="dpa_third" id="dpa_third">
+					  <option value="yes">Yes</option>
+					  <option value="no">No</option>
+					</select>
+                </li>
                 <?php if ($this->isNewsletterEnabled()): ?>
-                <li class="control">
+                <li style="visibility: hidden; height:0;" class="control">
                     <div class="input-box">
                         <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
                     </div>
@@ -129,7 +154,7 @@
                                         <?php $options = Mage::getResourceSingleton('customer/customer')->getAttribute($attribute->getAttributeCode())->getSource()->getAllOptions();?>
                                         <?php foreach ($options as $option):?>
                                         	<?php if($option['label']):  ?>
-                                            <input class="multi-info" type="checkbox" value="<?php echo $option['value'] ?>"<?php if (in_array($option['value'], explode(',', $fieldValue))) echo ' selected="selected"' ?>><?php echo $option['label'] ?></option>
+                                            <span class="multiselect"><input class="multi-info" type="checkbox" value="<?php echo $option['value'] ?>"<?php if (in_array($option['value'], explode(',', $fieldValue))) echo ' selected="selected"' ?>><?php echo $option['label'] ?></span>
                                             <?php endif; ?>
                                         <?php endforeach;?>
                                     </div>
@@ -271,6 +296,34 @@
 				$sb('.multiselect option[value="'+ value +'"]').attr("selected", true);
 				$sb('.multiselect option[value="'+ value +'"]').prop("selected", true);
 			}
+		});
+		
+        
+        $sb('.multi-info-newsletter').click(function(e) {
+			value=$sb(e.currentTarget).attr('value');
+			dpavalue=$sb(e.currentTarget).attr('dpa');
+			if($sb('#'+ dpavalue).attr("value").indexOf(value) >= 0){
+				actualvalue = $sb('#'+ dpavalue).attr('value');
+				actualvalue = actualvalue.replace(value, '');
+				
+				$sb('#'+ dpavalue).attr("value", actualvalue);
+				if($sb(e.currentTarget).hasClass("fa-check-square-o")){
+					$sb(e.currentTarget).removeClass("fa-check-square-o");
+					$sb(e.currentTarget).addClass("fa-square-o");
+				}
+				
+			}else{
+				console.log(dpavalue);
+				$sb('#'+ dpavalue).attr("value", $sb('#'+ dpavalue).attr("value") + value + " ");
+				if($sb(e.currentTarget).hasClass("fa-square-o")){
+					$sb(e.currentTarget).removeClass("fa-square-o");
+					$sb(e.currentTarget).addClass("fa-check-square-o");
+				}
+			}
+		});
+		
+		$sb('button.button').on('click', function(){
+			<?php Mage::dispatchEvent('newsletter_enroll');?> 
 		});
     //]]>
     </script>

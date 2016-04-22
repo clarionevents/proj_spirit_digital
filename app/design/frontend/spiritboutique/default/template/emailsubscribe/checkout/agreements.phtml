@@ -1,0 +1,110 @@
+<?php
+/**
+ * @author Ecommerce Approch Team
+ * @copyright Copyright (c) 2015 Ecommerce Approch (http://www.ecommerceapproach.com/)
+ * @package Ecommerceapp_Emailsubscribe
+ 
+ * @see Ecom_Emailsubscribe_Block_Checkout_Agreements
+ */
+?>
+<?php if (!$this->getAgreements() && !$this->getHelper()->isEnabled()) return; ?>
+<form action="" id="checkout-agreements" onsubmit="return false;">
+<?php
+if ($this->getHelper()->isEnabled()): // Show if extension enabled 
+	if (!$this->getHelper()->isAlreadySubscribed()): // if user already subscribed option will not show
+?>
+<style>
+#emailsubscribe{ float:left;} 
+</style>
+		<div class="buttons-set">
+			<ul class="form-list">
+				<li>
+					<!-- <div>
+						<input type="checkbox" id="emailsubscribe" class="checkbox" name="emailsubscribe[subscribe]" value="1"<?php //if($this->getHelper()->checkboxChecked()) { ?> checked="checked"<?php// } ?> />
+						<label for="emailsubscribe"><?php //echo $this->getHelper()->getDefaultTitle(); ?></label>
+					</div> -->
+				</li>
+				<li>
+                    <label for="dpafirst"><?php echo $this->__('Please tick if you do not want Spirit Boutique contacting you regarding information & products by') ?>:</label><br>
+                     <i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_first" class="multi-info-newsletter fa fa-square-o" ></i><span>Post</span>
+                     <i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_first" class="multi-info-newsletter fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                        <input type="hidden"  name="dpa_first" id="dpa_first" class="input-text"  value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                    <label for="dpasecond"><?php echo $this->__('Please tick if you do not want us to contact you about products/services owned by Clarion Events that we feel maybe of interest to you by') ?>:</label><br>
+                    	<i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_second" class="multi-info-newsletter fa fa-square-o" ></i><span>Post</span>
+                     	<i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_second" class="multi-info-newsletter fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                     	<input type="hidden" name="dpa_second" id="dpa_second" class="input-text" value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                	<label for="dpa_third"><?php echo $this->__('Please tick this box if you wish to receive information from carefully selected third-party organisations by email, post and phone') ?>:</label><br>
+                	<select name="dpa_third" id="dpa_third">
+					  <option value="yes">Yes</option>
+					  <option value="no">No</option>
+					</select>
+                </li>
+			</ul>
+		</div>
+<?php 
+	endif;
+endif;
+?>	
+
+
+
+<?php if (!$this->getAgreements()): ?>
+	<ol class="checkout-agreements">
+	<?php foreach ($this->getAgreements() as $_a): ?>
+		<li>
+			<div class="agreement-content"<?php echo ($_a->getContentHeight() ? ' style="height:' . $_a->getContentHeight() . '"' : '')?>>
+				<?php if ($_a->getIsHtml()):?>
+					<?php echo $_a->getContent() ?>
+				<?php else:?>
+					<?php echo nl2br($this->escapeHtml($_a->getContent())) ?>
+				<?php endif; ?>
+			</div>
+			<p class="agree">
+				<input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->escapeHtml($_a->getCheckboxText()) ?>" class="checkbox" /><label for="agreement-<?php echo $_a->getId()?>"><?php echo $_a->getIsHtml() ? $_a->getCheckboxText() : $this->escapeHtml($_a->getCheckboxText()) ?></label>
+			</p>
+		</li>
+	<?php endforeach ?>
+	</ol>
+ <?php endif; ?>
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+        
+        var $sb=jQuery.noConflict();
+        
+        $sb('.multi-info-newsletter').click(function(e) {
+			value=$sb(e.currentTarget).attr('value');
+			dpavalue=$sb(e.currentTarget).attr('dpa');
+			if($sb('#'+ dpavalue).attr("value").indexOf(value) >= 0){
+				actualvalue = $sb('#'+ dpavalue).attr('value');
+				actualvalue = actualvalue.replace(value, '');
+				
+				$sb('#'+ dpavalue).attr("value", actualvalue);
+				if($sb(e.currentTarget).hasClass("fa-check-square-o")){
+					$sb(e.currentTarget).removeClass("fa-check-square-o");
+					$sb(e.currentTarget).addClass("fa-square-o");
+				}
+				
+			}else{
+				console.log(dpavalue);
+				$sb('#'+ dpavalue).attr("value", $sb('#'+ dpavalue).attr("value") + value + " ");
+				if($sb(e.currentTarget).hasClass("fa-square-o")){
+					$sb(e.currentTarget).removeClass("fa-square-o");
+					$sb(e.currentTarget).addClass("fa-check-square-o");
+				}
+			}
+		});
+		
+    //]]>
+    </script>

@@ -55,17 +55,7 @@
   cursor:pointer;
 }
 </style>
-<?php 
-
-	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
-
-	$helper = $this->helper('mediarocks_newsletterextended'); 
-    $emailquery = NULL;
-	if(isset($_GET["email"])) {
-		$emailquery = $_GET["email"];
-	}
-?>
+<?php $helper = $this->helper('mediarocks_newsletterextended'); ?>
 
 <div class="block block-subscribe">
     <div class="block-title">
@@ -148,14 +138,9 @@
                 <?php endif; ?>
                 <?php if (Mage::getStoreConfig('newsletterextended/fields/show_channels')): ?>
                 <?php $channels = $helper->getChannels(); if (count($channels)): ?>
+                
                 <li>
-		            <label for="email" class="required"><em>*</em><?php echo $this->__('Email') ?>:</label><br>
-					 <div class="input-box">
-						<input type="text" name="email" id="email" class="input-text required-entry validate-email" value="<?php if(isset($emailquery)){echo $emailquery;} ?>"/>
-		            </div>
-		        </li>
-                <li>
-                    <label for="channels">Spirit Boutique is committed to protecting your personal information which is processed in accordance with our Privacy Policy which can be found at http://www.spirit-boutique.com/privacy-policy </label>
+                    <label for="channels">Channels:</label>
                     <div class="input-box">
                         <?php foreach($channels as $i => $channel): ?>
                             <input type="checkbox" name="channels[]"<?php if ($i == count($channels)-1): ?> class="validate-one-required"<?php endif; ?> value="<?php echo $channel; ?>" /> <?php echo $helper->translateChannel($channel); ?><br />
@@ -165,6 +150,12 @@
                 <?php endif; ?>
                 <?php endif; ?>
                 
+	    		<li>
+		            <label for="email" class="required"><em>*</em><?php echo $this->__('Email') ?>:</label><br>
+					 <div class="input-box">
+						<input type="text" name="email" id="email" class="input-text required-entry validate-email" />
+		            </div>
+		        </li>
 			</ul>
 			<p class="required">* <?php echo $this->__('required fields') ?></p>
             <div class="actions">

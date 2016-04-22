@@ -357,3 +357,25 @@ div.sellers.list-page {
     padding: 10px 0;
   }
 }
+
+.customer-account-create{
+  h2.legend{
+    width: 100%;
+    float: left;
+  }
+  
+  .fieldset{
+    float: left;
+    clear: both;
+  }
+  
+  span.multiselect{
+    float:left;
+    clear:both;
+  }
+}
+
+i.fa{
+  font-size:12pt;
+  padding:0 5px;
+}

@@ -32,12 +32,54 @@
     <p>to receive exclusive offers and the latest news</p>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
-            <div class="form-subscribe-header">
-                <label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
-            </div>
-            <div class="input-box">
-               <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" placeholder="Your email"/>
-            </div>
+        	<ul class="form-list" style="list-style:none;">
+        		<li>
+        			<div class="form-subscribe-header">
+		                <label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
+		            </div>
+		            <div class="input-box">
+		               <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" placeholder="Your email"/>
+		            </div>
+        		</li>
+        		<li>
+                    <label for="firstname"><?php echo $this->__('First Name') ?>:</label><br>
+                    <div class="input-box">
+                        <input type="text" name="firstname" id="firstname" class="input-text" />
+                    </div>
+                </li>
+                <li>
+                    <label for="lastname"><?php echo $this->__('Last Name') ?>:</label><br>
+                     <div class="input-box">
+                        <input type="text" name="lastname" id="lastname" class="input-text" />
+                    </div>
+                </li>
+                 <li>
+                    <label for="dpafirst"><?php echo $this->__('Please tick if you do not want Spirit Boutique contacting you regarding information & products by') ?>:</label><br>
+                     <i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_first" class="multi-info fa fa-square-o" ></i><span>Post</span>
+                     <i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_first" class="multi-info fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                        <input type="hidden"  name="dpa_first" id="dpa_first" class="input-text"  value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                    <label for="dpasecond"><?php echo $this->__('Please tick if you do not want us to contact you about products/services owned by Clarion Events that we feel maybe of interest to you by') ?>:</label><br>
+                    	<i type="checkbox" id = "termsCheck" name="post" value="post" dpa="dpa_second" class="multi-info fa fa-square-o" ></i><span>Post</span>
+                     	<i type="checkbox" id = "termsCheck" name="email" value="email" dpa="dpa_second" class="multi-info fa fa-square-o" ></i><span>Email</span>
+                     <div class="input-box">
+                     	<input type="hidden" name="dpa_second" id="dpa_second" class="input-text" value=""/>
+                    </div>
+                    
+                </li>
+                <li>
+                	<label for="dpa_third"><?php echo $this->__('Please tick this box if you wish to receive information from carefully selected third-party organisations by email, post and phone') ?>:</label><br>
+                	<select name="dpa_third" id="dpa_third">
+					  <option value="yes">Yes</option>
+					  <option value="no">No</option>
+					</select>
+                </li>
+        	</ul>
+            
             <div class="actions">
                 <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
             </div>
@@ -45,6 +87,32 @@
     </form>
     <script type="text/javascript">
     //<![CDATA[
+    
+    	 var $sb=jQuery.noConflict();
+        
+        $sb('.multi-info').click(function(e) {
+			value=$sb(e.currentTarget).attr('value');
+			dpavalue=$sb(e.currentTarget).attr('dpa');
+			if($sb('#'+ dpavalue).attr("value").indexOf(value) >= 0){
+				actualvalue = $sb('#'+ dpavalue).attr('value');
+				actualvalue = actualvalue.replace(value, '');
+				
+				$sb('#'+ dpavalue).attr("value", actualvalue);
+				if($sb(e.currentTarget).hasClass("fa-check-square-o")){
+					$sb(e.currentTarget).removeClass("fa-check-square-o");
+					$sb(e.currentTarget).addClass("fa-square-o");
+				}
+				
+			}else{
+				console.log(dpavalue);
+				$sb('#'+ dpavalue).attr("value", $sb('#'+ dpavalue).attr("value") + value + " ");
+				if($sb(e.currentTarget).hasClass("fa-square-o")){
+					$sb(e.currentTarget).removeClass("fa-square-o");
+					$sb(e.currentTarget).addClass("fa-check-square-o");
+				}
+			}
+		});
+		
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
     //]]>
     </script>

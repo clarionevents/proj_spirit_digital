@@ -3,6 +3,7 @@
 	<default>
 		<reference name="head">
 			 <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700</href></action>
+			 <action method="addCss"><stylesheet>css/fontawesome/font-awesome.css</stylesheet></action>
 		</reference>
 		<!-- HOMEPAGE REFERENCES -->
 			<!-- top left -->
